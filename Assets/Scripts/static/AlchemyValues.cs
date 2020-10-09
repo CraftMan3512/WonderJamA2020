@@ -17,7 +17,7 @@ public static class AlchemyValues
         itemsAt = new int[materialPerRecipe]; 
 
 
-        while (itemsAt[0] < materialPool.Length)
+        while (itemsAt[0] < materialPool.Length-1)
         {
             for(int i = itemsAt[materialPerRecipe-1]; i < materialPool.Length; i++)
             {
