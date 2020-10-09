@@ -64,7 +64,7 @@ public static class AlchemyValues
             }
             else
             {
-                nextDigit(pos - 1);
+                NextDigit(pos - 1);
             }
         }
 
