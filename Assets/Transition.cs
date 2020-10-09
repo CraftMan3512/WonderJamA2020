@@ -18,6 +18,7 @@ public class Transition : MonoBehaviour
     {
         dayAt.GetComponent<TextMeshProUGUI>().text = "" + DayTime.day;
         nextDay.GetComponent<TextMeshProUGUI>().text = "" + (DayTime.day+1);
+        DayTime.day++;
         dayAtStartPos = dayAt.transform.localPosition.y;
        
     }
@@ -42,6 +43,7 @@ public class Transition : MonoBehaviour
             }
             else
             {
+                
                 Destroy(gameObject);
             }
             
