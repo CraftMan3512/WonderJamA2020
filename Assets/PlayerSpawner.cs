@@ -25,7 +25,7 @@ public class PlayerSpawner : MonoBehaviour
 
         }
 
-        Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+        // Enemy spawn Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
     }
 
     // Update is called once per frame
