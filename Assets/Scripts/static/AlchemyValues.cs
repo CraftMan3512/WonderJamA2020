@@ -26,7 +26,7 @@ public static class AlchemyValues
                 {
                     newRecipe[j] = materialPool[itemsAt[j]];
                 }
-                nextDigit(materialPerRecipe - 1);
+                NextDigit(materialPerRecipe - 1);
             }
             
         
@@ -36,7 +36,21 @@ public static class AlchemyValues
         
     }
 
-    private static void nextDigit(int pos)
+
+    public static int GetQuantity(int id)
+    {
+        int amount = 0;
+        foreach(Item item in inventory)
+        {
+            if(item.id == id)
+            {
+                amount++;
+            }
+        }
+        return amount;
+    }
+
+    private static void NextDigit(int pos)
     {
         if(pos > 0)
         {
