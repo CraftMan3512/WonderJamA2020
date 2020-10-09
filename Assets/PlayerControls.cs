@@ -9,6 +9,13 @@ public class PlayerControls : MonoBehaviour
 {
 
     private Manette manette;
+    public float startTimeBtwAttack;
+    private float timeBtwAttack;
+
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public int damage;
 
     public void GetPlayerGamepad(int index)
     {
@@ -19,7 +26,42 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
+        //Attacks
+        if (timeBtwAttack <= 0)
+        {
+            if (manette.bButton.wasPressedThisFrame)
+            {
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length ;i++)
+                {
+                    enemiesToDamage[i].GetComponent<Enemy>().health -= damage;
+                    Debug.Log("Touche un enemie");
+                }
+
+            }
+
+            timeBtwAttack = startTimeBtwAttack;
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
+        if (manette.bButton.wasPressedThisFrame) CheckInteraction();
+
+    }
+
+    void CheckInteraction()
+    {
         
+                
+        
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position,attackRange);
     }
 
     private void FixedUpdate()
@@ -30,8 +72,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovePlayer()
     {
-        
         transform.Translate(manette.leftStick);
-
     }
 }
+
