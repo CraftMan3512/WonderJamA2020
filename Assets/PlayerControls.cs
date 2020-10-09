@@ -30,7 +30,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovePlayer()
     {
-
+        
         transform.Translate(manette.leftStick);
 
     }
