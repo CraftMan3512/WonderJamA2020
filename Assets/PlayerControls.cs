@@ -46,7 +46,18 @@ public class PlayerControls : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
+
+        if (manette.bButton.wasPressedThisFrame) CheckInteraction();
+
     }
+
+    void CheckInteraction()
+    {
+        
+                
+        
+    }
+    
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
