@@ -38,7 +38,7 @@ public class PlayerJoinTester : MonoBehaviour
             if (PlayerInputs.GetPlayerController(0).selectButton.wasPressedThisFrame)
             {
 
-                SceneManager.LoadScene("GameplayScene",LoadSceneMode.Single);
+                SceneManager.LoadScene("DayTransition",LoadSceneMode.Single);
 
             }
             
