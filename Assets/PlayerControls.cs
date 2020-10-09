@@ -16,7 +16,8 @@ public class PlayerControls : MonoBehaviour
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int damage;
-
+    public float moveSpeed;
+    
     public void GetPlayerGamepad(int index)
     {
 
@@ -72,7 +73,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovePlayer()
     {
-        transform.Translate(manette.leftStick);
+        GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(manette.leftStick*Time.deltaTime*moveSpeed));
     }
 }
 
