@@ -12,8 +12,13 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Recipe.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Materials/Stone.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Materials/Flower.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Materials/Ore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Item.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/ItemButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Objects/Effect.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/BoxMenu.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/static/AlchemyValues.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
@@ -24,7 +29,12 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Effect.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Item.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Recipe.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Materials/Flower.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/static/AlchemyValues.cs" />
+        <option value="$PROJECT_DIR$/Assets/ItemButton.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Materials/Stone.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Objects/Materials/Ore.cs" />
+        <option value="$PROJECT_DIR$/Assets/BoxMenu.cs" />
       </list>
     </option>
   </component>
@@ -66,7 +76,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1602261602383</updated>
-      <workItem from="1602261609337" duration="1534000" />
+      <workItem from="1602261609337" duration="6337000" />
     </task>
     <servers />
   </component>

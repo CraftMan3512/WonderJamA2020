@@ -8,7 +8,7 @@ public static class AlchemyValues
     public static List<Item> inventory = new List<Item>();
     public static List<Recipe> remainingRecipes = new List<Recipe>();
     public static List<Recipe> finishedRecipes = new List<Recipe>();
-    public static Item[] materialPool = {};
+    public static Item[] materialPool = {new Flower(), new Stone(), new Ore()};
 
     public static void PopulateRecipes()
     {
