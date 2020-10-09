@@ -8,8 +8,8 @@ public static class AlchemyValues
     public static List<Item> inventory = new List<Item>();
     public static List<Recipe> remainingRecipes = new List<Recipe>();
     public static List<Recipe> finishedRecipes = new List<Recipe>();
-    public static Item[] materialPool = {};
     private static int[] itemsAt;
+    public static Item[] materialPool = {new Flower(), new Stone(), new Ore()};
 
 
     public static void PopulateRecipes(int materialPerRecipe)
@@ -17,7 +17,7 @@ public static class AlchemyValues
         itemsAt = new int[materialPerRecipe]; 
 
 
-        while (itemsAt[0] < materialPool.Length)
+        while (itemsAt[0] < materialPool.Length-1)
         {
             for(int i = itemsAt[materialPerRecipe-1]; i < materialPool.Length; i++)
             {
