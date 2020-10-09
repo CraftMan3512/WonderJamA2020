@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 
 public class Manette
 {
-    private bool isKeyboardandMouse;
+    public bool isKeyboardandMouse;
     public Gamepad gp { get; set; }
     private Keyboard kb;
     private Mouse mouse;
