@@ -7,6 +7,7 @@ public class PlayerSpawner : MonoBehaviour
 {
 
     public GameObject playerPrefab;
+    public GameObject enemyPrefab;
 
     public GameObject cursorPrefab;
     // Start is called before the first frame update
@@ -18,26 +19,13 @@ public class PlayerSpawner : MonoBehaviour
 
             if (PlayerInputs.pControllers[i] != null)
             {
-                /*if (i == 0)
-                {
-
-                    GameObject mousePlayer = Instantiate(cursorPrefab, Vector3.zero, Quaternion.identity);
-                    mousePlayer.GetComponent<MouseControls>().GetPlayerGamepad(i);
-
-                }
-                else
-                {*/
-                    
-                    GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);  
-                    newPlayer.GetComponent<PlayerControls>().GetPlayerGamepad(i);
-                    
-                //}
-
-                
+                GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);  
+                newPlayer.GetComponent<PlayerControls>().GetPlayerGamepad(i);
             }
 
         }
-        
+
+        Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
     }
 
     // Update is called once per frame

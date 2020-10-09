@@ -29,7 +29,7 @@ public class BoxMenu : MonoBehaviour
         deduplicatedItems = GetDeduplicatedList();
         SetupDisplay(3);
         
-        AlchemyValues.PopulateRecipes(3);
+        //AlchemyValues.PopulateRecipes(3);
 
     }
 
