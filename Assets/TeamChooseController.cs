@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TeamChooseController : MonoBehaviour
@@ -31,6 +32,8 @@ public class TeamChooseController : MonoBehaviour
             manette = PlayerInputs.GetPlayerController(playerNb);
 
         }
+        
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = false;
 
     }
 
@@ -47,6 +50,7 @@ public class TeamChooseController : MonoBehaviour
     private void UnReady()
     {
         ready = false;
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = false;
     }
 
     void Ready()
@@ -54,6 +58,7 @@ public class TeamChooseController : MonoBehaviour
 
         ready = true;
         GameObject.Find("Controller").GetComponent<TeamChooser>().OnPlayerReady();
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().enabled = true;
 
     }
 
