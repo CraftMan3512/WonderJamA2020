@@ -166,7 +166,8 @@ public static class AlchemyValues
 
             if (i.id == it.id)
             {
-                inventory.Remove(i);
+                if (i.qty > 1) i.qty--;
+                else inventory.Remove(i);
                 break;
             }
 

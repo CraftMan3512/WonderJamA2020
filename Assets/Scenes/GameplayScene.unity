@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ebc8b64a512e64ea9a78a28c360b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMultiplier: 1
+  timeMultiplier: 0.1
   segments: 50
   xradius: 0.25
   yradius: 0.25
@@ -816,7 +816,7 @@ Transform:
   - {fileID: 1358995787}
   - {fileID: 1226973716}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &965481222
 GameObject:
@@ -1412,6 +1412,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1305225133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1305225128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c1b0de5506fbff4196d1ffe66ec854a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_YPosition: 0
 --- !u!1 &1358995786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1650,19 +1663,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1305225133
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1305225128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c1b0de5506fbff4196d1ffe66ec854a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_YPosition: 0
 --- !u!1 &1709192627
 GameObject:
   m_ObjectHideFlags: 0
@@ -1831,6 +1831,7 @@ GameObject:
   - component: {fileID: 1988267574}
   - component: {fileID: 1988267575}
   - component: {fileID: 1988267573}
+  - component: {fileID: 1988267576}
   m_Layer: 0
   m_Name: Brewing Stand
   m_TagString: Station
@@ -1943,7 +1944,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988267576}
+        m_TargetAssemblyTypeName: QTESpam, Assembly-CSharp
+        m_MethodName: StartQTE
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1988267575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1956,6 +1969,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd905df2b9e06f4b80f42d98678f16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1988267576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988267570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a43e6fa34040d349ac55d1e66f6ed3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToSpam: 3
 --- !u!1 &2009589104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2133,5 +2159,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
