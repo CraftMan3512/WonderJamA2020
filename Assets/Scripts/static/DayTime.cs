@@ -5,8 +5,9 @@ using UnityEngine;
 public static class DayTime
 {
     public static float time;
-    public static int day = 1;
+    public static int day = 0;
     public static float timePerDay;
+
 
     
     public static void AddTime(float addedTime)
@@ -15,6 +16,7 @@ public static class DayTime
         if (time  > timePerDay)
         {
             NextDay();
+
         }
     }
 

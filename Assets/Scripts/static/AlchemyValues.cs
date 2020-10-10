@@ -11,6 +11,7 @@ public static class AlchemyValues
     private static int[] itemsAt;
     public static Item[] materialPool = {new Flower(), new Stone(), new Ore()};
 
+    public static float JoystickTreshhold = 0.5f;
 
     public static void PopulateRecipes(int materialPerRecipe)
     {
@@ -97,7 +98,22 @@ public static class AlchemyValues
         return amount;
     }
 
+    public static void RemoveItem(Item it)
+    {
 
+        
+        foreach (var i in inventory)
+        {
+
+            if (i.id == it.id)
+            {
+                inventory.Remove(i);
+                break;
+            }
+
+        }
+        
+    }
 
     public static void FinishRecipe(Recipe r)
     {

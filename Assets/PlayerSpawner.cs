@@ -19,13 +19,16 @@ public class PlayerSpawner : MonoBehaviour
 
             if (PlayerInputs.pControllers[i] != null)
             {
-                GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);  
+                GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+                newPlayer.name = "p" + i;
                 newPlayer.GetComponent<PlayerControls>().GetPlayerGamepad(i);
             }
 
         }
+        
+        GameObject.Find("CurseManager").GetComponent<Manager>().NextDay();
 
-        Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+        // Enemy spawn Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
     }
 
     // Update is called once per frame
