@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public float yradius;
     LineRenderer line;
 
+
     private void Start()
     {
 
@@ -22,6 +23,7 @@ public class Timer : MonoBehaviour
     {
         DayTime.AddTime(Time.deltaTime * timeMultiplier);
         UpdateTimer();
+
     }
 
 
