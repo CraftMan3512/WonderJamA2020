@@ -14,7 +14,7 @@ public class AlchemyResults : MonoBehaviour
         {
             GameObject display = Instantiate((GameObject)Resources.Load("Prefabs/PlayerResult"), GameObject.Find("Canvas").transform);
             display.transform.localPosition = display.transform.localPosition = new Vector3(minX + i * distanceBetweenDisplays, display.transform.localPosition.y, display.transform.localPosition.z);
-            string text = "Player " + AlchemyValues.alchemyPlayers[i]+"\n\n";
+            string text = "Player " + (AlchemyValues.alchemyPlayers[i]+1)+"\n\n";
             foreach(Effect effect in GameObject.Find("CurseManager").GetComponent<Manager>().playerEffects[AlchemyValues.alchemyPlayers[i]])
             {
                 text = text + "\n-" + effect.name;
