@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movement;
+    private float startScale;
 
     private GameObject[] allPlayers;
     
@@ -19,8 +20,8 @@ public class Enemy : MonoBehaviour
     {
         health = maxHealth;
         allPlayers=GameObject.FindGameObjectsWithTag("Player");
-        Debug.Log(allPlayers.Length);
         rb = GetComponent<Rigidbody2D>();
+        startScale = transform.localScale.x;
     }
 
     // Update is called once per frame
@@ -42,17 +43,19 @@ public class Enemy : MonoBehaviour
             }
         }
         //Chase
-        float angle = Mathf.Atan2(closestDirection.y, closestDirection.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
+        if (closestDirection.x < 0)
+            transform.localScale = new Vector3(-startScale,transform.localScale.y,transform.localScale.z);
+        else
+            transform.localScale = new Vector3(startScale,transform.localScale.y,transform.localScale.z);
+        
         closestDirection.Normalize();
         movement = closestDirection;
         
         if (health <= 0)
         {
+            Debug.Log("Died");
             //Dying stuff here
-            
-            
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 

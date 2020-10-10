@@ -7,7 +7,7 @@ public class ItemCreator : MonoBehaviour
 {
     private CircleCollider2D collider2d;
 
-    [SerializeField] Item contains;
+    public Item contains;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,8 @@ public class ItemCreator : MonoBehaviour
     public void setItem(Item item)
     {
         contains = item;
-        GetComponent<SpriteRenderer>().sprite = item.image;
+        Debug.Log(item.name+ " Lol");
+        gameObject.GetComponent<SpriteRenderer>().sprite = item.image;
     }
 
     public Item getItem()
