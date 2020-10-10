@@ -65,7 +65,7 @@ public class TeamChooser : MonoBehaviour
             
         }
         
-        Debug.Log("PLAYER SIZE IS " + players.Count);
+        //Debug.Log("PLAYER SIZE IS " + players.Count);
     }
 
     void GoToGame()

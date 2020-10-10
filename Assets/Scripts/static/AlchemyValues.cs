@@ -11,6 +11,7 @@ public static class AlchemyValues
     private static int[] itemsAt;
     public static Item[] materialPool = {new Flower(), new Stone(), new Ore()};
 
+    public static float JoystickTreshhold = 0.5f;
 
     public static void PopulateRecipes(int materialPerRecipe)
     {

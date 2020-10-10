@@ -14,6 +14,8 @@ public class AmazonBox : MonoBehaviour
     void Start()
     {
 
+        OnInteract(null);
+        
     }
 
     // Update is called once per frame
