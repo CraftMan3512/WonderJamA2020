@@ -77,11 +77,11 @@ public class TeamChooser : MonoBehaviour
            
             if (obj.team == TeamChooseController.Teams.Alchemy)
             {
-                AlchemyValues.alchemyPlayers.Add(int.Parse(obj.gameObject.name.Substring(1)));
+                AlchemyValues.alchemyPlayers.Add(int.Parse(obj.gameObject.name.Substring(1))-1);
             }
             else
             {
-                AlchemyValues.explorationPlayers.Add(int.Parse(obj.gameObject.name.Substring(1)));
+                AlchemyValues.explorationPlayers.Add(int.Parse(obj.gameObject.name.Substring(1))-1);
             }
 
         }

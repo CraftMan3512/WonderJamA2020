@@ -43,3 +43,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: WorldSprites
+    uniqueID: 418713181
+    locked: 0

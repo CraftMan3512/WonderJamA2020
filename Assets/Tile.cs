@@ -28,6 +28,7 @@ public class Tile : MonoBehaviour
     {
         chanceMob = TileGenerator.ChanceMob;
         chanceRes = TileGenerator.ChanceRes;
+        zone = GameObject.Find("ExplorationVCam").GetComponent<TileGenerator>().CurrZone;
         //INIT
         AllMobs =  new []{
             Resources.LoadAll<GameObject>("Prefabs/Mob/Foret"),
@@ -57,7 +58,7 @@ public class Tile : MonoBehaviour
                 pos.z = 0f;
                 
                 
-                Instantiate(GetZoneItem(), pos, Quaternion.identity);
+                Instantiate(GetZoneItem(), pos, Quaternion.identity).transform.SetParent(transform.Find("Items"));
             }
             //TODO Mobs
             /*else if(chanceMob < Random.Range(1, 100))

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class BoxMenu : MonoBehaviour
 {
 
-    private Manette manette;
+    public Manette manette;
     
     private List<Item> items;
     private List<Item> deduplicatedItems;
@@ -25,7 +25,7 @@ public class BoxMenu : MonoBehaviour
     void Start()
     {
 
-        manette = PlayerInputs.GetPlayerController(0);
+        //manette = PlayerInputs.GetPlayerController(0);
         items = AlchemyValues.inventory;
         
         deduplicatedItems = GetDeduplicatedList();
@@ -97,7 +97,7 @@ public class BoxMenu : MonoBehaviour
             GetSelectedMat().GetComponent<Image>().color = Color.white;
             selectedMat = mat;
             GetSelectedMat().GetComponent<Image>().color = Color.magenta;
-            Debug.Log("SELECTED ITEM IS NOW " + selectedMat); ;
+            //Debug.Log("SELECTED ITEM IS NOW " + selectedMat); ;
 
         }
         
@@ -105,12 +105,23 @@ public class BoxMenu : MonoBehaviour
 
     void OnItemGrab()
     {
-        
-        Item item = deduplicatedItems[selectedMat];
-        playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
-        Debug.Log("PLAYER GRABBED " + item.name);
-        AlchemyValues.RemoveItem(item);
-        Cancel();
+
+        if (playerInteracted.GetComponent<PlayerGrabs>().GetItemGrabbed() == null)
+        {
+            
+            Item item = deduplicatedItems[selectedMat];
+            playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
+            Debug.Log("PLAYER GRABBED " + item.name);
+            AlchemyValues.RemoveItem(item);
+            Cancel();
+            
+        }
+        else
+        {
+            
+            //TODO avertir drop ur item first
+            
+        }
         
     }
 
