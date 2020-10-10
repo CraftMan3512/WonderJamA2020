@@ -30,8 +30,14 @@ public class AmazonBox : MonoBehaviour
     public void OnInteract(GameObject player)
     {
 
-        GameObject UI = Instantiate(UIPrefab, new Vector3(transform.position.x +offset.x, transform.position.y + offset.y),quaternion.identity,null);
-        UI.GetComponent<BoxMenu>().playerInteracted = player;
+        if (AlchemyValues.inventory.Count > 0)
+        {
+            
+            GameObject UI = Instantiate(UIPrefab, new Vector3(transform.position.x +offset.x, transform.position.y + offset.y),quaternion.identity,null);
+            UI.GetComponent<BoxMenu>().playerInteracted = player;
+            player.GetComponent<PlayerControls>().lockMovement = true;   
+            
+        }
 
     }
     
