@@ -12,13 +12,10 @@ public class Tile : MonoBehaviour
     private GameObject RessourceDrop;
     public float rangeX;
     public int NumberOfSpots;
+    public GameObject ItemPrefab;
 
-    private GameObject[] ItemsForet;
-    private GameObject[] ItemsChamp;
-    private GameObject[] ItemsDesert;
-    private GameObject[] ItemsJungle;
-    private GameObject[] ItemsRoche;
-    private GameObject[][] AllMobs;
+    private List<Item>[] AllItems=new List<Item>[5];
+    private Enemy[][] AllMobs;
 
     private Vector3 top;
     private Vector3 bot;
@@ -31,17 +28,22 @@ public class Tile : MonoBehaviour
         zone = GameObject.Find("ExplorationVCam").GetComponent<TileGenerator>().CurrZone;
         //INIT
         AllMobs =  new []{
-            Resources.LoadAll<GameObject>("Prefabs/Mob/Foret"),
-            Resources.LoadAll<GameObject>("Prefabs/Mob/Champ"),
-            Resources.LoadAll<GameObject>("Prefabs/Mob/Desert"),
-            Resources.LoadAll<GameObject>("Prefabs/Mob/Jungle"),
-            Resources.LoadAll<GameObject>("Prefabs/Mob/Roche")
+            Resources.LoadAll<Enemy>("Prefabs/Mob/Foret"),
+            Resources.LoadAll<Enemy>("Prefabs/Mob/Champ"),
+            Resources.LoadAll<Enemy>("Prefabs/Mob/Desert"),
+            Resources.LoadAll<Enemy>("Prefabs/Mob/Jungle"),
+            Resources.LoadAll<Enemy>("Prefabs/Mob/Roche")
         };
-        ItemsForet = Resources.LoadAll<GameObject>("Prefabs/Items/Foret");
-        ItemsChamp = Resources.LoadAll<GameObject>("Prefabs/Items/Champ");
-        ItemsDesert = Resources.LoadAll<GameObject>("Prefabs/Items/Desert");
-        ItemsJungle = Resources.LoadAll<GameObject>("Prefabs/Items/Jungle");
-        ItemsRoche = Resources.LoadAll<GameObject>("Prefabs/Items/Roche");
+        for (int i = 0; i < 5; i++)
+        {
+            AllItems[i]=new List<Item>();
+        }
+        for (int i = 0; i < AlchemyValues.materialPool.Length; i++)
+        {
+            Item toAdd = AlchemyValues.materialPool[i];
+            AllItems[AlchemyValues.materialPool[i].getZone()-1].Add(toAdd);
+        }
+       
         
         
         
@@ -58,7 +60,9 @@ public class Tile : MonoBehaviour
                 pos.z = 0f;
                 
                 
-                Instantiate(GetZoneItem(), pos, Quaternion.identity).transform.SetParent(transform.Find("Items"));
+                GameObject temp = Instantiate(ItemPrefab, pos, Quaternion.identity);
+                temp.transform.SetParent(transform.Find("Items"));
+                temp.GetComponent<ItemCreator>().setItem(GetZoneItem());
             }
             //TODO Mobs
             /*else if(chanceMob < Random.Range(1, 100))
@@ -68,24 +72,16 @@ public class Tile : MonoBehaviour
         }
     }
 
-    private GameObject GetZoneItem()
+    private Item GetZoneItem()
     {
-        GameObject result=Resources.Load<GameObject>("Prefabs/Items/Foret/diamant");
-        switch (zone)
-        {
-            case 1: result = ItemsForet[Random.Range(0,ItemsForet.Length-1)];break;
-            case 2: result = ItemsChamp[Random.Range(0,ItemsChamp.Length-1)];break;
-            case 3: result = ItemsDesert[Random.Range(0,ItemsDesert.Length-1)];break;
-            case 4: result = ItemsJungle[Random.Range(0,ItemsJungle.Length-1)];break;
-            case 5: result = ItemsRoche[Random.Range(0,ItemsRoche.Length-1)];break;
-        }
+        Item result=AllItems[zone-1][Random.Range(0,AllItems[zone-1].Count)];
         return result;
     }
-
-    private GameObject GetZoneMob()
+    //TODO ZONEMOB
+    /*private GameObject GetZoneMob()
     {
         return AllMobs[zone-1][Random.Range(0, AllMobs[zone].Length-1)];
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {
