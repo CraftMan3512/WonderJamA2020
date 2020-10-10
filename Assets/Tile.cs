@@ -13,6 +13,8 @@ public class Tile : MonoBehaviour
     public float rangeX;
     public int NumberOfSpots;
     public GameObject ItemPrefab;
+    public Sprite[] allZones;
+    
 
     private List<Item>[] AllItems=new List<Item>[5];
     private Enemy[][] AllMobs;
@@ -70,6 +72,8 @@ public class Tile : MonoBehaviour
                 Instantiate(GetZoneMob(), child.transform.position, Quaternion.identity);
             }*/
         }
+
+        transform.GetComponent<SpriteRenderer>().sprite = allZones[zone-1];
     }
 
     private Item GetZoneItem()
