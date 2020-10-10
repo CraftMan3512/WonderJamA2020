@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3495151344741293334}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.85, y: 1.1398191, z: 0}
+  m_LocalPosition: {x: 1.82, y: 0.91, z: 0}
   m_LocalScale: {x: 3.333333, y: 3.333333, z: 1}
   m_Children: []
   m_Father: {fileID: 3484555422504300996}
@@ -136,6 +136,10 @@ MonoBehaviour:
   blood: {fileID: 1404548311561541204, guid: 7fae5f0f607a8fe438f984f5c8fa665d, type: 3}
   timeRed: 0.15
   itemID: 2
+  startTimeBtwAttack: 1
+  attackPos: {fileID: 4931479111783082306}
+  attackRange: 0.62
+  damage: 20
 --- !u!61 &773805807131934949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,10 +150,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014323354, y: 0}
+  m_Offset: {x: 0.14416006, y: -0.11541128}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.49291155, y: 0.38601807}
@@ -160,7 +164,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.3286467, y: 0.8}
+  m_Size: {x: 2.164686, y: 0.5691775}
   m_EdgeRadius: 0
 --- !u!50 &2146353058839486817
 Rigidbody2D:
@@ -182,7 +186,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4644186801638171939
 MonoBehaviour:
   m_ObjectHideFlags: 0

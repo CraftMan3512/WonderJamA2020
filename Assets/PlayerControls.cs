@@ -8,6 +8,11 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerControls : MonoBehaviour
 {
 
+    private float currHp;
+    public Healthbar Healthbar;
+    public SpriteRenderer SpriteRenderer;
+    public float rateOfLoss;
+    public float maxHp;
     private Manette manette;
     public float startTimeBtwAttack;
     private double timeBtwAttack;
@@ -21,13 +26,20 @@ public class PlayerControls : MonoBehaviour
     public bool lockMovement = false;
     public float interactRadius = 0.75f;
 
+    private bool justGotDamaged;
+    private float dmgToDeal;
+    private float z;
+    
     private Animator animator;
 
     public Manette Manette { get => manette; set => manette = value; }
 
     private void Start()
     {
+        z = 0;
         animator = transform.Find("Sprite").GetComponent<Animator>();
+        currHp = maxHp;
+        Healthbar.SetMaxHealth(maxHp);
     }
 
     public void GetPlayerGamepad(int index)
@@ -62,7 +74,26 @@ public class PlayerControls : MonoBehaviour
 
         //animations
         AnimationControl();
+        //Take Damage
+        float tempDmg;
+        tempDmg= rateOfLoss * Time.deltaTime * dmgToDeal;
+        currHp -= tempDmg;
+        dmgToDeal -= tempDmg;
+        //Color
+        if (justGotDamaged)
+        {
+            z = 0.1f;
+            justGotDamaged = false;
+        }
 
+        if (z > 0)
+        {
+            SpriteRenderer.color=Color.red;
+            z -= Time.deltaTime;
+        }else
+        {
+            SpriteRenderer.color=Color.white;
+        }
     }
 
     void AnimationControl()
@@ -82,7 +113,7 @@ public class PlayerControls : MonoBehaviour
 
         }
 
-
+        Healthbar.SetCurrentHealth(currHp);
     }
 
     void CheckInteraction()
@@ -124,6 +155,12 @@ public class PlayerControls : MonoBehaviour
     void MovePlayer()
     {
         if (!lockMovement) GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
+    }
+    public void takeDamage(int dmg)
+    {
+        justGotDamaged = false;
+        dmgToDeal=dmg;
+        justGotDamaged = true;
     }
 }
 
