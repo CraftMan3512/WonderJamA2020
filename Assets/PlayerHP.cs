@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHP : MonoBehaviour
+public class BarAdjustment : MonoBehaviour
 {
 
     public float maxHealth = 100;
