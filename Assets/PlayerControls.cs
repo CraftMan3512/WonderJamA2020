@@ -84,8 +84,21 @@ public class PlayerControls : MonoBehaviour
         {
 
             animator.GetComponent<SpriteRenderer>().flipX = (Manette.leftStick.x < 0);
-            if (Manette.leftStick.x < 0) attackPos.transform.localPosition = new Vector3(-0.87f,attackPos.transform.localPosition.y);
-                else attackPos.transform.localPosition = new Vector3(0.87f,attackPos.transform.localPosition.y);
+            if (Manette.leftStick.x < 0) //gauche
+            {
+                attackPos.transform.localPosition = new Vector3(-0.87f, attackPos.transform.localPosition.y);
+                if (GetComponent<PlayerGrabs>().HeldItem != null)
+                {
+                    GetComponent<PlayerGrabs>().HeldItem.transform.localPosition = new Vector3(-0.36f, 0.57f, -0.03f);
+                }
+            }
+            else { //droite
+                attackPos.transform.localPosition = new Vector3(0.87f, attackPos.transform.localPosition.y);
+                if(GetComponent<PlayerGrabs>().HeldItem != null)
+                {
+                    GetComponent<PlayerGrabs>().HeldItem.transform.localPosition = new Vector3(0.36f, 0.57f, -0.03f);
+                }
+            }
 
         }
 
