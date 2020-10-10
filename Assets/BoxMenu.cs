@@ -11,7 +11,6 @@ public class BoxMenu : MonoBehaviour
     public Manette manette;
     
     private List<Item> items;
-    private List<Item> deduplicatedItems;
 
     public float xPadding,yPadding;
     public GameObject materialPrefab;
@@ -27,8 +26,6 @@ public class BoxMenu : MonoBehaviour
 
         //manette = PlayerInputs.GetPlayerController(0);
         items = AlchemyValues.inventory;
-        
-        deduplicatedItems = GetDeduplicatedList();
         SetupDisplay(3);
         SelectMat(0);
         //AlchemyValues.PopulateRecipes(3);
@@ -91,7 +88,7 @@ public class BoxMenu : MonoBehaviour
     void SelectMat(int mat)
     {
 
-        if (mat >= 0 && mat < deduplicatedItems.Count)
+        if (mat >= 0 && mat < items.Count)
         {
                         
             GetSelectedMat().GetComponent<Image>().color = Color.white;
@@ -109,7 +106,7 @@ public class BoxMenu : MonoBehaviour
         if (playerInteracted.GetComponent<PlayerGrabs>().GetItemGrabbed() == null)
         {
             
-            Item item = deduplicatedItems[selectedMat];
+            Item item = items[selectedMat];
             playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
             Debug.Log("PLAYER GRABBED " + item.name);
             AlchemyValues.RemoveItem(item);
@@ -158,12 +155,12 @@ public class BoxMenu : MonoBehaviour
     {
 
         int x = 0, y = 0;
-        foreach (Item item in deduplicatedItems)
+        foreach (Item item in items)
         {
             
             GameObject newButton = Instantiate(materialPrefab, new Vector3(transform.position.x + offset.x + xPadding*x,transform.position.y + offset.y - y*yPadding), Quaternion.identity, transform);
             newButton.name = (3 * y + x).ToString();
-            newButton.GetComponent<ItemButton>().SetItem(item,AlchemyValues.GetQuantity(item.id));
+            newButton.GetComponent<ItemButton>().SetItem(item);
             x++;
             if (x == nbItemsParLigne)
             {

@@ -18,6 +18,7 @@ public class AmazonBox : MonoBehaviour
         AlchemyValues.inventory.Add(new Flower());
         AlchemyValues.inventory.Add(new Stone());
         AlchemyValues.inventory.Add(new Ore());*/
+        Debug.Log("ON A " + AlchemyValues.inventory.Count + " ITEMS DANS AMAZONBOX");
         
     }
 
