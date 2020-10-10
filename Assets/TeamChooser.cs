@@ -70,7 +70,21 @@ public class TeamChooser : MonoBehaviour
 
     void GoToGame()
     {
+        AlchemyValues.alchemyPlayers.Clear();
+        AlchemyValues.explorationPlayers.Clear();
+        foreach (TeamChooseController obj in GameObject.Find("Canvas").transform.GetComponentsInChildren<TeamChooseController>())
+        {
+           
+            if (obj.team == TeamChooseController.Teams.Alchemy)
+            {
+                AlchemyValues.alchemyPlayers.Add(int.Parse(obj.gameObject.name.Substring(1)));
+            }
+            else
+            {
+                AlchemyValues.explorationPlayers.Add(int.Parse(obj.gameObject.name.Substring(1)));
+            }
 
+        }
         SceneManager.LoadScene("GameplayScene");
 
     }
