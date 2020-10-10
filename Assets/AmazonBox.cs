@@ -24,9 +24,7 @@ public class AmazonBox : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (PlayerInputs.GetPlayerController(0).aButton.wasPressedThisFrame) OnInteract(GameObject.Find("p0"));
-        
+
     }
 
     public void OnInteract(GameObject player)
