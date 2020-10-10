@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHP : MonoBehaviour
+public class BarAdjustment : MonoBehaviour
 {
 
     public float maxHealth = 100;
@@ -23,7 +23,7 @@ public class PlayerHP : MonoBehaviour
         
     }
 
-    public void TakeDamage(float damage)
+    public void Remove(float damage)
     {
         for(float i = 0.1f; i < damage;)
         {
