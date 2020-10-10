@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: 214294780}
   - component: {fileID: 214294779}
   - component: {fileID: 214294778}
+  - component: {fileID: 214294782}
   m_Layer: 5
   m_Name: CurseDisplay
   m_TagString: Untagged
@@ -528,7 +529,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 214294777}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 2
   m_Camera: {fileID: 0}
@@ -564,6 +565,21 @@ RectTransform:
   m_AnchoredPosition: {x: -8.02, y: -4.4031}
   m_SizeDelta: {x: 8.523699, y: 0.9562216}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &214294782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214294777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 712ad1b10d9ec1847b88a00729549e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDisplay: 5
+  name: {fileID: 786877577}
+  description: {fileID: 1397891905}
 --- !u!1 &263394248
 GameObject:
   m_ObjectHideFlags: 3
@@ -2203,7 +2219,7 @@ GameObject:
   - component: {fileID: 1397891908}
   - component: {fileID: 1397891907}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -21,7 +21,7 @@ public class CurseDisplayer : MonoBehaviour
         
     }
 
-    public void SetCurseDesc(Effect curse)
+    public void SetCurseDisplay(Effect curse)
     {
 
         GetComponent<Canvas>().enabled = true;
