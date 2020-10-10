@@ -10,7 +10,7 @@ public class PlayerControls : MonoBehaviour
 
     private Manette manette;
     public float startTimeBtwAttack;
-    private float timeBtwAttack;
+    private double timeBtwAttack;
 
     public Transform attackPos;
     public LayerMask whatIsEnemies;
@@ -44,16 +44,14 @@ public class PlayerControls : MonoBehaviour
         {
             if (Manette.bButton.wasPressedThisFrame)
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length ;i++)
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<Enemy>().health -= damage;
+                    enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damage);
                     Debug.Log("Touche un enemie");
                 }
-
+                timeBtwAttack = startTimeBtwAttack;
             }
-
-            timeBtwAttack = startTimeBtwAttack;
         }
         else
         {
