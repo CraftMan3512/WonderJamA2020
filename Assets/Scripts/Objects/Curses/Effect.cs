@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public abstract class Effect
 {
     public bool lastDay = false;
+    public string name;
     protected GameObject playerAffected;
     public abstract void Invoke(GameObject player);
 
