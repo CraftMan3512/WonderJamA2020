@@ -71,6 +71,11 @@ public class RecipesToDo : MonoBehaviour
     public bool RemoveRecipe(Recipe recipe)
     {
         string[] recipeNames = new string[recipe.items.Length];
+        for(int i = 0; i < recipeNames.Length; i++)
+        {
+            recipeNames[i] = recipe.items[i].name;
+        }
+     
         List<GameObject> objectsToRemove = null;
         foreach(List<GameObject> recipesShown in recipesObjects)
         {
@@ -113,6 +118,7 @@ public class RecipesToDo : MonoBehaviour
             {
                 Destroy(item);
             }
+            AddRecipeToDo();
             UpdateDisplay();
             return true;
         }
