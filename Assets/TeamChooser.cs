@@ -70,7 +70,13 @@ public class TeamChooser : MonoBehaviour
 
     void GoToGame()
     {
+       
+        foreach (TeamChooseController obj in GameObject.Find("Canvas").transform.GetComponentsInChildren<TeamChooseController>())
+        {
 
+           
+
+        }
         SceneManager.LoadScene("GameplayScene");
 
     }
