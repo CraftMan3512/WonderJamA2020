@@ -7,8 +7,8 @@ public abstract class Effect
 {
     public bool lastDay = false;
     public string name;
+    public GameObject playerAffected;
     public string description;
-    protected GameObject playerAffected;
     public abstract void Invoke(GameObject player);
 
     public abstract void NextDay();
