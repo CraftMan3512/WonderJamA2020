@@ -18,6 +18,8 @@ public class BoxMenu : MonoBehaviour
     public Vector2 offset;
 
     private int selectedMat = 0;
+
+    public GameObject playerInteracted;
         
     // Start is called before the first frame update
     void Start()
@@ -25,15 +27,10 @@ public class BoxMenu : MonoBehaviour
 
         manette = PlayerInputs.GetPlayerController(0);
         items = AlchemyValues.inventory;
-        //dummy adding to inventory
-        items.Add(new Flower());
-        items.Add(new Flower());
-        items.Add(new Stone());
-        items.Add(new Ore());
         
         deduplicatedItems = GetDeduplicatedList();
         SetupDisplay(3);
-        
+        SelectMat(0);
         //AlchemyValues.PopulateRecipes(3);
 
     }
@@ -69,6 +66,15 @@ public class BoxMenu : MonoBehaviour
 
         }
         
+        if (manette.aButton.wasPressedThisFrame) OnItemGrab();
+        if (manette.bButton.wasPressedThisFrame) Cancel();
+
+    }
+
+    private void Cancel()
+    {
+        //TODO redonner movement au joueur
+        Destroy(gameObject);
     }
 
     private void OnJoystickMove(int x, int y)
@@ -91,9 +97,20 @@ public class BoxMenu : MonoBehaviour
             GetSelectedMat().GetComponent<Image>().color = Color.white;
             selectedMat = mat;
             GetSelectedMat().GetComponent<Image>().color = Color.magenta;
-            Debug.Log("SELECTED ITEM IS NOW " + selectedMat);
+            Debug.Log("SELECTED ITEM IS NOW " + selectedMat); ;
 
         }
+        
+    }
+
+    void OnItemGrab()
+    {
+        //TODO redonner movement au joueur
+        Item item = deduplicatedItems[selectedMat];
+        playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
+        Debug.Log("PLAYER GRABBED " + item.name);
+        AlchemyValues.RemoveItem(item);
+        Cancel();
         
     }
 
@@ -135,7 +152,7 @@ public class BoxMenu : MonoBehaviour
             
             GameObject newButton = Instantiate(materialPrefab, new Vector3(transform.position.x + offset.x + xPadding*x,transform.position.y + offset.y - y*yPadding), Quaternion.identity, transform);
             newButton.name = (3 * y + x).ToString();
-            newButton.GetComponent<ItemButton>().SetItem(item,14);
+            newButton.GetComponent<ItemButton>().SetItem(item,AlchemyValues.GetQuantity(item.id));
             x++;
             if (x == nbItemsParLigne)
             {
