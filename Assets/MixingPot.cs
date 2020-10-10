@@ -8,18 +8,22 @@ public class MixingPot : MonoBehaviour
     
     
 
-    public void AddIngredient(Item item)
+    public void AddIngredient(GameObject player)
     {
-        ingredients.Add(item);
-        if(ingredients.Count == AlchemyValues.materialsPerRecipe)
+        Item item = player.GetComponent<PlayerGrabs>().GetItemGrabbed();
+        if (item != null)
         {
-            AddPotion();
-            TrashIngredients();
+            ingredients.Add(item);
+            if (ingredients.Count == AlchemyValues.materialsPerRecipe)
+            {
+                AddPotion(player);
+                TrashIngredients();
+            }
         }
     }
 
 
-    public void AddPotion()
+    public void AddPotion(GameObject player)
     {
         Item[] recipe = new Item[ingredients.Count];
         for(int i = 0; i < recipe.Length; i++)
