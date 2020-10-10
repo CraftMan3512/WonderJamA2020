@@ -100,7 +100,7 @@ public class TeamChooser : MonoBehaviour
        
         foreach (TeamChooseController obj in GameObject.Find("Canvas").transform.GetComponentsInChildren<TeamChooseController>())
         {
-            if (DayTime.day > 1)
+            if (DayTime.day > 2)
             {
                 if(obj.team == TeamChooseController.Teams.Alchemy)
                 {
