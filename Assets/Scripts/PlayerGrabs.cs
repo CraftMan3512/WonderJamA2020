@@ -32,7 +32,14 @@ public class PlayerGrabs : MonoBehaviour
 
     }
 
-    public void UseItem()
+    public Item UseItem()
+    {
+
+        return grabbedItem;
+
+    }
+
+    public void RemoveItem()
     {
 
         grabbedItem = null;

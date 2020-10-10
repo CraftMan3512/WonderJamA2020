@@ -21,7 +21,14 @@ public class PlayerControls : MonoBehaviour
     public bool lockMovement = false;
     public float interactRadius = 0.75f;
 
+    private Animator animator;
+
     public Manette Manette { get => manette; set => manette = value; }
+
+    private void Start()
+    {
+        animator = transform.Find("Sprite").GetComponent<Animator>();
+    }
 
     public void GetPlayerGamepad(int index)
     {
@@ -54,6 +61,19 @@ public class PlayerControls : MonoBehaviour
         }
 
         if (Manette.aButton.wasPressedThisFrame && !lockMovement) CheckInteraction();
+
+        //animations
+        AnimationControl();
+
+    }
+
+    void AnimationControl()
+    {
+        
+        animator.SetFloat("speed",Manette.leftStick.magnitude);
+        if (Manette.leftStick.magnitude > 0.2) animator.SetBool("moving", true);
+        else animator.SetBool("moving", false);
+
 
     }
 
