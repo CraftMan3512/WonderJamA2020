@@ -7,7 +7,7 @@ public static class PlayerInputs
 {
     
     public static Manette[] pControllers = new Manette[4];
-    private static int playerAdded = 0;
+    public static int playerAdded = 0;
     public static List<Manette> gamepads = new List<Manette>();
     
     public static void SetPlayerController(Manette device, int player)
