@@ -57,7 +57,7 @@ public class PlayerEntry : MonoBehaviour
             }
 
         };
-        Debug.Log("WE HAVE " + PlayerInputs.gamepads.Count + " GAMEPADS!");
+        //Debug.Log("WE HAVE " + PlayerInputs.gamepads.Count + " GAMEPADS!");
         foreach (Manette man in PlayerInputs.gamepads)
         {
 
