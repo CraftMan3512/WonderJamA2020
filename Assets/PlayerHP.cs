@@ -23,7 +23,7 @@ public class BarAdjustment : MonoBehaviour
         
     }
 
-    public void Remove(float damage)
+    public void TakeDamage(float damage)
     {
         for(float i = 0.1f; i < damage;)
         {
