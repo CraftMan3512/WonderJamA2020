@@ -37,9 +37,9 @@ public class PlayerJoinTester : MonoBehaviour
 
             if (PlayerInputs.GetPlayerController(0).selectButton.wasPressedThisFrame)
             {
-
+                AlchemyValues.playerInventory= new List<Item>[PlayerInputs.playerAdded+1];
                 SceneManager.LoadScene("DayTransition",LoadSceneMode.Single);
-
+                
             }
             
         }
