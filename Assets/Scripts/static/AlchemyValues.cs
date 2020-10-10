@@ -9,9 +9,11 @@ public static class AlchemyValues
     public static List<Recipe> remainingRecipes = new List<Recipe>();
     public static List<Recipe> finishedRecipes = new List<Recipe>();
     public static int materialsPerRecipe = 3;
-    public static float potionProgress;
+    public static float potionProgress = 0;
 
-    private static int[] itemsAt;
+    public
+
+    static int[] itemsAt;
 
     //All materials
     public static Item[] materialPool =

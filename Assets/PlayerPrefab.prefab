@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 3011910849230837990}
   - component: {fileID: 5317652283358877106}
   - component: {fileID: 1623328928704743569}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Filler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 8131565056274371467}
   - component: {fileID: 2622886363436749768}
   - component: {fileID: 163959662514794873}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -287,7 +287,6 @@ GameObject:
   - component: {fileID: -8476953703607497813}
   - component: {fileID: 87625495717657163}
   - component: {fileID: 4356189754400199127}
-  - component: {fileID: 8149704650835430404}
   - component: {fileID: 5013755890448772820}
   m_Layer: 0
   m_Name: PlayerPrefab
@@ -325,7 +324,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ce72c0561e9b774a87fe0d845d73847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Healthbar: {fileID: 7341446936537523855}
+  SpriteRenderer: {fileID: 5241670068381158393}
+  rateOfLoss: 10
+  maxHp: 100
   startTimeBtwAttack: 0.3
+  AttackParticle: {fileID: 2385854679654427526, guid: c44b4c1a0296a614986351f9f69ddcbe, type: 3}
   attackPos: {fileID: 6477661920436633255}
   whatIsEnemies:
     serializedVersion: 2
@@ -347,7 +351,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -555,7 +559,7 @@ GameObject:
   - component: {fileID: 1487725871479803661}
   - component: {fileID: 726345423477647017}
   - component: {fileID: 7341446936537523855}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Health Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -659,7 +663,7 @@ GameObject:
   - component: {fileID: 7351386552299498478}
   - component: {fileID: 218009974656434903}
   - component: {fileID: 8418009984158771285}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,7 +761,7 @@ GameObject:
   - component: {fileID: 4300189729553206114}
   - component: {fileID: 2214913442162618767}
   - component: {fileID: 3572842299630653999}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Border
   m_TagString: Untagged
   m_Icon: {fileID: 0}

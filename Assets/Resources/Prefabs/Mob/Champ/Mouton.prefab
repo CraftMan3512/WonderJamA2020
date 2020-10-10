@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 5549445330142986344}
   - component: {fileID: 5620054606280566573}
   - component: {fileID: 3377032884769000668}
-  - component: {fileID: 8639359674914959689}
   - component: {fileID: 6958438753533382861}
   - component: {fileID: 4407687972794356879}
+  - component: {fileID: 6159266545503737200}
   m_Layer: 8
   m_Name: Mouton
   m_TagString: Untagged
@@ -105,32 +105,10 @@ MonoBehaviour:
   blood: {fileID: 1404548311561541204, guid: 7fae5f0f607a8fe438f984f5c8fa665d, type: 3}
   timeRed: 0.15
   itemID: 2
---- !u!61 &8639359674914959689
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 892092137134705117}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.014323354, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4539252, y: 0.37070706}
-    oldSize: {x: 9.6, y: 10}
-    newSize: {x: 9.6, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 4.3286467, y: 0.8}
-  m_EdgeRadius: 0
+  startTimeBtwAttack: 0
+  attackPos: {fileID: 0}
+  attackRange: 0
+  damage: 0
 --- !u!50 &6958438753533382861
 Rigidbody2D:
   serializedVersion: 4
@@ -139,7 +117,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892092137134705117}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -164,3 +142,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd905df2b9e06f4b80f42d98678f16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &6159266545503737200
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892092137134705117}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.37062645, y: -0.15045285}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.4539252, y: 0.37070706}
+    oldSize: {x: 9.6, y: 10}
+    newSize: {x: 9.6, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.3287325, y: 0.5433377}
+  m_EdgeRadius: 0

@@ -27,10 +27,11 @@ public class TileGenerator : MonoBehaviour
     {
         LastTilePos = 4; //6-2
         CurrZone = 1;
-        Generate(1);
+        Generate(CurrZone);
         
+
         //Get all zones
-        
+
 
     }
 
@@ -51,10 +52,10 @@ public class TileGenerator : MonoBehaviour
     private void Update()
     {
         RightBoundaryPos = transform.position.x + 4.5f;
-        if (RightBoundaryPos - 4 >= LastTilePos)
+        if (RightBoundaryPos >= LastTilePos)
         {
-            Generate(CurrZone);
             CurrZone++;
+            Generate(CurrZone);
         }
     }
 
@@ -64,7 +65,8 @@ public class TileGenerator : MonoBehaviour
         int RealNOT = NumberOfTilesPerZone+Random.Range(0,RangeOfRandomnessOfTiles);
         for (int i = 0; i < RealNOT; i++)
         {
-            GameObject tempTile = Instantiate(TilePrefab, new Vector3(LastTilePos+2,0,0),TilePrefab.transform.rotation);
+            GameObject tempTile = Instantiate(TilePrefab, new Vector3(LastTilePos + 2, 0, 0),
+                TilePrefab.transform.rotation);
             tempTile.AddComponent<Tile>();
             tempTile.transform.SetParent(ParentOfAllTiles.transform);
             LastTilePos += 2;
