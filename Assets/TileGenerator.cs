@@ -19,12 +19,17 @@ public class TileGenerator : MonoBehaviour
     public static Sprite[] allZones;
     public static GameObject Mobs;
     public static GameObject Items;
+    private bool GameNeedsSetup;
     
     private int TotalNumberOfTiles;
     public int CurrZone;
     
     private void Start()
     {
+        if (AlchemyValues.posX != 0)
+        {
+            GameObject.Find("ExplorationTargetGroup").transform.position = new Vector3(AlchemyValues.posX-2.3f, 0,-11);
+        }
         LastTilePos = 4; //6-2
         CurrZone = 1;
         Generate(CurrZone);
@@ -57,12 +62,13 @@ public class TileGenerator : MonoBehaviour
             CurrZone++;
             Generate(CurrZone);
         }
+        AlchemyValues.posX = (int)RightBoundaryPos;
     }
 
     // Update is called once per frame
     void Generate(int zone)
     {
-        int RealNOT = NumberOfTilesPerZone+Random.Range(0,RangeOfRandomnessOfTiles);
+        int RealNOT = NumberOfTilesPerZone;
         for (int i = 0; i < RealNOT; i++)
         {
             GameObject tempTile = Instantiate(TilePrefab, new Vector3(LastTilePos + 2, 0, 0),
