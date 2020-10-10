@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: 677870239}
   - component: {fileID: 677870238}
   - component: {fileID: 677870241}
+  - component: {fileID: 677870243}
   - component: {fileID: 677870242}
   m_Layer: 0
   m_Name: AmazonBox
@@ -559,8 +560,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 418713181
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5c3bc72d00455f74e875c39afa6709e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -627,10 +628,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -3.65979}
+  m_Offset: {x: 0, y: 1.1235226}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 10, y: 10}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
@@ -638,8 +639,20 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10, y: 2.68042}
+  m_Size: {x: 10, y: 2.2470453}
   m_EdgeRadius: 0
+--- !u!114 &677870243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 677870237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd905df2b9e06f4b80f42d98678f16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1052901033
 GameObject:
   m_ObjectHideFlags: 3
@@ -1268,8 +1281,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1988267572}
   - component: {fileID: 1988267571}
-  - component: {fileID: 1988267573}
   - component: {fileID: 1988267574}
+  - component: {fileID: 1988267575}
+  - component: {fileID: 1988267573}
   m_Layer: 0
   m_Name: Brewing Stand
   m_TagString: Station
@@ -1314,8 +1328,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 418713181
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f4c40e382736b49438b457ae1577038d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1355,10 +1369,10 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5530347}
+  m_Offset: {x: 0, y: 0.20664006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.5, y: 1.5}
     newSize: {x: 1.5, y: 1.5}
     adaptiveTilingThreshold: 0.5
@@ -1366,7 +1380,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.39393055}
+  m_Size: {x: 1.5, y: 0.41328013}
   m_EdgeRadius: 0
 --- !u!114 &1988267574
 MonoBehaviour:
@@ -1383,6 +1397,18 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1988267575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988267570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd905df2b9e06f4b80f42d98678f16a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2058954387
 GameObject:
   m_ObjectHideFlags: 0
