@@ -16,6 +16,7 @@ public class PlayerControls : MonoBehaviour
     private Manette manette;
     public float startTimeBtwAttack;
     private double timeBtwAttack;
+    public GameObject BloodParticles;
 
     public Transform attackPos;
     public LayerMask whatIsEnemies;
@@ -60,7 +61,6 @@ public class PlayerControls : MonoBehaviour
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damage);
-                    Debug.Log("Touche un enemie");
                 }
                 timeBtwAttack = startTimeBtwAttack;
             }
@@ -93,6 +93,11 @@ public class PlayerControls : MonoBehaviour
         }else
         {
             SpriteRenderer.color=Color.white;
+        }
+        if (currHp <= 0)
+        {
+            Debug.Log("A player Died");
+            Destroy(gameObject);
         }
     }
 
