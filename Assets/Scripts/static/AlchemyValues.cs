@@ -14,9 +14,9 @@ public static class AlchemyValues
     //All materials
     public static Item[] materialPool =
     {
-        new Item("Diamant", Resources.Load<Sprite>("Sprites/Materials/diamant"), 0,1),
-        new Item("Fleur", Resources.Load<Sprite>("Sprites/Materials/fleur"), 1,1),
-        new Item("Roche", Resources.Load<Sprite>("Sprites/Materials/roche"), 2,1),
+        new Item("Buches", Resources.Load<Sprite>("Sprites/Materials/buches"), 0,1),
+        new Item("Champignon", Resources.Load<Sprite>("Sprites/Materials/mush"), 1, 1),
+        new Item("Rose", Resources.Load<Sprite>("Sprites/Materials/rose"), 2,1),
     };
 
     public static List<int> alchemyPlayers = new List<int>();
