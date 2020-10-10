@@ -9,12 +9,12 @@ public class ItemButton : MonoBehaviour
 
     private Item item;
 
-    public void SetItem(Item it, int quantity)
+    public void SetItem(Item it)
     {
 
         item = it;
         GetComponent<Image>().sprite = item.image;
-        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "x" + quantity;
+        transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = "x" + it.qty;
 
     }
     

@@ -222,8 +222,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 418713181
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ebc8b64a512e64ea9a78a28c360b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMultiplier: 1
+  timeMultiplier: 10
   segments: 50
   xradius: 0.25
   yradius: 0.25
@@ -336,8 +336,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 418713181
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 47ebe7a3c766dce44a36187256eeaa68, type: 3}
   m_Color: {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
@@ -583,7 +583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 582707056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.12674, y: -1.4477996, z: -1.4644394}
+  m_LocalPosition: {x: 6.15, y: -1.4477996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -683,7 +683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 677870237}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.04, y: -3.49, z: 0}
+  m_LocalPosition: {x: -4.55, y: -3.29, z: 0}
   m_LocalScale: {x: 0.1838438, y: 0.1838438, z: 0.1838438}
   m_Children: []
   m_Father: {fileID: 0}
@@ -778,7 +778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693763339}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.30494, y: 1.06313, z: -217.07675}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -924,7 +924,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 965481222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 32.30494, y: 1.06313, z: -217.07675}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1485,11 +1485,11 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -4.5, y: 0}
-  - {x: 4.5, y: 0}
+  - {x: -4.5, y: -0.5}
+  - {x: 4.5, y: -0.5}
   - {x: 4.5, y: -5}
   - {x: -4.5, y: -5}
-  - {x: -4.5, y: 0}
+  - {x: -4.5, y: -0.5}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -1881,16 +1881,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1737860486}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: 94d3ddbc9e74b9043ad9da27b3acbb51, type: 3}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: -4102524508043177311, guid: 94d3ddbc9e74b9043ad9da27b3acbb51, type: 3}
+  m_SubmitAction: {fileID: -801574828840852124, guid: 94d3ddbc9e74b9043ad9da27b3acbb51, type: 3}
+  m_CancelAction: {fileID: 8948401237752030783, guid: 94d3ddbc9e74b9043ad9da27b3acbb51, type: 3}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &1737860488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,6 +2017,7 @@ GameObject:
   - component: {fileID: 1988267574}
   - component: {fileID: 1988267575}
   - component: {fileID: 1988267573}
+  - component: {fileID: 1988267576}
   m_Layer: 0
   m_Name: Brewing Stand
   m_TagString: Station
@@ -2121,7 +2130,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onInteract:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1988267576}
+        m_TargetAssemblyTypeName: QTECombinaison, Assembly-CSharp
+        m_MethodName: StartQTE
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1988267575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2134,6 +2155,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd905df2b9e06f4b80f42d98678f16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1988267576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1988267570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68665c0050ada4140bfb94a022e7d7a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  accuracyBoost: 0.1
+  displayOffset: {x: 0, y: 3}
+  padding: 1
+  nbButtons: 6
 --- !u!1 &2009589104
 GameObject:
   m_ObjectHideFlags: 0
@@ -2162,7 +2199,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2058954387
 GameObject:
@@ -2311,5 +2348,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

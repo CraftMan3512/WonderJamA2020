@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1328477023857305918}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.164, y: 0, z: 201.41748}
+  m_LocalPosition: {x: 0.87, y: 0.51, z: 201.41748}
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4400072479116033931}
@@ -190,10 +190,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4400072479116033931}
   - component: {fileID: -8476953703607497813}
-  - component: {fileID: 2616905514847150312}
   - component: {fileID: 87625495717657163}
   - component: {fileID: 4356189754400199127}
   - component: {fileID: 8149704650835430404}
+  - component: {fileID: 5013755890448772820}
   m_Layer: 0
   m_Name: PlayerPrefab
   m_TagString: Player
@@ -240,22 +240,6 @@ MonoBehaviour:
   moveSpeed: 4
   lockMovement: 0
   interactRadius: 1.5
---- !u!58 &2616905514847150312
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5011906022637059942}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.08
 --- !u!50 &87625495717657163
 Rigidbody2D:
   serializedVersion: 4
@@ -304,6 +288,32 @@ MonoBehaviour:
   maxHealth: 100
   currenthealth: 0
   healthbar: {fileID: 7341446936537523855}
+--- !u!61 &5013755890448772820
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5011906022637059942}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.06951553, y: 0.07017207}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9389061, y: 0.17950773}
+  m_EdgeRadius: 0
 --- !u!1 &5372820818553115893
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +325,8 @@ GameObject:
   - component: {fileID: 8102268242718156770}
   - component: {fileID: 5241670068381158393}
   - component: {fileID: 4630376413241225470}
+  - component: {fileID: 7142666167242417040}
+  - component: {fileID: 4554712587575365804}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -676,3 +688,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!111 &7142666167242417040
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372820818553115893}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5b461e45791175744bf1e0172356f158, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 1dfcdb0993813584bb118f66f200c964, type: 2}
+  - {fileID: 7400000, guid: 5b461e45791175744bf1e0172356f158, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &4554712587575365804
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372820818553115893}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d32dbfef4bcec964f847eed5d147da10, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

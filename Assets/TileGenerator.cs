@@ -16,22 +16,36 @@ public class TileGenerator : MonoBehaviour
     public int RangeOfRandomnessOfTiles;
     public float RightBoundaryPos;
     public int LastTilePos;
+    public static Sprite[] allZones;
+    public static GameObject Mobs;
+    public static GameObject Items;
     
     private int TotalNumberOfTiles;
     public int CurrZone;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-        //Starting tiles
-       
-    }
-
+    
     private void Start()
     {
         LastTilePos = 4; //6-2
-        Generate(1);
         CurrZone = 1;
+        Generate(1);
+        
+        //Get all zones
+        
+
+    }
+
+    private void Awake()
+    {
+        allZones = new[]
+        {
+            Resources.Load<Sprite>("Sprites/Zones/foret"),
+            Resources.Load<Sprite>("Sprites/Zones/champ"),
+            Resources.Load<Sprite>("Sprites/Zones/desert"),
+            Resources.Load<Sprite>("Sprites/Zones/jungle"),
+            Resources.Load<Sprite>("Sprites/Zones/foret") 
+        };
+        Mobs = GameObject.Find("Mobs");
+        Items = GameObject.Find("Items");
     }
 
     private void Update()
