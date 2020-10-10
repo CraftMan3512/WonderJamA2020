@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
             SpawnPoints.Add(child.gameObject);
             if (chanceRes < Random.Range(1, 100))
             {
-                Instantiate(RessourceDrop(zone), child.transform.position, Quaternion.identity);
+               
             }
         }
     }

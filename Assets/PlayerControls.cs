@@ -17,11 +17,15 @@ public class PlayerControls : MonoBehaviour
     public float attackRange;
     public int damage;
     public float moveSpeed;
-    
+
+    public bool lockMovement = false;
+
+    public Manette Manette { get => manette; set => manette = value; }
+
     public void GetPlayerGamepad(int index)
     {
 
-        manette = PlayerInputs.GetPlayerController(index);
+        Manette = PlayerInputs.GetPlayerController(index);
 
     }
 
@@ -30,7 +34,7 @@ public class PlayerControls : MonoBehaviour
         //Attacks
         if (timeBtwAttack <= 0)
         {
-            if (manette.bButton.wasPressedThisFrame)
+            if (Manette.bButton.wasPressedThisFrame)
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length ;i++)
@@ -48,7 +52,7 @@ public class PlayerControls : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
 
-        if (manette.bButton.wasPressedThisFrame) CheckInteraction();
+        if (Manette.bButton.wasPressedThisFrame) CheckInteraction();
 
     }
 
@@ -73,7 +77,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovePlayer()
     {
-        GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(manette.leftStick*Time.deltaTime*moveSpeed));
+        GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
     }
 }
 
