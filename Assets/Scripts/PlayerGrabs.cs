@@ -18,6 +18,13 @@ public class PlayerGrabs : MonoBehaviour
         
     }
 
+    public Item GetItemGrabbed()
+    {
+
+        return grabbedItem;
+
+    }
+    
     public void GrabItem(Item item)
     {
 
