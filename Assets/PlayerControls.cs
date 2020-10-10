@@ -25,15 +25,22 @@ public class PlayerControls : MonoBehaviour
 
     public Manette Manette { get => manette; set => manette = value; }
 
-    private void Start()
-    {
-        animator = transform.Find("Sprite").GetComponent<Animator>();
-    }
-
     public void GetPlayerGamepad(int index)
     {
 
         Manette = PlayerInputs.GetPlayerController(index);
+        animator = transform.Find("Sprite").GetComponent<Animator>();
+        
+        //sprite based on player
+        switch (index)
+        {
+            
+            case 0: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
+            case 1: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
+            case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
+            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
+            
+        }
 
     }
 
