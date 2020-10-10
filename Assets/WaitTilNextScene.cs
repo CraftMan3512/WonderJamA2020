@@ -22,8 +22,7 @@ public class WaitTilNextScene : MonoBehaviour
 
         if(PlayerInputs.pControllers[0].aButton.wasPressedThisFrame && PlayerInputs.pControllers[0].startButton.wasPressedThisFrame)
         {
-
-            NextScene();
+            SceneManager.LoadScene("DayTransition");
 
         }
     }
