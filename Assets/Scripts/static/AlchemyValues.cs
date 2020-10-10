@@ -8,11 +8,20 @@ public static class AlchemyValues
     public static List<Item> inventory = new List<Item>();
     public static List<Recipe> remainingRecipes = new List<Recipe>();
     public static List<Recipe> finishedRecipes = new List<Recipe>();
+
     private static int[] itemsAt;
-    public static Item[] materialPool = {new Flower(), new Stone(), new Ore()};
+
+    //All materials
+    public static Item[] materialPool =
+    {
+        new Item("Diamant", Resources.Load<Sprite>("Sprites/Materials/diamant"), 0,1),
+        new Item("Fleur", Resources.Load<Sprite>("Sprites/Materials/fleur"), 1,1),
+        new Item("Roche", Resources.Load<Sprite>("Sprites/Materials/roche"), 2,1),
+    };
 
     public static List<int> alchemyPlayers = new List<int>();
     public static List<int> explorationPlayers = new List<int>();
+    public static List<Item>[] playerInventory;
 
     public static float JoystickTreshhold = 0.5f;
 
@@ -26,8 +35,8 @@ public static class AlchemyValues
         }
 
 
-          while (itemsAt[0] < materialPool.Length )        
-          {
+        while (itemsAt[0] < materialPool.Length )        
+        {
             for(int i = itemsAt[materialPerRecipe-1]; i < materialPool.Length; i++)
             {
                 Item[] newRecipe = new Item[materialPerRecipe];
@@ -43,7 +52,7 @@ public static class AlchemyValues
             NextDigit(materialPerRecipe - 1);
             
         
-          }
+        }
 
 
         foreach(Recipe recipe in remainingRecipes)
