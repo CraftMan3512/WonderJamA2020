@@ -23,5 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ResultScreen.unity
     guid: 810f5a86463436f4da4ff306e8262d48
+  - enabled: 1
+    path: Assets/Scenes/NbDaysScene.unity
+    guid: 540553b4fa0ac0248948c55a7f1f4389
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8dce42a93bf32314aa17afc2f5c8390c, type: 2}
