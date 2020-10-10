@@ -95,21 +95,68 @@ public static class AlchemyValues
 
     }
 
-
-
-    public static int GetQuantity(int id)
+    public static void AddItems()
     {
-        int amount = 0;
-        foreach (Item item in inventory)
+
+        foreach (List<Item> pInv in playerInventory)
         {
-            if (item.id == id)
+
+            foreach (var newItem in pInv)
             {
-                amount++;
+
+                bool found = false;
+                for (int i = 0; i < inventory.Count; i++)
+                {
+
+                    //si item existe on ajoute 1 à la quantité
+                    if (inventory[i].id == newItem.id)
+                    {
+
+                        inventory[i].qty++;
+                        found = true;
+                        break;
+
+                    }
+                
+                }
+                
+                if (!found) inventory.Add(newItem);
+                
+                
             }
+            
+            pInv.Clear();
+            
         }
-        return amount;
+        
     }
 
+    public static void AddItemToPlayer(int p, Item item)
+    {
+
+        if (playerInventory[p] != null)
+        {
+
+            bool found = false;
+            foreach (Item current in playerInventory[p])
+            {
+
+                if (current.id == item.id)
+                {
+
+                    found = true;
+                    current.qty++;
+                    break;
+
+                }
+                
+            }
+            
+            if (!found) playerInventory[p].Add(item);
+            
+        }
+        
+    }
     public static void RemoveItem(Item it)
     {
 
@@ -119,7 +166,8 @@ public static class AlchemyValues
 
             if (i.id == it.id)
             {
-                inventory.Remove(i);
+                if (i.qty > 1) i.qty--;
+                else inventory.Remove(i);
                 break;
             }
 

@@ -9,6 +9,8 @@ public class Item
     public Sprite image;
     public int id;
     public int zone;
+    public int qty;
+    public float accuracy;
 
     public Item (string name, Sprite image, int id, int zone)
     {
@@ -17,6 +19,8 @@ public class Item
         this.image = image;
         this.id = id;
         this.zone = zone;
+        qty = 1;
+        accuracy = 0;
     }
 
     public int getZone()

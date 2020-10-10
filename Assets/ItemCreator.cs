@@ -29,7 +29,7 @@ public class ItemCreator : MonoBehaviour
     public void AddInventory(GameObject ply)
     {
         Debug.Log("I interacted with box");
-        AlchemyValues.playerInventory[int.Parse(ply.name.Substring(1))].Add(contains);
+        AlchemyValues.AddItemToPlayer(int.Parse(ply.name.Substring(1)),contains);
         Destroy(gameObject);
     }
 

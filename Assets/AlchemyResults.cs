@@ -21,6 +21,10 @@ public class AlchemyResults : MonoBehaviour
             }
             display.GetComponent<TextMeshProUGUI>().text = text;
         }
+        
+        //add player inventories to amazonbox
+        AlchemyValues.AddItems();
+
     }
 
 

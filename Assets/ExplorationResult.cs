@@ -19,7 +19,7 @@ public class ExplorationResult : MonoBehaviour
 
             for (int j = 0; j < AlchemyValues.playerInventory[AlchemyValues.explorationPlayers[i]].Count; j++)
             {
-                text = text + "\n" + AlchemyValues.playerInventory[AlchemyValues.explorationPlayers[i]][j].name + " X 1";
+                text = text + "\n" + AlchemyValues.playerInventory[AlchemyValues.explorationPlayers[i]][j].name + " X " + AlchemyValues.playerInventory[AlchemyValues.explorationPlayers[i]][j].qty;
             }
             display.GetComponent<TextMeshProUGUI>().text = text;
         }
