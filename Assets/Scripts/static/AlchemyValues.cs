@@ -26,6 +26,12 @@ public static class AlchemyValues
         new Item("Cerveau", Resources.Load<Sprite>("Sprites/Materials/cerveau"), 4,6),
         new Item("Tulipe", Resources.Load<Sprite>("Sprites/Materials/fleur"), 5,2),
         new Item("Herbe", Resources.Load<Sprite>("Sprites/Materials/fern"), 6,1),
+        new Item("Branches", Resources.Load<Sprite>("Sprites/Materials/branche"), 7,1),
+        new Item("Fer", Resources.Load<Sprite>("Sprites/Materials/iron"), 8,5),
+        new Item("Liannes", Resources.Load<Sprite>("Sprites/Materials/junglebranche"), 9,6),
+        new Item("Rocher", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,5),
+        new Item("Coccinnelle", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
+        new Item("Uranium", Resources.Load<Sprite>("Sprites/Materials/uranium"), 12,5),
     };
 
     public static List<int> alchemyPlayers = new List<int>();
