@@ -73,7 +73,7 @@ public class BoxMenu : MonoBehaviour
 
     private void Cancel()
     {
-        //TODO redonner movement au joueur
+        playerInteracted.GetComponent<PlayerControls>().lockMovement = false;
         Destroy(gameObject);
     }
 
@@ -105,7 +105,7 @@ public class BoxMenu : MonoBehaviour
 
     void OnItemGrab()
     {
-        //TODO redonner movement au joueur
+        
         Item item = deduplicatedItems[selectedMat];
         playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
         Debug.Log("PLAYER GRABBED " + item.name);

@@ -52,14 +52,14 @@ public class PlayerControls : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
 
-        if (Manette.aButton.wasPressedThisFrame) CheckInteraction();
+        if (Manette.aButton.wasPressedThisFrame && !lockMovement) CheckInteraction();
 
     }
 
     void CheckInteraction()
     {
         
-        Collider2D[] thingsNear = Physics2D.OverlapCircleAll(transform.position, 5);
+        Collider2D[] thingsNear = Physics2D.OverlapCircleAll(transform.position, 10);
         foreach (var station in thingsNear)
         {
 
