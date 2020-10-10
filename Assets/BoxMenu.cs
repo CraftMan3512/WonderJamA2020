@@ -12,6 +12,8 @@ public class BoxMenu : MonoBehaviour
     
     private List<Item> items;
 
+    public int nbItemsPerLine = 4;
+
     public float xPadding,yPadding;
     public GameObject materialPrefab;
     public Vector2 offset;
@@ -26,7 +28,7 @@ public class BoxMenu : MonoBehaviour
 
         //manette = PlayerInputs.GetPlayerController(0);
         items = AlchemyValues.inventory;
-        SetupDisplay(3);
+        SetupDisplay(nbItemsPerLine);
         SelectMat(0);
         //AlchemyValues.PopulateRecipes(3);
 

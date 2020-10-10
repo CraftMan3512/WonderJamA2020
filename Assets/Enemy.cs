@@ -129,7 +129,7 @@ public class Enemy : MonoBehaviour
         rb.MovePosition((Vector2)transform.position+(direction*moveSpeed*Time.deltaTime));
     }
 
-    public void takeDamage(int dmg)
+    public void takeDamage(float dmg)
     {
         justGotDamaged = false;
         health -= dmg;
