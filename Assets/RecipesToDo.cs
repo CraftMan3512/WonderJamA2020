@@ -41,6 +41,13 @@ public class RecipesToDo : MonoBehaviour
     {
         float x = gameObject.transform.position.x;
         float y = gameObject.transform.position.y;
+        foreach(List<GameObject> l in recipesObjects)
+        {
+            foreach(GameObject o in l)
+            {
+                Destroy(o);
+            }
+        }
         recipesObjects.Clear();
         
         foreach(Recipe recipe in recipesToDo)
@@ -53,9 +60,7 @@ public class RecipesToDo : MonoBehaviour
                 item.GetComponent<SpriteRenderer>().sprite = recipe.items[i].image;
                 item.transform.position = new Vector2(x + xOffSet * i, y);
                 item.name = recipe.items[i].name;
-                recipeObjects.Add(item);
-
-                
+                recipeObjects.Add(item);               
             }
             recipesObjects.Add(recipeObjects);
            
