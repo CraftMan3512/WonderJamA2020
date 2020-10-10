@@ -18,7 +18,7 @@ public class TileGenerator : MonoBehaviour
     public int LastTilePos;
     
     private int TotalNumberOfTiles;
-    private int CurrZone;
+    public int CurrZone;
 
     // Start is called before the first frame update
     void Awake()
