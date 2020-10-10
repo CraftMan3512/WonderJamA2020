@@ -9,17 +9,82 @@ public class PlayerControls : MonoBehaviour
 {
 
     private Manette manette;
+    public float startTimeBtwAttack;
+    private float timeBtwAttack;
+
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public int damage;
+    public float moveSpeed;
+
+    public bool lockMovement = false;
+    private float interactRadius = 0.75f;
+
+    public Manette Manette { get => manette; set => manette = value; }
 
     public void GetPlayerGamepad(int index)
     {
 
-        manette = PlayerInputs.GetPlayerController(index);
+        Manette = PlayerInputs.GetPlayerController(index);
 
     }
 
     private void Update()
     {
+        //Attacks
+        if (timeBtwAttack <= 0)
+        {
+            if (Manette.bButton.wasPressedThisFrame)
+            {
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length ;i++)
+                {
+                    enemiesToDamage[i].GetComponent<Enemy>().health -= damage;
+                    Debug.Log("Touche un enemie");
+                }
+
+            }
+
+            timeBtwAttack = startTimeBtwAttack;
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
+        if (Manette.aButton.wasPressedThisFrame && !lockMovement) CheckInteraction();
+
+    }
+
+    void CheckInteraction()
+    {
         
+        Collider2D[] thingsNear = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+        foreach (var station in thingsNear)
+        {
+
+            if (station.CompareTag("Station"))
+            {
+
+                station.GetComponent<Interactable>().Interact(gameObject);
+                break;
+            }
+            
+        }
+
+    }
+    
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position,attackRange);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position,interactRadius);
     }
 
     private void FixedUpdate()
@@ -30,8 +95,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovePlayer()
     {
-
-        transform.Translate(manette.leftStick);
-
+        if (!lockMovement) GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
     }
 }
+
