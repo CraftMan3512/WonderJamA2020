@@ -10,7 +10,7 @@ public class PlayerControls : MonoBehaviour
 
     private Manette manette;
     public float startTimeBtwAttack;
-    private float timeBtwAttack;
+    private double timeBtwAttack;
 
     public Transform attackPos;
     public LayerMask whatIsEnemies;
@@ -25,15 +25,22 @@ public class PlayerControls : MonoBehaviour
 
     public Manette Manette { get => manette; set => manette = value; }
 
-    private void Start()
-    {
-        animator = transform.Find("Sprite").GetComponent<Animator>();
-    }
-
     public void GetPlayerGamepad(int index)
     {
 
         Manette = PlayerInputs.GetPlayerController(index);
+        animator = transform.Find("Sprite").GetComponent<Animator>();
+        
+        //sprite based on player
+        switch (index)
+        {
+            
+            case 0: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
+            case 1: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
+            case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
+            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
+            
+        }
 
     }
 
@@ -44,16 +51,14 @@ public class PlayerControls : MonoBehaviour
         {
             if (Manette.bButton.wasPressedThisFrame)
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position,attackRange,whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length ;i++)
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
-                    enemiesToDamage[i].GetComponent<Enemy>().health -= damage;
+                    enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damage);
                     Debug.Log("Touche un enemie");
                 }
-
+                timeBtwAttack = startTimeBtwAttack;
             }
-
-            timeBtwAttack = startTimeBtwAttack;
         }
         else
         {
@@ -73,6 +78,16 @@ public class PlayerControls : MonoBehaviour
         animator.SetFloat("speed",Manette.leftStick.magnitude);
         if (Manette.leftStick.magnitude > 0.2) animator.SetBool("moving", true);
         else animator.SetBool("moving", false);
+        
+        //flip sprite
+        if (Manette.leftStick.magnitude > 0.2)
+        {
+
+            animator.GetComponent<SpriteRenderer>().flipX = (Manette.leftStick.x < 0);
+            if (Manette.leftStick.x < 0) attackPos.transform.localPosition = new Vector3(-0.87f,attackPos.transform.localPosition.y);
+                else attackPos.transform.localPosition = new Vector3(0.87f,attackPos.transform.localPosition.y);
+
+        }
 
 
     }
