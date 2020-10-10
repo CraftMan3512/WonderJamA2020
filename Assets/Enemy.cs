@@ -47,14 +47,17 @@ public class Enemy : MonoBehaviour
         
         for (int i = 0; i < allPlayers.Length; i++)
         {
-            direction = allPlayers[i].GetComponent<Transform>().position - transform.position;
-            if (i == 0)
+            if (allPlayers[i]!=null)
             {
-                closestDirection = direction;
-            }else 
-            if (direction.magnitude < closestDirection.magnitude)
-            {
-                closestDirection = direction;
+                direction = allPlayers[i].GetComponent<Transform>().position - transform.position;
+                if (i == 0)
+                {
+                    closestDirection = direction;
+                }
+                else if (direction.magnitude < closestDirection.magnitude)
+                {
+                    closestDirection = direction;
+                }
             }
         }
         //Chase
@@ -72,7 +75,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             GameObject temp = Instantiate(prefab, transform.position, Quaternion.identity);
-            temp.GetComponent<ItemCreator>().setItem(AlchemyValues.materialPool[itemID]);
+            temp.GetComponent<ItemCreator>().setItem(AlchemyValues.materialPool[itemID-1]);
             Instantiate(blood, transform.position, Quaternion.identity);
             //Dying stuff here
             Destroy(gameObject);
