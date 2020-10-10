@@ -44,7 +44,9 @@ public class Manager : MonoBehaviour
 
         playerEffects[int.Parse(player.name.Substring(1))].Add(curse);
         curse.Invoke(player);
-       
+
+        GameObject.Find("CurseDisplay").GetComponent<CurseDisplayer>().SetCurseDisplay(curse);
+
     }
 
     public void NextDay()
