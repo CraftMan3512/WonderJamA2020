@@ -12,9 +12,7 @@ public class Interactable : MonoBehaviour
 
     public void Interact(GameObject player)
     {
-        
         onInteract.Invoke(player);
-        
     }
     
 }

@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DayTransition.unity
     guid: ce259f4457e9b4a47be8335aa5f02d96
+  - enabled: 1
+    path: Assets/Scenes/ResultScreen.unity
+    guid: 810f5a86463436f4da4ff306e8262d48
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8dce42a93bf32314aa17afc2f5c8390c, type: 2}

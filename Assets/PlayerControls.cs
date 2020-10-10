@@ -19,7 +19,7 @@ public class PlayerControls : MonoBehaviour
     public float moveSpeed;
 
     public bool lockMovement = false;
-    private float interactRadius = 0.75f;
+    public float interactRadius = 0.75f;
 
     public Manette Manette { get => manette; set => manette = value; }
 
