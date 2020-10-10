@@ -73,6 +73,16 @@ public class PlayerControls : MonoBehaviour
         animator.SetFloat("speed",Manette.leftStick.magnitude);
         if (Manette.leftStick.magnitude > 0.2) animator.SetBool("moving", true);
         else animator.SetBool("moving", false);
+        
+        //flip sprite
+        if (Manette.leftStick.magnitude > 0.2)
+        {
+
+            animator.GetComponent<SpriteRenderer>().flipX = (Manette.leftStick.x < 0);
+            if (Manette.leftStick.x < 0) attackPos.transform.localPosition = new Vector3(-0.87f,attackPos.transform.localPosition.y);
+                else attackPos.transform.localPosition = new Vector3(0.87f,attackPos.transform.localPosition.y);
+
+        }
 
 
     }
