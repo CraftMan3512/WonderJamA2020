@@ -25,8 +25,10 @@ public class PlayerSpawner : MonoBehaviour
             }
 
         }
+        
+        GameObject.Find("CurseManager").GetComponent<Manager>().NextDay();
 
-        Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
+        // Enemy spawn Instantiate(enemyPrefab, Vector3.zero, Quaternion.identity);
     }
 
     // Update is called once per frame
