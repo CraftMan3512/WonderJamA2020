@@ -17,7 +17,6 @@ public class ItemCreator : MonoBehaviour
     public void setItem(Item item)
     {
         contains = item;
-        Debug.Log(item.name+ " Lol");
         gameObject.GetComponent<SpriteRenderer>().sprite = item.image;
     }
 
@@ -28,7 +27,6 @@ public class ItemCreator : MonoBehaviour
 
     public void AddInventory(GameObject ply)
     {
-        Debug.Log("I interacted with box");
         AlchemyValues.AddItemToPlayer(int.Parse(ply.name.Substring(1)),contains);
         Destroy(gameObject);
     }
