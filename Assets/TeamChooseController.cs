@@ -40,10 +40,16 @@ public class TeamChooseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (!(manette.leftStick.x < 0.5 && manette.leftStick.x > -0.5)) MoveToTeam();
-        if (manette.aButton.wasPressedThisFrame) Ready();
-        if (manette.bButton.wasPressedThisFrame) UnReady();
+        if (DayTime.day == 2)//pendant la transition donc c'Est un day de moins
+        {
+            if (!(manette.leftStick.x < 0.5 && manette.leftStick.x > -0.5)) MoveToTeam();
+            if (manette.aButton.wasPressedThisFrame) Ready();
+            if (manette.bButton.wasPressedThisFrame) UnReady();
+        }else if (GameObject.Find("Transition") == null)
+        {
+            team = Teams.Exploration;
+            Ready();
+        }
 
     }
 
@@ -64,6 +70,7 @@ public class TeamChooseController : MonoBehaviour
 
     void MoveToTeam()
     {
+        
         if (ready) return;
         
         if (manette.leftStick.x < 0.5)
