@@ -37,9 +37,12 @@ public class PlayerJoinTester : MonoBehaviour
 
             if (PlayerInputs.GetPlayerController(0).selectButton.wasPressedThisFrame)
             {
-
+                AlchemyValues.playerInventory= new List<Item>[PlayerInputs.playerAdded+1];
+                for (int i = 0; i < AlchemyValues.playerInventory.Length; i++)
+                {
+                    AlchemyValues.playerInventory[i]=new List<Item>();
+                }
                 SceneManager.LoadScene("DayTransition",LoadSceneMode.Single);
-
             }
             
         }
@@ -48,9 +51,6 @@ public class PlayerJoinTester : MonoBehaviour
 
     private bool PlayerExists(int player)
     {
-
-        //Debug.Log("Pla");
         return PlayerInputs.GetPlayerController(player) != null;
-
     }
 }

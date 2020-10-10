@@ -14,10 +14,10 @@ public class AmazonBox : MonoBehaviour
     void Start()
     {
         
-        AlchemyValues.inventory.Add(new Flower());
+        /*AlchemyValues.inventory.Add(new Flower());
         AlchemyValues.inventory.Add(new Flower());
         AlchemyValues.inventory.Add(new Stone());
-        AlchemyValues.inventory.Add(new Ore());
+        AlchemyValues.inventory.Add(new Ore());*/
         
     }
 
@@ -29,7 +29,6 @@ public class AmazonBox : MonoBehaviour
 
     public void OnInteract(GameObject player)
     {
-
         if (AlchemyValues.inventory.Count > 0)
         {
             
