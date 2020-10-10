@@ -52,15 +52,26 @@ public class PlayerControls : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
 
-        if (Manette.bButton.wasPressedThisFrame) CheckInteraction();
+        if (Manette.aButton.wasPressedThisFrame) CheckInteraction();
 
     }
 
     void CheckInteraction()
     {
         
-                
-        
+        Collider2D[] thingsNear = Physics2D.OverlapCircleAll(transform.position, 5);
+        foreach (var station in thingsNear)
+        {
+
+            if (station.CompareTag("Station"))
+            {
+
+                station.GetComponent<Interactable>().Interact(gameObject);
+                break;
+            }
+            
+        }
+
     }
     
     void OnDrawGizmosSelected()
@@ -77,7 +88,7 @@ public class PlayerControls : MonoBehaviour
 
     void MovePlayer()
     {
-        GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
+        if (!lockMovement) GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
     }
 }
 

@@ -136,7 +136,7 @@ MonoBehaviour:
     m_Bits: 256
   attackRange: 0.89
   damage: 1
-  moveSpeed: 1
+  moveSpeed: 4
   lockMovement: 0
 --- !u!58 &2616905514847150312
 CircleCollider2D:

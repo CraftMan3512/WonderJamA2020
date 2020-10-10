@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Manager
+  - Station
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Enemy
   - AlchemyCam
   - ExplorationCam
-  - 
+  - Station
   - 
   - 
   - 
