@@ -11,6 +11,5 @@ public class Timer : MonoBehaviour
     void Update()
     {
         DayTime.AddTime(Time.deltaTime * timeMultiplier);
-        
     }
 }
