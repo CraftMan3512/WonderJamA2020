@@ -28,7 +28,6 @@ public class Manette
         kb = Keyboard.current;
         mouse = Mouse.current;
         gp = new Gamepad();
-
     }
 
     public Vector2 dpad
