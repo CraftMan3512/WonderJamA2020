@@ -35,8 +35,9 @@ public class AmazonBox : MonoBehaviour
             
             GameObject UI = Instantiate(UIPrefab, new Vector3(transform.position.x +offset.x, transform.position.y + offset.y),quaternion.identity,null);
             UI.GetComponent<BoxMenu>().playerInteracted = player;
-            player.GetComponent<PlayerControls>().lockMovement = true;   
-            
+            player.GetComponent<PlayerControls>().lockMovement = true;
+            UI.GetComponent<BoxMenu>().manette = player.GetComponent<PlayerControls>().Manette;
+
         }
 
     }

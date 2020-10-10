@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class DayTime
 {
@@ -23,7 +24,7 @@ public static class DayTime
 
     public static void NextDay()
     {
-
+        SceneManager.LoadScene("ResultScreen");
 
         time = 0;
     }

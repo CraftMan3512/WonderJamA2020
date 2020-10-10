@@ -19,6 +19,7 @@ public class PlayerControls : MonoBehaviour
     public float moveSpeed;
 
     public bool lockMovement = false;
+    private float interactRadius = 0.75f;
 
     public Manette Manette { get => manette; set => manette = value; }
 
@@ -59,7 +60,7 @@ public class PlayerControls : MonoBehaviour
     void CheckInteraction()
     {
         
-        Collider2D[] thingsNear = Physics2D.OverlapCircleAll(transform.position, 10);
+        Collider2D[] thingsNear = Physics2D.OverlapCircleAll(transform.position, interactRadius);
         foreach (var station in thingsNear)
         {
 
@@ -78,6 +79,12 @@ public class PlayerControls : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPos.position,attackRange);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position,interactRadius);
     }
 
     private void FixedUpdate()
