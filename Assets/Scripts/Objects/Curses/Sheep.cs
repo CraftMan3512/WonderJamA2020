@@ -53,6 +53,7 @@ public class Sheep : Effect
                 playerAffected.SetActive(true);
                 playerAffected.transform.position = sheep.transform.position;
                 GameObject.Destroy(sheep);
+                GameObject.Find("CurseManager").GetComponent<Manager>().RemoveCurse(this);
             }
         }
     }
