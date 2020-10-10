@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    List<Effect>[] playerEffects = new List<Effect>[PlayerInputs.playerAdded];
+    public List<Effect>[] playerEffects = new List<Effect>[PlayerInputs.playerAdded];
 
 
     private void Start()

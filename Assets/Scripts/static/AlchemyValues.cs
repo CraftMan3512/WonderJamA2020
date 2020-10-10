@@ -13,6 +13,7 @@ public static class AlchemyValues
 
     public static List<int> alchemyPlayers = new List<int>();
     public static List<int> explorationPlayers = new List<int>();
+    public static List<Item>[] playerInventory;
 
     public static float JoystickTreshhold = 0.5f;
 
