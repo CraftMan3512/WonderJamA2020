@@ -222,8 +222,8 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 418713181
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ebc8b64a512e64ea9a78a28c360b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeMultiplier: 0.1
+  timeMultiplier: 3
   segments: 50
   xradius: 0.25
   yradius: 0.25
@@ -1887,6 +1887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1665186049}
+  - component: {fileID: 1665186050}
   m_Layer: 0
   m_Name: ToDoList
   m_TagString: Untagged
@@ -1908,6 +1909,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1665186050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665186048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccbc8ab12dd19d48b88dcf12c330133, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  yOffSet: -0.5
+  xOffSet: 0.5
 --- !u!1 &1709192627
 GameObject:
   m_ObjectHideFlags: 0

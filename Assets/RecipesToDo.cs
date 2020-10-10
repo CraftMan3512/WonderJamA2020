@@ -7,12 +7,16 @@ public class RecipesToDo : MonoBehaviour
     public List<Recipe> recipesToDo = new List<Recipe>();
     public float yOffSet;
     public float xOffSet;
-    List<Item> itemsAvaible = AlchemyValues.inventory;
-    List<List<GameObject>> recipesObjects = new List<List<GameObject>>();
+    public List<Item> itemsAvaible = new List<Item>();
+    public List<List<GameObject>> recipesObjects = new List<List<GameObject>>();
     int totalAmountOfItems;
     // Start is called before the first frame update
     void Start()
     {
+        foreach(Item item in AlchemyValues.inventory)
+        {
+            itemsAvaible.Add(item.Copy());
+        }
         totalAmountOfItems = 0;
         foreach(Item item in itemsAvaible)
         {
@@ -24,18 +28,13 @@ public class RecipesToDo : MonoBehaviour
         {
             recipesShown = (int)(totalAmountOfItems / AlchemyValues.materialsPerRecipe);
         }
+        Debug.Log(recipesShown + " Recipes to show");
 
         for(int i = 0; i < recipesShown; i++)
         {
             AddRecipeToDo();
         }
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UpdateDisplay()
@@ -46,6 +45,7 @@ public class RecipesToDo : MonoBehaviour
         
         foreach(Recipe recipe in recipesToDo)
         {
+            y += yOffSet;
             List<GameObject> recipeObjects = new List<GameObject>();
             for(int i = 0; i < recipe.items.Length; i++)
             {
@@ -58,7 +58,7 @@ public class RecipesToDo : MonoBehaviour
                 
             }
             recipesObjects.Add(recipeObjects);
-            y += yOffSet;
+           
         }
     }
 
@@ -124,15 +124,16 @@ public class RecipesToDo : MonoBehaviour
         Item[] recipe = new Item[AlchemyValues.materialsPerRecipe];
         if(AlchemyValues.materialsPerRecipe <= totalAmountOfItems)
         {
+            Debug.Log(recipe.Length + " Materials per recipe shown");
             for(int i = 0; i < recipe.Length; i++)
             {
                 int randomItem = Random.Range(0, itemsAvaible.Count);
-                recipe[i] = itemsAvaible[i];
-                itemsAvaible[i].qty--;
+                recipe[i] = itemsAvaible[randomItem];
+                itemsAvaible[randomItem].qty--;
                 totalAmountOfItems--;
-                if (itemsAvaible[i].qty < 1)
+                if (itemsAvaible[randomItem].qty < 1)
                 {
-                    itemsAvaible.Remove(itemsAvaible[i]);                  
+                    itemsAvaible.Remove(itemsAvaible[randomItem]);                  
                 }
                    
 
