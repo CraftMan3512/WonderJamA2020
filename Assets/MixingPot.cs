@@ -10,7 +10,9 @@ public class MixingPot : MonoBehaviour
 
     public void AddIngredient(GameObject player)
     {
+        Debug.Log("IngredientADDED");
         Item item = player.GetComponent<PlayerGrabs>().GetItemGrabbed();
+        player.GetComponent<PlayerGrabs>().RemoveItem();
         if (item != null)
         {
             ingredients.Add(item);
@@ -51,6 +53,15 @@ public class MixingPot : MonoBehaviour
         {
 
             //quand c'est la bonne recette (pas besoin de toucher à todolist)
+            float severity = 0.2f;
+            foreach(Item item in ingredients)
+            {
+                severity += item.accuracy;                         
+                
+            }
+            AlchemyValues.AddProgress(severity / (DayTime.maxDays));
+
+            severity *= AlchemyValues.potionProgress / 10f;
         }
         
 

@@ -23,7 +23,6 @@ public class Enemy : MonoBehaviour
     public float startTimeBtwAttack;
     private double timeBtwAttack;
     public Transform attackPos;
-    public LayerMask whatIsPlayers;
     public float attackRange;
     public int damage;
 
@@ -63,7 +62,10 @@ public class Enemy : MonoBehaviour
             transform.localScale = new Vector3(-startScale,transform.localScale.y,transform.localScale.z);
         else
             transform.localScale = new Vector3(startScale,transform.localScale.y,transform.localScale.z);
-        
+        if (closestDirection.magnitude > 8)
+        {
+            closestDirection=Vector3.zero;
+        }
         closestDirection.Normalize();
         movement = closestDirection;
         
@@ -96,15 +98,14 @@ public class Enemy : MonoBehaviour
             if (timeBtwAttack <= 0)
             {
                 
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsPlayers);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange);
                 if (enemiesToDamage.Length > 0)
                 {
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
-                        //TODO enemiesToDamage[i].GetComponent<PlayerHp>().TakeDamage(damage);
-                        Debug.Log("Touche un enemie");
+                        if(enemiesToDamage[i].CompareTag("Player"))
+                            enemiesToDamage[i].GetComponent<PlayerControls>().takeDamage(damage);
                     }
-
                     timeBtwAttack = startTimeBtwAttack;
                 }
 
@@ -113,7 +114,7 @@ public class Enemy : MonoBehaviour
             {
                 timeBtwAttack -= Time.deltaTime;
             }
-        }
+        } 
     }
 
     private void FixedUpdate()
@@ -128,7 +129,7 @@ public class Enemy : MonoBehaviour
         rb.MovePosition((Vector2)transform.position+(direction*moveSpeed*Time.deltaTime));
     }
 
-    public void takeDamage(int dmg)
+    public void takeDamage(float dmg)
     {
         justGotDamaged = false;
         health -= dmg;
