@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
         float x = 0f;
         float y = 0f;
         float z = 0f;
-        float angle = 20f;
+        float angle = 0f;
 
         for (int i = 0; i < (segments + 1); i++)
         {
