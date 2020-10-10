@@ -189,7 +189,7 @@ public class PlayerControls : MonoBehaviour
     public void takeDamage(int dmg)
     {
         justGotDamaged = false;
-        dmgToDeal=dmg;
+        dmgToDeal+=dmg;
         justGotDamaged = true;
     }
 }
