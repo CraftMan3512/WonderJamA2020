@@ -9,6 +9,7 @@ public class Sheep : Effect
     GameObject manager;
     public Sheep(float timeTransformed)
     {
+        name = "Sheep";
         time = timeTransformed;
         manager = GameObject.Find("CurseManager");
     }
