@@ -19,7 +19,8 @@ public class PlayerSpawner : MonoBehaviour
 
             if (PlayerInputs.pControllers[i] != null)
             {
-                GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);  
+                GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+                newPlayer.name = "p" + i;
                 newPlayer.GetComponent<PlayerControls>().GetPlayerGamepad(i);
             }
 

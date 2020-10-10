@@ -98,7 +98,22 @@ public static class AlchemyValues
         return amount;
     }
 
+    public static void RemoveItem(Item it)
+    {
 
+        
+        foreach (var i in inventory)
+        {
+
+            if (i.id == it.id)
+            {
+                inventory.Remove(i);
+                break;
+            }
+
+        }
+        
+    }
 
     public static void FinishRecipe(Recipe r)
     {
