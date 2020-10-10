@@ -185,7 +185,7 @@ SpriteRenderer:
   m_Size: {x: 3.84, y: 4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!114 &1766641934961056416
@@ -329,7 +329,7 @@ MonoBehaviour:
   rateOfLoss: 10
   maxHp: 100
   startTimeBtwAttack: 0.3
-  AttackParticle: {fileID: 2385854679654427526, guid: c44b4c1a0296a614986351f9f69ddcbe, type: 3}
+  BloodParticles: {fileID: 0}
   attackPos: {fileID: 6477661920436633255}
   whatIsEnemies:
     serializedVersion: 2
@@ -338,7 +338,7 @@ MonoBehaviour:
   damage: 1
   moveSpeed: 4
   lockMovement: 0
-  interactRadius: 1.5
+  interactRadius: 1
 --- !u!50 &87625495717657163
 Rigidbody2D:
   serializedVersion: 4
@@ -373,21 +373,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HeldItem: {fileID: 1685908714705846474}
---- !u!114 &8149704650835430404
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5011906022637059942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6a5b886d97dafc4fb5926853b91392d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currenthealth: 0
-  healthbar: {fileID: 7341446936537523855}
 --- !u!61 &5013755890448772820
 BoxCollider2D:
   m_ObjectHideFlags: 0
