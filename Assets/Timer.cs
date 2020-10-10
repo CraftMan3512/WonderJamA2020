@@ -40,7 +40,10 @@ public class Timer : MonoBehaviour
             y = Mathf.Cos(Mathf.Deg2Rad * angle) * yradius;
 
             line.SetPosition(i, new Vector3(x, y, z));
-
+            if(DayTime.time > DayTime.timePerDay)
+            {
+                DayTime.time = DayTime.timePerDay;
+            }
             angle += (((360f)-(360f*(DayTime.time/DayTime.timePerDay))) / segments);
         }
     }
