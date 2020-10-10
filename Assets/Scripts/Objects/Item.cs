@@ -27,5 +27,13 @@ public class Item
     {
         return zone;
     }
+
+    public Item Copy()
+    {
+        Item copy = new Item(name, image, id, zone);
+        copy.qty = qty;
+        copy.accuracy = accuracy;
+        return copy;
+    }
     
 }
