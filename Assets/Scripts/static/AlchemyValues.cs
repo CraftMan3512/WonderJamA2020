@@ -190,5 +190,11 @@ public static class AlchemyValues
     }
 
 
+    public static void AddProgress(float amount)
+    {
+        potionProgress += amount;
+    }
+
+
 
 }
