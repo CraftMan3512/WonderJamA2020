@@ -13,7 +13,7 @@ public class ExplorationResult : MonoBehaviour
         float distanceBetweenDisplays = (maxX - minX) / AlchemyValues.explorationPlayers.Count;
         for (int i = 0; i < AlchemyValues.explorationPlayers.Count; i++)
         {
-            GameObject display = Instantiate((GameObject)Resources.Load("PlayerResult"), GameObject.Find("Canvas").transform);
+            GameObject display = Instantiate((GameObject)Resources.Load("Prefab/PlayerResult"), GameObject.Find("Canvas").transform);
             display.transform.localPosition = display.transform.localPosition = new Vector3(minX + i * distanceBetweenDisplays, display.transform.localPosition.y, display.transform.localPosition.z);
             string text = "Player " + AlchemyValues.explorationPlayers[i] + "\n\n";
             for(int j = 0; j < AlchemyValues.playerInventory[i].Count; j++)
