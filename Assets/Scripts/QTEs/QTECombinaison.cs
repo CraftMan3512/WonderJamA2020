@@ -27,6 +27,8 @@ public class QTECombinaison : MonoBehaviour
     private bool started = false;
     private GameObject playerObj;
 
+    private List<GameObject> buttonObjects = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +63,8 @@ public class QTECombinaison : MonoBehaviour
         if (!started && player.GetComponent<PlayerGrabs>().GetItemGrabbed() != null)
         {
             
+            combinaison.Clear();
+            buttonObjects.Clear();
             GenerateCombinaison();
             started = true;
             playerObj = player;
@@ -72,12 +76,13 @@ public class QTECombinaison : MonoBehaviour
 
     private void GenerateCombinaison()
     {
-        
+
+        Debug.Log("GENERATE");
             for (int i = 0; i < nbButtons; i++)
             {
 
                 Buttons butt;
-                int what = Random.Range(1, 6); 
+                int what = Random.Range(1, 7); 
                 switch (what)
                 {
                 
@@ -93,7 +98,7 @@ public class QTECombinaison : MonoBehaviour
                 combinaison.Enqueue(butt);
             
             }
-            UpdateDisplay();
+            SetupDisplay();
     }
 
     void CheckButton(Buttons button)
@@ -109,38 +114,52 @@ public class QTECombinaison : MonoBehaviour
                 //end qte
                 playerObj.GetComponent<PlayerControls>().lockMovement = false;
                 playerObj.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += accuracyBoost;
-                started = false;
+                StartCoroutine(DelayEnd());
 
 
             }
+
             UpdateDisplay();
 
         }
         
     }
 
-    void UpdateDisplay()
+    IEnumerator DelayEnd()
     {
         
-        if (display.transform.childCount > 0)
+        yield return new WaitForSeconds(1);
+        started = false;
+
+    }
+
+    void UpdateDisplay()
+    {
+
+        GameObject toDelete = buttonObjects[0];
+        buttonObjects.Remove(toDelete);
+        Destroy(toDelete);
+        foreach (GameObject o in buttonObjects)
         {
-            
-            foreach (var tf in display.transform.GetComponentsInChildren<Transform>())
-            {
-            
-                Destroy(tf.gameObject);
-                
-            }
-            
+
+            o.transform.localPosition -= new Vector3(padding,0);
+
         }
         
+    }
+    void SetupDisplay()
+    {
+        
+        //Debug.Log("SETUP QTE");
         Queue<Buttons> clone = new Queue<Buttons>(combinaison);
         
         for (int i = 0; i < combinaison.Count; i++)
         {
 
             GameObject button = Instantiate(Resources.Load<GameObject>("Prefabs/UI/button"),display.transform.position + new Vector3(i*padding,0),Quaternion.identity,display.transform);
-
+            
+            buttonObjects.Add(button);
+            
             Sprite spr;
             switch (clone.Dequeue())
             {
