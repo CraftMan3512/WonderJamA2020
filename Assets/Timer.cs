@@ -10,6 +10,7 @@ public class Timer : MonoBehaviour
     public float yradius;
     LineRenderer line;
 
+
     private void Start()
     {
 
@@ -22,6 +23,7 @@ public class Timer : MonoBehaviour
     {
         DayTime.AddTime(Time.deltaTime * timeMultiplier);
         UpdateTimer();
+
     }
 
 
@@ -39,7 +41,7 @@ public class Timer : MonoBehaviour
 
             line.SetPosition(i, new Vector3(x, y, z));
 
-            angle += (360f*(DayTime.time/DayTime.timePerDay) / segments);
+            angle += (((360f)-(360f*(DayTime.time/DayTime.timePerDay))) / segments);
         }
     }
 }

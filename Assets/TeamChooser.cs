@@ -49,8 +49,33 @@ public class TeamChooser : MonoBehaviour
             }
 
         }
+        if (DayTime.day > 1 && players.Count > 1)
+        {
+            int onePerTeamConfirm = 0;
+            foreach (TeamChooseController p in players)
+            {
+                if (p.team == TeamChooseController.Teams.Alchemy)
+                {
+                    onePerTeamConfirm++;
+                    break;
+                }
+            }
 
-        if (allready) GoToGame();
+            foreach (TeamChooseController p in players)
+            {
+                if (p.team == TeamChooseController.Teams.Exploration)
+                {
+                    onePerTeamConfirm++;
+                    break;
+                }
+            }
+
+            if (allready && onePerTeamConfirm == 2) GoToGame();
+        }
+        else
+        {
+            if (allready) GoToGame();
+        }
 
     }
 
@@ -72,9 +97,22 @@ public class TeamChooser : MonoBehaviour
     {
         AlchemyValues.alchemyPlayers.Clear();
         AlchemyValues.explorationPlayers.Clear();
+       
         foreach (TeamChooseController obj in GameObject.Find("Canvas").transform.GetComponentsInChildren<TeamChooseController>())
         {
-           
+            if (DayTime.day > 2)
+            {
+                if(obj.team == TeamChooseController.Teams.Alchemy)
+                {
+                    obj.team = TeamChooseController.Teams.Exploration;
+                }
+                else
+                {
+                    obj.team = TeamChooseController.Teams.Alchemy;
+                }
+
+            }
+
             if (obj.team == TeamChooseController.Teams.Alchemy)
             {
                 AlchemyValues.alchemyPlayers.Add(int.Parse(obj.gameObject.name.Substring(1))-1);
