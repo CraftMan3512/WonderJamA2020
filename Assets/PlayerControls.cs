@@ -15,7 +15,7 @@ public class PlayerControls : MonoBehaviour
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
-    public int damage;
+    public float damage;
     public float moveSpeed;
 
     public bool lockMovement = false;
