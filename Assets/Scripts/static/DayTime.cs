@@ -6,7 +6,7 @@ public static class DayTime
 {
     public static float time;
     public static int day = 0;
-    public static float timePerDay;
+    public static float timePerDay = 30;
 
 
     
