@@ -10,8 +10,8 @@ public class TileGenerator : MonoBehaviour
     public GameObject TilePrefab;
     public GameObject ParentOfAllTiles;
 
-    public static int ChanceRes=30;
-    public static int ChanceMob=30;
+    public static int ChanceRes= 5;
+    public static int ChanceMob= 30;
     public int NumberOfTilesPerZone;
     public int RangeOfRandomnessOfTiles;
     public float RightBoundaryPos;
@@ -38,7 +38,7 @@ public class TileGenerator : MonoBehaviour
         {
             GameObject.Find("ExplorationTargetGroup").transform.position = new Vector3(AlchemyValues.posX-2.3f, 0,-11);
         }
-        NumberOfTilesPerZone = DayTime.maxDays * 6;
+        NumberOfTilesPerZone = DayTime.maxDays * 9;
         endLength = 12+NumberOfTilesPerZone * 10 - 10;//todo regarder si le 10 est correct
         LastTilePos = 2; //6-4
         CurrZone = 1;

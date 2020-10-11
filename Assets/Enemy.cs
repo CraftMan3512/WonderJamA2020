@@ -36,7 +36,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         health = maxHealth;
-        allPlayers=GameObject.FindGameObjectsWithTag("Player");
+        
         rb = GetComponent<Rigidbody2D>();
         startScale = transform.localScale.x;
         prefab = Resources.Load<GameObject>("ItemPrefab");
@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        allPlayers =GameObject.FindGameObjectsWithTag("Player");
         if (!isEnvironment)
         {
             Vector3 direction;
