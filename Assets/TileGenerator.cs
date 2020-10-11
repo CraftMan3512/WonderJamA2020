@@ -10,8 +10,8 @@ public class TileGenerator : MonoBehaviour
     public GameObject TilePrefab;
     public GameObject ParentOfAllTiles;
 
-    public static int ChanceRes=15;
-    public static int ChanceMob=20;
+    public static int ChanceRes=30;
+    public static int ChanceMob=30;
     public int NumberOfTilesPerZone;
     public int RangeOfRandomnessOfTiles;
     public float RightBoundaryPos;
@@ -53,7 +53,7 @@ public class TileGenerator : MonoBehaviour
             Resources.Load<Sprite>("Sprites/Zones/champ"),
             Resources.Load<Sprite>("Sprites/Zones/desert"),
             Resources.Load<Sprite>("Sprites/Zones/jungle"),
-            Resources.Load<Sprite>("Sprites/Zones/foret") 
+            Resources.Load<Sprite>("Sprites/Zones/roche") 
         };
         Mobs = GameObject.Find("Mobs");
         Items = GameObject.Find("Items");
@@ -101,21 +101,29 @@ public class TileGenerator : MonoBehaviour
     // Update is called once per frame
     void Generate(int zone)
     {    
-        //Between Zones
-        GameObject temp= Instantiate(TilePrefab, new Vector3(LastTilePos, 0, -0.2f),
-            TilePrefab.transform.rotation);
-        temp.AddComponent<Tile>();
-        temp.transform.SetParent(ParentOfAllTiles.transform);
-        temp.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.5f); 
+        
         
         int RealNOT = NumberOfTilesPerZone;
         for (int i = 0; i < RealNOT; i++)
         {
             GameObject tempTile = Instantiate(TilePrefab, new Vector3(LastTilePos + 2, 0, 0),
                 TilePrefab.transform.rotation);
-            tempTile.AddComponent<Tile>();
             tempTile.transform.SetParent(ParentOfAllTiles.transform);
             LastTilePos += 2;
         }
+        //Between Zones
+        GameObject temp= Instantiate(TilePrefab, new Vector3(LastTilePos, 0, -0.2f),
+            TilePrefab.transform.rotation);
+        Sprite temp3=allZones[0];
+        switch (zone)
+        {
+            case 1:temp3=Resources.Load<Sprite>("Sprites/Zones/foretchamp");break;
+            case 2:temp3=Resources.Load<Sprite>("Sprites/Zones/champdesert");break;
+            case 3:temp3=Resources.Load<Sprite>("Sprites/Zones/desertjungle");break;
+            case 4:temp3=Resources.Load<Sprite>("Sprites/Zones/jungleroche");break;
+            default:Debug.Log("Too far my man ;)"); break;
+        }
+        temp.GetComponent<Tile>().setSprite(temp3);
+        temp.transform.SetParent(ParentOfAllTiles.transform);
     }
 }
