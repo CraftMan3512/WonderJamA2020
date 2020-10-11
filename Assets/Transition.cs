@@ -23,7 +23,7 @@ public class Transition : MonoBehaviour
         dayAtStartPos = dayAt.transform.localPosition.y;
         
         //SFX
-        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_DayChange"));
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_DayChange"),2f);
        
     }
 

@@ -46,10 +46,10 @@ public class SoundPlayer : MonoBehaviour
 
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlaySFX(AudioClip clip, float vol = 1f)
     {
         
-        source.PlayOneShot(clip,2);
+        source.PlayOneShot(clip,2*vol);
         
     }
 }
