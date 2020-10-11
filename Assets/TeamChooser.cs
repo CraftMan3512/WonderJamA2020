@@ -101,6 +101,7 @@ public class TeamChooser : MonoBehaviour
         {
             if (DayTime.day > 2)
             {
+                Debug.Log("PLayer : " + obj.gameObject.name);
                 if(AlchemyValues.alchemyPlayers.Contains(int.Parse(obj.gameObject.name.Substring(1))-1))
                 {
                     obj.team = TeamChooseController.Teams.Exploration;
