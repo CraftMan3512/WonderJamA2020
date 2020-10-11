@@ -51,6 +51,8 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        allPlayers=GameObject.FindGameObjectsWithTag("Player");;
+        
         if (!isEnvironment)
         {
             Vector3 direction;
@@ -60,7 +62,7 @@ public class Enemy : MonoBehaviour
             {
                 if (allPlayers[i] != null)
                 {
-                    direction = allPlayers[i].GetComponent<Transform>().position - transform.position;
+                    direction = allPlayers[i].transform.position - transform.position;
                     if (i == 0)
                     {
                         closestDirection = direction;
@@ -69,22 +71,25 @@ public class Enemy : MonoBehaviour
                     {
                         closestDirection = direction;
                     }
-                }else
-                    allPlayers=GameObject.FindGameObjectsWithTag("Player");
+                }
             }
-
+            
             //Chase
             if (closestDirection.x < 0)
                 transform.localScale = new Vector3(-startScale, transform.localScale.y, transform.localScale.z);
             else
+            {
                 transform.localScale = new Vector3(startScale, transform.localScale.y, transform.localScale.z);
+            }
+
             if (closestDirection.magnitude > 8)
             {
                 closestDirection = Vector3.zero;
             }
-
+            Debug.Log(closestDirection);
             closestDirection.Normalize();
             movement = closestDirection;
+            
         }
 
         if (health <= 0)
