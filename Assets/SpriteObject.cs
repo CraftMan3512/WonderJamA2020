@@ -14,8 +14,8 @@ public class SpriteObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        GetComponent<SpriteRenderer>().sortingOrder = -(int)Math.Round(transform.position.y*100);
+        if (GetComponent<SpriteRenderer>() != null) 
+            GetComponent<SpriteRenderer>().sortingOrder = -(int)Math.Round(transform.position.y*100);
 
     }
 }
