@@ -110,7 +110,7 @@ MonoBehaviour:
   startTimeBtwAttack: 2
   attackPos: {fileID: 3457481227921818103}
   attackRange: 0.87
-  damage: 30
+  damage: 20
   isAnimated: 1
 --- !u!61 &7004872635099228240
 BoxCollider2D:

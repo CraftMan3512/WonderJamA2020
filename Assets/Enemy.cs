@@ -72,6 +72,8 @@ public class Enemy : MonoBehaviour
                         closestDirection = direction;
                     }
                 }
+                else
+                    allPlayers = GameObject.FindGameObjectsWithTag("Player");
             }
             
             //Chase
