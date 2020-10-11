@@ -7,7 +7,7 @@ public class ItemCreator : MonoBehaviour
 {
     private CircleCollider2D collider2d;
 
-    [SerializeField] Item contains;
+    public Item contains;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class ItemCreator : MonoBehaviour
     public void setItem(Item item)
     {
         contains = item;
-        GetComponent<SpriteRenderer>().sprite = item.image;
+        gameObject.GetComponent<SpriteRenderer>().sprite = item.image;
     }
 
     public Item getItem()
@@ -27,8 +27,7 @@ public class ItemCreator : MonoBehaviour
 
     public void AddInventory(GameObject ply)
     {
-        Debug.Log("I interacted with box");
-        AlchemyValues.playerInventory[int.Parse(ply.name.Substring(1))].Add(contains);
+        AlchemyValues.AddItemToPlayer(int.Parse(ply.name.Substring(1)),contains);
         Destroy(gameObject);
     }
 

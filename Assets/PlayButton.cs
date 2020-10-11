@@ -21,7 +21,7 @@ public class PlayButton : MonoBehaviour
     public void ToPlayerScreen()
     {
 
-        SceneManager.LoadScene("PlayerJoinScreen");
+        SceneManager.LoadScene("NbDaysScene");
 
     }
 }

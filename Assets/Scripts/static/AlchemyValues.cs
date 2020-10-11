@@ -8,15 +8,29 @@ public static class AlchemyValues
     public static List<Item> inventory = new List<Item>();
     public static List<Recipe> remainingRecipes = new List<Recipe>();
     public static List<Recipe> finishedRecipes = new List<Recipe>();
+    public static int materialsPerRecipe = 3;
+    public static float potionProgress = 0;
 
-    private static int[] itemsAt;
+    public
+
+    static int[] itemsAt;
 
     //All materials
     public static Item[] materialPool =
     {
-        new Item("Diamant", Resources.Load<Sprite>("Sprites/Materials/diamant"), 0,1),
-        new Item("Fleur", Resources.Load<Sprite>("Sprites/Materials/fleur"), 1,1),
-        new Item("Roche", Resources.Load<Sprite>("Sprites/Materials/roche"), 2,1),
+        new Item("Buches", Resources.Load<Sprite>("Sprites/Materials/buche"), 0,6),
+        new Item("Champignon", Resources.Load<Sprite>("Sprites/Materials/mushroom"), 1, 1),
+        new Item("Rose", Resources.Load<Sprite>("Sprites/Materials/tulip"), 2,2),
+        new Item("Cactus", Resources.Load<Sprite>("Sprites/Materials/cactus"), 3,3),
+        new Item("Cerveau", Resources.Load<Sprite>("Sprites/Materials/cerveau"), 4,6),
+        new Item("Tulipe", Resources.Load<Sprite>("Sprites/Materials/fleur"), 5,2),
+        new Item("Herbe", Resources.Load<Sprite>("Sprites/Materials/fern"), 6,1),
+        new Item("Branches", Resources.Load<Sprite>("Sprites/Materials/branche"), 7,1),
+        new Item("Fer", Resources.Load<Sprite>("Sprites/Materials/iron"), 8,5),
+        new Item("Liannes", Resources.Load<Sprite>("Sprites/Materials/junglebranche"), 9,6),
+        new Item("Rocher", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,5),
+        new Item("Coccinnelle", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
+        new Item("Uranium", Resources.Load<Sprite>("Sprites/Materials/uranium"), 12,5),
     };
 
     public static List<int> alchemyPlayers = new List<int>();
@@ -27,6 +41,7 @@ public static class AlchemyValues
 
     public static void PopulateRecipes(int materialPerRecipe)
     {
+       // materialsPerRecipe = materialPerRecipe;
 
         itemsAt = new int[materialPerRecipe]; 
         for(int i = 0; i < itemsAt.Length; i++)
@@ -95,21 +110,68 @@ public static class AlchemyValues
 
     }
 
-
-
-    public static int GetQuantity(int id)
+    public static void AddItems()
     {
-        int amount = 0;
-        foreach (Item item in inventory)
+
+        foreach (List<Item> pInv in playerInventory)
         {
-            if (item.id == id)
+
+            foreach (var newItem in pInv)
             {
-                amount++;
+
+                bool found = false;
+                for (int i = 0; i < inventory.Count; i++)
+                {
+
+                    //si item existe on ajoute 1 à la quantité
+                    if (inventory[i].id == newItem.id)
+                    {
+
+                        inventory[i].qty++;
+                        found = true;
+                        break;
+
+                    }
+                
+                }
+                
+                if (!found) inventory.Add(newItem);
+                
+                
             }
+            
+            pInv.Clear();
+            
         }
-        return amount;
+        
     }
 
+    public static void AddItemToPlayer(int p, Item item)
+    {
+
+        if (playerInventory[p] != null)
+        {
+
+            bool found = false;
+            foreach (Item current in playerInventory[p])
+            {
+
+                if (current.id == item.id)
+                {
+
+                    found = true;
+                    current.qty++;
+                    break;
+
+                }
+                
+            }
+            
+            if (!found) playerInventory[p].Add(item);
+            
+        }
+        
+    }
     public static void RemoveItem(Item it)
     {
 
@@ -119,7 +181,8 @@ public static class AlchemyValues
 
             if (i.id == it.id)
             {
-                inventory.Remove(i);
+                if (i.qty > 1) i.qty--;
+                else inventory.Remove(i);
                 break;
             }
 
@@ -136,6 +199,12 @@ public static class AlchemyValues
             remainingRecipes.Remove(r);
         }
         
+    }
+
+
+    public static void AddProgress(float amount)
+    {
+        potionProgress += amount;
     }
 
 

@@ -11,7 +11,8 @@ public class BoxMenu : MonoBehaviour
     public Manette manette;
     
     private List<Item> items;
-    private List<Item> deduplicatedItems;
+
+    public int nbItemsPerLine = 4;
 
     public float xPadding,yPadding;
     public GameObject materialPrefab;
@@ -20,16 +21,14 @@ public class BoxMenu : MonoBehaviour
     private int selectedMat = 0;
 
     public GameObject playerInteracted;
-        
+
     // Start is called before the first frame update
     void Start()
     {
 
         //manette = PlayerInputs.GetPlayerController(0);
         items = AlchemyValues.inventory;
-        
-        deduplicatedItems = GetDeduplicatedList();
-        SetupDisplay(3);
+        SetupDisplay(nbItemsPerLine);
         SelectMat(0);
         //AlchemyValues.PopulateRecipes(3);
 
@@ -83,15 +82,15 @@ public class BoxMenu : MonoBehaviour
         CanPressJoyStick = false;
         if (x > 0)  SelectMat(selectedMat+1);
         else if (x < 0) SelectMat(selectedMat-1);
-        if (y > 0) SelectMat(selectedMat+3);
-        else if (y < 0) SelectMat(selectedMat-3);
+        if (y > 0) SelectMat(selectedMat+nbItemsPerLine);
+        else if (y < 0) SelectMat(selectedMat-nbItemsPerLine);
 
     }
 
     void SelectMat(int mat)
     {
 
-        if (mat >= 0 && mat < deduplicatedItems.Count)
+        if (mat >= 0 && mat < items.Count)
         {
                         
             GetSelectedMat().GetComponent<Image>().color = Color.white;
@@ -109,9 +108,9 @@ public class BoxMenu : MonoBehaviour
         if (playerInteracted.GetComponent<PlayerGrabs>().GetItemGrabbed() == null)
         {
             
-            Item item = deduplicatedItems[selectedMat];
+            Item item = items[selectedMat];
             playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
-            Debug.Log("PLAYER GRABBED " + item.name);
+            //Debug.Log("PLAYER GRABBED " + item.name);
             AlchemyValues.RemoveItem(item);
             Cancel();
             
@@ -158,12 +157,12 @@ public class BoxMenu : MonoBehaviour
     {
 
         int x = 0, y = 0;
-        foreach (Item item in deduplicatedItems)
+        foreach (Item item in items)
         {
             
             GameObject newButton = Instantiate(materialPrefab, new Vector3(transform.position.x + offset.x + xPadding*x,transform.position.y + offset.y - y*yPadding), Quaternion.identity, transform);
-            newButton.name = (3 * y + x).ToString();
-            newButton.GetComponent<ItemButton>().SetItem(item,AlchemyValues.GetQuantity(item.id));
+            newButton.name = (nbItemsParLigne * y + x).ToString();
+            newButton.GetComponent<ItemButton>().SetItem(item);
             x++;
             if (x == nbItemsParLigne)
             {

@@ -15,12 +15,12 @@ public class Slow : Effect
     public override void Invoke(GameObject player)
     {
         playerAffected = player;
-        playerAffected.GetComponent<PlayerControls>().moveSpeed *= slow;
+        playerAffected.GetComponent<PlayerControls>().moveSpeed *= (1-slow);
     }
 
     public override void NextDay()
     {
-        playerAffected.GetComponent<PlayerControls>().moveSpeed /= slow;
+        playerAffected.GetComponent<PlayerControls>().moveSpeed /= (1-slow);
     }
 
 

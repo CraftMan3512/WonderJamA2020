@@ -6,10 +6,11 @@ public class PlayerGrabs : MonoBehaviour
 {
 
     private Item grabbedItem;
+    public GameObject HeldItem;
     // Start is called before the first frame update
     void Start()
     {
-        
+        HeldItem.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     // Update is called once per frame
@@ -29,13 +30,22 @@ public class PlayerGrabs : MonoBehaviour
     {
 
         grabbedItem = item;
+        HeldItem.GetComponent<SpriteRenderer>().sprite = item.image;
 
     }
 
-    public void UseItem()
+    public Item UseItem()
+    {
+
+        return grabbedItem;
+
+    }
+
+    public void RemoveItem()
     {
 
         grabbedItem = null;
+        HeldItem.GetComponent<SpriteRenderer>().sprite = null;
 
     }
     

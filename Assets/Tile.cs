@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Tile : MonoBehaviour
 {
@@ -13,9 +15,12 @@ public class Tile : MonoBehaviour
     public float rangeX;
     public int NumberOfSpots;
     public GameObject ItemPrefab;
+    public SpriteRenderer spriteRenderer;
+    
+    
 
     private List<Item>[] AllItems=new List<Item>[5];
-    private Enemy[][] AllMobs;
+    private GameObject[][] AllMobs;
 
     private Vector3 top;
     private Vector3 bot;
@@ -23,16 +28,18 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         chanceMob = TileGenerator.ChanceMob;
         chanceRes = TileGenerator.ChanceRes;
         zone = GameObject.Find("ExplorationVCam").GetComponent<TileGenerator>().CurrZone;
         //INIT
-        AllMobs =  new []{
-            Resources.LoadAll<Enemy>("Prefabs/Mob/Foret"),
-            Resources.LoadAll<Enemy>("Prefabs/Mob/Champ"),
-            Resources.LoadAll<Enemy>("Prefabs/Mob/Desert"),
-            Resources.LoadAll<Enemy>("Prefabs/Mob/Jungle"),
-            Resources.LoadAll<Enemy>("Prefabs/Mob/Roche")
+        AllMobs = new []
+        {
+            Resources.LoadAll<GameObject>("Prefabs/Mob/Foret"),
+            Resources.LoadAll<GameObject>("Prefabs/Mob/Champ"),
+            Resources.LoadAll<GameObject>("Prefabs/Mob/Desert"),
+            Resources.LoadAll<GameObject>("Prefabs/Mob/Jungle"),
+            Resources.LoadAll<GameObject>("Prefabs/Mob/Roche")
         };
         for (int i = 0; i < 5; i++)
         {
@@ -41,50 +48,55 @@ public class Tile : MonoBehaviour
         for (int i = 0; i < AlchemyValues.materialPool.Length; i++)
         {
             Item toAdd = AlchemyValues.materialPool[i];
-            AllItems[AlchemyValues.materialPool[i].getZone()-1].Add(toAdd);
+            if (toAdd.zone != 6)
+            {
+                AllItems[AlchemyValues.materialPool[i].getZone() - 1].Add(toAdd);
+            }
         }
-       
-        
-        
-        
         
         //SpawnPoints
         top = transform.Find("Top").transform.position;
         bot = transform.Find("Bot").transform.position;
+        Vector3 pos = (bot - top) * Random.Range(0.01f,1f)+top;
+        pos.x += -rangeX + (Random.Range(0f, rangeX));
+        pos.z = -1f;
         for(int i =0;i<NumberOfSpots;i++)
         {
             if (chanceRes > Random.Range(1, 100))
             {
-                Vector3 pos = (bot - top) * Random.Range(0.01f,1f)+top;
-                pos.x += -rangeX + (Random.Range(0f, rangeX));
-                pos.z = 0f;
-                
-                
-                GameObject temp = Instantiate(ItemPrefab, pos, Quaternion.identity);
-                temp.transform.SetParent(transform.Find("Items"));
-                temp.GetComponent<ItemCreator>().setItem(GetZoneItem());
+                if (AllItems[zone - 1].Count > 0)
+                {
+                    GameObject temp = Instantiate(ItemPrefab, pos, Quaternion.identity);
+                    temp.transform.SetParent(TileGenerator.Items.transform);
+                    temp.GetComponent<ItemCreator>().setItem(GetZoneItem());
+                }
             }
-            //TODO Mobs
-            /*else if(chanceMob < Random.Range(1, 100))
+            else if(chanceMob > Random.Range(1, 100-chanceRes))
             {
-                Instantiate(GetZoneMob(), child.transform.position, Quaternion.identity);
-            }*/
+                if (AllMobs[zone - 1].Length > 0)
+                {
+                    GameObject temp = Instantiate(GetZoneMob(), pos, Quaternion.identity);
+                    temp.transform.SetParent(TileGenerator.Mobs.transform);
+                }
+            }
         }
+        spriteRenderer=GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = TileGenerator.allZones[zone-1];
     }
+    
 
     private Item GetZoneItem()
     {
         Item result=AllItems[zone-1][Random.Range(0,AllItems[zone-1].Count)];
         return result;
     }
-    //TODO ZONEMOB
-    /*private GameObject GetZoneMob()
+
+    private GameObject GetZoneMob()
     {
-        return AllMobs[zone-1][Random.Range(0, AllMobs[zone].Length-1)];
-    }*/
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (AllMobs[zone - 1].Length != 0)
+            return AllMobs[zone - 1][Random.Range(0, AllMobs[zone - 1].Length - 1)];
+        else
+            return null;
     }
 }
+
