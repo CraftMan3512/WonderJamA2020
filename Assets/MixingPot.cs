@@ -42,7 +42,7 @@ public class MixingPot : MonoBehaviour
         {
            if(r.Compare(potion))
             {
-                GameObject.Find("ToDoList").GetComponent<RecipesToDo>().RemoveRecipe(r);
+                GameObject.Find("ToDoList").GetComponent<RecipesToDo>().RemoveRecipe(potion);
                 correctRecipe = true;
                 break;
             }
@@ -55,9 +55,10 @@ public class MixingPot : MonoBehaviour
         }
         else
         {
+           
 
             //quand c'est la bonne recette (pas besoin de toucher à todolist)
-            float severity = 0.2f;
+            float severity = 1f;
             foreach(Item item in ingredients)
             {
                 severity += item.accuracy;                         
@@ -66,6 +67,8 @@ public class MixingPot : MonoBehaviour
             AlchemyValues.AddProgress(severity / (DayTime.maxDays));
 
             severity *= AlchemyValues.potionProgress / 10f;
+            GameObject.Find("CurseManager").GetComponent<Manager>().AddCurse(severity, player);
+
         }
         
 
