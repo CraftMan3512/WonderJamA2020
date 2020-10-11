@@ -74,7 +74,7 @@ public class MixingPot : MonoBehaviour
 
             //quand c'est la bonne recette (pas besoin de toucher à todolist)
            
-            AlchemyValues.AddProgress(severity*5 / (DayTime.maxDays));           
+            AlchemyValues.AddProgress(severity*15 / (DayTime.maxDays));           
           
         }
         severity *= AlchemyValues.potionProgress / 10f;
