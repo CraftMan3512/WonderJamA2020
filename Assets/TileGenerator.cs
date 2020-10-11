@@ -30,7 +30,7 @@ public class TileGenerator : MonoBehaviour
         {
             GameObject.Find("ExplorationTargetGroup").transform.position = new Vector3(AlchemyValues.posX-2.3f, 0,-11);
         }
-        LastTilePos = 4; //6-2
+        LastTilePos = 2; //6-4
         CurrZone = 1;
         Generate(CurrZone);
         
@@ -56,7 +56,7 @@ public class TileGenerator : MonoBehaviour
 
     private void Update()
     {
-        RightBoundaryPos = transform.position.x + 4.5f;
+        RightBoundaryPos = transform.position.x + 9f;
         if (RightBoundaryPos >= LastTilePos)
         {
             CurrZone++;
@@ -67,7 +67,14 @@ public class TileGenerator : MonoBehaviour
 
     // Update is called once per frame
     void Generate(int zone)
-    {
+    {    
+        //Between Zones
+        GameObject temp= Instantiate(TilePrefab, new Vector3(LastTilePos, 0, -0.2f),
+            TilePrefab.transform.rotation);
+        temp.AddComponent<Tile>();
+        temp.transform.SetParent(ParentOfAllTiles.transform);
+        temp.GetComponent<SpriteRenderer>().color = new Color(255,255,255,0.5f); 
+        
         int RealNOT = NumberOfTilesPerZone;
         for (int i = 0; i < RealNOT; i++)
         {

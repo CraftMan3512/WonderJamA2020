@@ -219,7 +219,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (!lockMovement) GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
     }
-    public void takeDamage(int dmg)
+    public void takeDamage(float dmg)
     {
         justGotDamaged = false;
         dmgToDeal+=dmg;
