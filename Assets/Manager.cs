@@ -65,10 +65,12 @@ public class Manager : MonoBehaviour
             {
                 if (effect.lastDay)
                 {
+                    effect.playerAffected = GameObject.Find("p" + i);
                     effect.NextDay();
                     playerEffects[i].Remove(effect);
                 }else
                 {
+
                     effect.Invoke(GameObject.Find("p"+i));
                     effect.lastDay = true;
                 }

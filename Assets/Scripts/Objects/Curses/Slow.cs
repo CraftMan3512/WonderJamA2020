@@ -20,7 +20,10 @@ public class Slow : Effect
 
     public override void NextDay()
     {
-        playerAffected.GetComponent<PlayerControls>().moveSpeed /= (1-slow);
+        if (playerAffected != null)
+        {
+            playerAffected.GetComponent<PlayerControls>().moveSpeed /= (1 - slow);
+        }
     }
 
 

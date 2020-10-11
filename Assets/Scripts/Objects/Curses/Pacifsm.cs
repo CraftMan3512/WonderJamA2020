@@ -20,7 +20,10 @@ public class Pacifsm : Effect
 
     public override void NextDay()
     {
-        playerAffected.GetComponent<PlayerControls>().damage /= (1f - damageReduction);
+        if (playerAffected != null)
+        {
+            playerAffected.GetComponent<PlayerControls>().damage /= (1f - damageReduction);
+        }
     }
 
 }
