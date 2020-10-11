@@ -210,6 +210,10 @@ public static class AlchemyValues
     public static void AddProgress(float amount)
     {
         potionProgress += amount;
+        if(potionProgress >= 100 && posX >= TileGenerator.endLength)
+        {
+            DayTime.Win();
+        }
     }
 
 

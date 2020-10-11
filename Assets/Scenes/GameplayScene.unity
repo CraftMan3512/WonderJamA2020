@@ -1821,7 +1821,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75f4c267c0bc9944698d3684f091b43b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bubbles: []
+  bubbles:
+  - {fileID: 1358995786}
+  - {fileID: 1124094589}
+  - {fileID: 1226973715}
 --- !u!61 &864651227
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2702,7 +2705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1226973716
 Transform:
   m_ObjectHideFlags: 0
@@ -3095,7 +3098,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1358995787
 Transform:
   m_ObjectHideFlags: 0
