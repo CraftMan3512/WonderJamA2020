@@ -26,5 +26,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NbDaysScene.unity
     guid: 540553b4fa0ac0248948c55a7f1f4389
+  - enabled: 1
+    path: Assets/Scenes/End.unity
+    guid: e22fc8c7f5dd65c439de1b6518a86dbb
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: bf74bbdc328084440ae544e5998acb4c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 8dce42a93bf32314aa17afc2f5c8390c, type: 2}
