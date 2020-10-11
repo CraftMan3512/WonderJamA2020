@@ -45,11 +45,11 @@ public static class DayTime
 
     public static void Win()
     {
-
+        SceneManager.LoadScene("Win");
     }
 
     public static void Lose()
     {
-
+        SceneManager.LoadScene("Lose");
     }
 }
