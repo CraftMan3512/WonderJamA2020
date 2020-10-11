@@ -94,7 +94,7 @@ public class Tile : MonoBehaviour
     private GameObject GetZoneMob()
     {
         if (AllMobs[zone - 1].Length != 0)
-            return AllMobs[zone - 1][Random.Range(0, AllMobs[zone - 1].Length - 1)];
+            return AllMobs[zone - 1][Random.Range(0, AllMobs[zone - 1].Length)];
         else
             return null;
     }

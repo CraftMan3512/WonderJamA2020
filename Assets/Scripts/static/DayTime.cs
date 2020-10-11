@@ -8,7 +8,7 @@ public static class DayTime
     public static float time;
     public static int day = 0;
     public static float timePerDay = 30;
-    public static int maxDays = 7;
+    public static int maxDays = 3;
 
 
     

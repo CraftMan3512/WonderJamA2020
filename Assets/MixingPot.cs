@@ -10,14 +10,18 @@ public class MixingPot : MonoBehaviour
 
     public void AddIngredient(GameObject player)
     {
-        Debug.Log("IngredientADDED");
         Item item = player.GetComponent<PlayerGrabs>().GetItemGrabbed();
         player.GetComponent<PlayerGrabs>().RemoveItem();
         if (item != null)
         {
             ingredients.Add(item);
+            GameObject.Find("Ingredient" + ingredients.Count).GetComponent<SpriteRenderer>().sprite = item.image;
             if (ingredients.Count == AlchemyValues.materialsPerRecipe)
             {
+                for(int i = 1; i < 4; i++) {
+                    GameObject.Find("Ingredient" + i).GetComponent<SpriteRenderer>().sprite = null;
+                }
+                
                 AddPotion(player);
                 TrashIngredients();
             }
@@ -38,7 +42,7 @@ public class MixingPot : MonoBehaviour
         {
            if(r.Compare(potion))
             {
-                GameObject.Find("ToDoList").GetComponent<RecipesToDo>().RemoveRecipe(r);
+                GameObject.Find("ToDoList").GetComponent<RecipesToDo>().RemoveRecipe(potion);
                 correctRecipe = true;
                 break;
             }
@@ -51,17 +55,20 @@ public class MixingPot : MonoBehaviour
         }
         else
         {
+           
 
             //quand c'est la bonne recette (pas besoin de toucher à todolist)
-            float severity = 0.2f;
+            float severity = 1f;
             foreach(Item item in ingredients)
             {
                 severity += item.accuracy;                         
                 
             }
-            AlchemyValues.AddProgress(severity / (DayTime.maxDays));
-
+            // AlchemyValues.AddProgress(severity / (DayTime.maxDays));
+            AlchemyValues.AddProgress(10f);
             severity *= AlchemyValues.potionProgress / 10f;
+            GameObject.Find("CurseManager").GetComponent<Manager>().AddCurse(severity, player);
+
         }
         
 
