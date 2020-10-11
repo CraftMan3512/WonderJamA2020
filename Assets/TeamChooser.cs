@@ -111,9 +111,11 @@ public class TeamChooser : MonoBehaviour
                 }
 
             }
-
-            AlchemyValues.alchemyPlayers.Clear();
-            AlchemyValues.explorationPlayers.Clear();
+            if (int.Parse(obj.gameObject.name.Substring(1)) - 1 == 0)
+            {
+                AlchemyValues.alchemyPlayers.Clear();
+                AlchemyValues.explorationPlayers.Clear();
+            }
 
             if (obj.team == TeamChooseController.Teams.Alchemy)
             {

@@ -40,6 +40,7 @@ public class Manager : MonoBehaviour
             switch (randomCurse)
             {
                 case 0:
+                    severity /= 20;
                     if (severity >= 0.4) { severity = 0.4f; }
                     curse = new Slow((2 * severity) + 0.05f);
                     break;
