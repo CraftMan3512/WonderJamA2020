@@ -12,6 +12,7 @@ public class TileGenerator : MonoBehaviour
 
     public static int ChanceRes=30;
     public static int ChanceMob=30;
+    public static int ChanceMobDropRes = 50;
     public int NumberOfTilesPerZone;
     public int RangeOfRandomnessOfTiles;
     public float RightBoundaryPos;

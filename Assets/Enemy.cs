@@ -90,8 +90,12 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             var position = transform.position;
-            GameObject temp = Instantiate(prefab, position, Quaternion.identity);
-            temp.GetComponent<ItemCreator>().setItem(AlchemyValues.materialPool[itemID]);
+            if (TileGenerator.ChanceMobDropRes < Random.Range(1, 100))
+            {
+                GameObject temp = Instantiate(prefab, position, Quaternion.identity);
+                temp.GetComponent<ItemCreator>().setItem(AlchemyValues.materialPool[itemID]);
+            }
+            
             if (!isEnvironment)
                 Instantiate(blood, position, Quaternion.identity);
 
