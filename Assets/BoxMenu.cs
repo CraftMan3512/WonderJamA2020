@@ -21,7 +21,7 @@ public class BoxMenu : MonoBehaviour
     private int selectedMat = 0;
 
     public GameObject playerInteracted;
-        
+
     // Start is called before the first frame update
     void Start()
     {
@@ -82,8 +82,8 @@ public class BoxMenu : MonoBehaviour
         CanPressJoyStick = false;
         if (x > 0)  SelectMat(selectedMat+1);
         else if (x < 0) SelectMat(selectedMat-1);
-        if (y > 0) SelectMat(selectedMat+3);
-        else if (y < 0) SelectMat(selectedMat-3);
+        if (y > 0) SelectMat(selectedMat+nbItemsPerLine);
+        else if (y < 0) SelectMat(selectedMat-nbItemsPerLine);
 
     }
 
@@ -110,7 +110,7 @@ public class BoxMenu : MonoBehaviour
             
             Item item = items[selectedMat];
             playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
-            Debug.Log("PLAYER GRABBED " + item.name);
+            //Debug.Log("PLAYER GRABBED " + item.name);
             AlchemyValues.RemoveItem(item);
             Cancel();
             
@@ -161,7 +161,7 @@ public class BoxMenu : MonoBehaviour
         {
             
             GameObject newButton = Instantiate(materialPrefab, new Vector3(transform.position.x + offset.x + xPadding*x,transform.position.y + offset.y - y*yPadding), Quaternion.identity, transform);
-            newButton.name = (3 * y + x).ToString();
+            newButton.name = (nbItemsParLigne * y + x).ToString();
             newButton.GetComponent<ItemButton>().SetItem(item);
             x++;
             if (x == nbItemsParLigne)

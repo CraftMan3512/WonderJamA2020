@@ -48,7 +48,7 @@ public class QTEWait : MonoBehaviour
                 StopCoroutine(StartEvent());
                 player.GetComponent<PlayerGrabs>().GrabItem(contains);
                 contains = null;
-                GetComponent<SpriteRenderer>().color = Color.white;
+                transform.Find("Fire").GetComponent<SpriteRenderer>().enabled = false;
                 start = true;   
                 
             }
@@ -68,7 +68,7 @@ public class QTEWait : MonoBehaviour
         ;
         contains.accuracy += accuracyBoost;
         //temporary test
-        GetComponent<SpriteRenderer>().color = Color.red;
+        transform.Find("Fire").GetComponent<SpriteRenderer>().enabled = true;
 
     }
     
