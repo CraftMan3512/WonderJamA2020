@@ -21,7 +21,7 @@ public class ProgressBar : MonoBehaviour
         if(slider.value < AlchemyValues.potionProgress)
         {
 
-            slider.value += Time.deltaTime * 2;
+            slider.value += Time.deltaTime * 10;
 
         }
         else

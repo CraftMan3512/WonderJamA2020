@@ -156,7 +156,7 @@ public class PlayerControls : MonoBehaviour
     {
         
         //Attack SFX
-        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Attack0" + Random.Range(1,3).ToString()),0.5f);
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Attack0" + Random.Range(1,3).ToString()),0.3f);
         
         SpriteRenderer sr = animator.GetComponent<SpriteRenderer>();
         
