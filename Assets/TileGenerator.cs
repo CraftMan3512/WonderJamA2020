@@ -40,7 +40,7 @@ public class TileGenerator : MonoBehaviour
         {
             GameObject.Find("ExplorationTargetGroup").transform.position = new Vector3(AlchemyValues.posX-2.3f, 0,-11);
         }
-        endLength = 12+NumberOfTilesPerZone * 6 - 16;//todo regarder si le 10 est correct
+        endLength = 12+NumberOfTilesPerZone * 12 - 16;//todo regarder si le 10 est correct
         NumberOfTilesPerZone = DayTime.maxDays * 12;
         LastTilePos = 2; //6-4
         CurrZone = 1;
