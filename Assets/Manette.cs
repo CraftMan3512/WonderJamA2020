@@ -58,6 +58,19 @@ public class Manette
         
     }
 
+    public string name
+    {
+
+        get
+        {
+
+            if (isKeyboardandMouse) return kb.displayName;
+            return gp?.displayName;
+
+        }
+        
+    }
+
     public ButtonControl aButton
     {
 

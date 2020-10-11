@@ -9,7 +9,7 @@ public class DefaultSliderValue : MonoBehaviour
     void Start()
     {
 
-        GetComponent<Slider>().value = GetComponent<Slider>().minValue;
+        GetComponent<Slider>().value = 7;
         GetComponent<Slider>().onValueChanged.Invoke(GetComponent<Slider>().value);
 
     }

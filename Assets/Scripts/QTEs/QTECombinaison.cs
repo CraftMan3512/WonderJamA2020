@@ -173,7 +173,7 @@ public class QTECombinaison : MonoBehaviour
             
             buttonObjects.Add(button);
             
-            Debug.Log("Keyboard? : " + kb);
+            //Debug.Log("Keyboard? : " + kb);
             
             Sprite spr;
             switch (clone.Dequeue())
