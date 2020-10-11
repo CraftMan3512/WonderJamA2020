@@ -31,12 +31,14 @@ public class TileGenerator : MonoBehaviour
         {
             GameObject.Find("ExplorationTargetGroup").transform.position = new Vector3(AlchemyValues.posX-2.3f, 0,-11);
         }
-        NumberOfTilesPerZone = DayTime.maxDays * 30;
+        NumberOfTilesPerZone = DayTime.maxDays * 12;
         endLength = 12+NumberOfTilesPerZone * 10 - 10;//todo regarder si le 10 est correct
         LastTilePos = 2; //6-4
         CurrZone = 1;
         Generate(CurrZone);
         
+        //SFX
+        ChangeMusic();
 
         //Get all zones
 
@@ -56,6 +58,7 @@ public class TileGenerator : MonoBehaviour
         Mobs = GameObject.Find("Mobs");
         Items = GameObject.Find("Items");
     }
+    
 
     private void Update()
     {
@@ -63,9 +66,36 @@ public class TileGenerator : MonoBehaviour
         if (RightBoundaryPos >= LastTilePos)
         {
             CurrZone++;
+            ChangeMusic();
             Generate(CurrZone);
         }
         AlchemyValues.posX = (int)RightBoundaryPos;
+    }
+
+    public void ChangeMusic()
+    {
+
+        switch (CurrZone)
+        {
+            
+            case 1: 
+                if (GameObject.Find("SoundManager").GetComponent<AudioSource>().clip != Resources.Load<AudioClip>("Music/Forest")) GameObject.Find("SoundManager").GetComponent<SoundPlayer>().SetMusic(Resources.Load<AudioClip>("Music/Forest"));
+                break;
+            case 2: 
+                if (GameObject.Find("SoundManager").GetComponent<AudioSource>().clip != Resources.Load<AudioClip>("Music/Champ")) GameObject.Find("SoundManager").GetComponent<SoundPlayer>().SetMusic(Resources.Load<AudioClip>("Music/Champ"));
+                break;
+            case 3: 
+                if (GameObject.Find("SoundManager").GetComponent<AudioSource>().clip != Resources.Load<AudioClip>("Music/Desert")) GameObject.Find("SoundManager").GetComponent<SoundPlayer>().SetMusic(Resources.Load<AudioClip>("Music/Desert"));
+                break;
+            case 4: 
+                if (GameObject.Find("SoundManager").GetComponent<AudioSource>().clip != Resources.Load<AudioClip>("Music/Jungle")) GameObject.Find("SoundManager").GetComponent<SoundPlayer>().SetMusic(Resources.Load<AudioClip>("Music/Jungle"));
+                break;
+            case 5: 
+                if (GameObject.Find("SoundManager").GetComponent<AudioSource>().clip != Resources.Load<AudioClip>("Music/Roches")) GameObject.Find("SoundManager").GetComponent<SoundPlayer>().SetMusic(Resources.Load<AudioClip>("Music/Roches"));
+                break;
+            
+        }
+        
     }
 
     // Update is called once per frame
