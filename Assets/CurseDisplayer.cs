@@ -8,7 +8,7 @@ public class CurseDisplayer : MonoBehaviour
 
     public float timeToDisplay = 5;
 
-    public GameObject name, description;
+    public GameObject curseName, description;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +25,7 @@ public class CurseDisplayer : MonoBehaviour
     {
 
         GetComponent<Canvas>().enabled = true;
-        name.GetComponent<TextMeshProUGUI>().text = curse.name;
+        curseName.GetComponent<TextMeshProUGUI>().text = curse.name;
         description.GetComponent<TextMeshProUGUI>().text = curse.description;
         StartCoroutine(DisplayTime());
 
