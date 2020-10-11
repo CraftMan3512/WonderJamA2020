@@ -10,7 +10,8 @@ public static class AlchemyValues
     public static List<Recipe> finishedRecipes = new List<Recipe>();
     public static int materialsPerRecipe = 3;
     public static float potionProgress = 0;
-
+    public static int posX=0;//TODO Reset ca quand la game restart
+    
     public
 
     static int[] itemsAt;
