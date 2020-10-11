@@ -10,8 +10,8 @@ public class TileGenerator : MonoBehaviour
     public GameObject TilePrefab;
     public GameObject ParentOfAllTiles;
 
-    public static int ChanceRes=15;
-    public static int ChanceMob=20;
+    public static int ChanceRes=30;
+    public static int ChanceMob=30;
     public int NumberOfTilesPerZone;
     public int RangeOfRandomnessOfTiles;
     public float RightBoundaryPos;
@@ -48,7 +48,7 @@ public class TileGenerator : MonoBehaviour
             Resources.Load<Sprite>("Sprites/Zones/champ"),
             Resources.Load<Sprite>("Sprites/Zones/desert"),
             Resources.Load<Sprite>("Sprites/Zones/jungle"),
-            Resources.Load<Sprite>("Sprites/Zones/foret") 
+            Resources.Load<Sprite>("Sprites/Zones/roche") 
         };
         Mobs = GameObject.Find("Mobs");
         Items = GameObject.Find("Items");
