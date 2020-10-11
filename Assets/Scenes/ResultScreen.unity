@@ -183,8 +183,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exploration
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3220778d7c03414aa909d60c58d0fc4, type: 2}
-  m_sharedMaterial: {fileID: -177841347369996847, guid: d3220778d7c03414aa909d60c58d0fc4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -332,8 +332,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Alchemy
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d3220778d7c03414aa909d60c58d0fc4, type: 2}
-  m_sharedMaterial: {fileID: -177841347369996847, guid: d3220778d7c03414aa909d60c58d0fc4, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -610,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc740b0b451665c4ca4fa0b8999c4f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeTilNextScene: 10
+  timeTilNextScene: 5
 --- !u!1 &1236352943
 GameObject:
   m_ObjectHideFlags: 0
