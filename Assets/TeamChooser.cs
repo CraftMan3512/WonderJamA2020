@@ -99,8 +99,9 @@ public class TeamChooser : MonoBehaviour
        
         foreach (TeamChooseController obj in GameObject.Find("Canvas").transform.GetComponentsInChildren<TeamChooseController>())
         {
-            if (DayTime.day > 2)
+           /* if (DayTime.day > 2)
             {
+                Debug.Log("PLayer : " + obj.gameObject.name);
                 if(AlchemyValues.alchemyPlayers.Contains(int.Parse(obj.gameObject.name.Substring(1))-1))
                 {
                     obj.team = TeamChooseController.Teams.Exploration;
@@ -110,10 +111,12 @@ public class TeamChooser : MonoBehaviour
                     obj.team = TeamChooseController.Teams.Alchemy;
                 }
 
+            }*/
+            if (int.Parse(obj.gameObject.name.Substring(1)) - 1 == 0)
+            {
+                AlchemyValues.alchemyPlayers.Clear();
+                AlchemyValues.explorationPlayers.Clear();
             }
-
-            AlchemyValues.alchemyPlayers.Clear();
-            AlchemyValues.explorationPlayers.Clear();
 
             if (obj.team == TeamChooseController.Teams.Alchemy)
             {

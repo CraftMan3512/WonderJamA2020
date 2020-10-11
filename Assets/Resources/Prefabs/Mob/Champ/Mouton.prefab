@@ -103,11 +103,13 @@ MonoBehaviour:
   moveSpeed: 0
   prefab: {fileID: 7171642119721139764, guid: 14e40531ed570124c9d0ecf69bc29879, type: 3}
   timeRed: 0.15
-  itemID: 15
+  itemID: 14
+  isEnvironment: 0
   startTimeBtwAttack: 0
   attackPos: {fileID: 0}
   attackRange: 0
   damage: 0
+  isAnimated: 0
 --- !u!50 &6909591414899194696
 Rigidbody2D:
   serializedVersion: 4

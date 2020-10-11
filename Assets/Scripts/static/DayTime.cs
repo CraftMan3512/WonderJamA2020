@@ -7,7 +7,7 @@ public static class DayTime
 {
     public static float time;
     public static int day = 0;
-    public static float timePerDay = 30;
+    public static float timePerDay = 60;
     public static int maxDays = 3;
 
 
@@ -50,6 +50,6 @@ public static class DayTime
 
     public static void Lose()
     {
-        SceneManager.LoadScene("Lose");
+        SceneManager.LoadScene("End");
     }
 }

@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdf4f014ca919d84ebd85d40a39241f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 4
   health: 0
   moveSpeed: 2
   prefab: {fileID: 7171642119721139764, guid: 14e40531ed570124c9d0ecf69bc29879, type: 3}
@@ -140,6 +140,7 @@ MonoBehaviour:
   attackPos: {fileID: 4931479111783082306}
   attackRange: 0.62
   damage: 5
+  isAnimated: 0
 --- !u!61 &773805807131934949
 BoxCollider2D:
   m_ObjectHideFlags: 0
