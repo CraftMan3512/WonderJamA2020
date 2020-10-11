@@ -40,16 +40,16 @@ public class TeamChooseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DayTime.day == 2)
+        if (DayTime.day != 1)
         {
             if (!(manette.leftStick.x < 0.5 && manette.leftStick.x > -0.5)) MoveToTeam();
             if (manette.aButton.wasPressedThisFrame) Ready();
             if (manette.bButton.wasPressedThisFrame) UnReady();
-        }/*else if (GameObject.Find("Transition").GetComponent<Transition>().endPauseTime <= 0.2f && DayTime.day == 1)
+        }else if (GameObject.Find("Transition").GetComponent<Transition>().endPauseTime <= 0.2f && DayTime.day == 1)
         {
             team = Teams.Exploration;
             Ready();
-        }else if (GameObject.Find("Transition").GetComponent<Transition>().endPauseTime <= 0.2f)
+        }/*else if (GameObject.Find("Transition").GetComponent<Transition>().endPauseTime <= 0.2f)
         {
             Debug.Log(" 3rd day and on");
             Ready();

@@ -47,14 +47,9 @@ public class Transition : MonoBehaviour
             }
             else
             {
-                if (DayTime.day == 2)
+                if (DayTime.day != 1)
                 {
                     Destroy(gameObject);
-                }else if (DayTime.day > 2)
-                {
-                    
-                    SceneManager.LoadScene("GameplayScene");   
-                    
                 }
             }
             
