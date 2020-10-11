@@ -52,6 +52,15 @@ public class MixingPot : MonoBehaviour
         foreach (Item item in ingredients)
         {
             severity += item.accuracy;
+            if(item.id == 0 || item.id == 15)
+            {
+                severity += 0.2f;
+            }
+            else
+            {
+                severity += (float)(item.zone) / 10f;
+            }
+          
 
         }
         if (!correctRecipe)
