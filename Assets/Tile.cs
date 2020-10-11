@@ -16,6 +16,7 @@ public class Tile : MonoBehaviour
     public int NumberOfSpots;
     public GameObject ItemPrefab;
     public SpriteRenderer spriteRenderer;
+    public bool isEndTile;
     
     
 
@@ -60,28 +61,38 @@ public class Tile : MonoBehaviour
         Vector3 pos = (bot - top) * Random.Range(0.01f,1f)+top;
         pos.x += -rangeX + (Random.Range(0f, rangeX));
         pos.z = -1f;
-        for(int i =0;i<NumberOfSpots;i++)
+        if (zone < 6)
         {
-            if (chanceRes > Random.Range(1, 100))
+            for (int i = 0; i < NumberOfSpots; i++)
             {
-                if (AllItems[zone - 1].Count > 0)
+                if (chanceRes > Random.Range(1, 100))
                 {
-                    GameObject temp = Instantiate(ItemPrefab, pos, Quaternion.identity);
-                    temp.transform.SetParent(TileGenerator.Items.transform);
-                    temp.GetComponent<ItemCreator>().setItem(GetZoneItem());
+                    if (AllItems[zone - 1].Count > 0)
+                    {
+                        GameObject temp = Instantiate(ItemPrefab, pos, Quaternion.identity);
+                        temp.transform.SetParent(TileGenerator.Items.transform);
+                        temp.GetComponent<ItemCreator>().setItem(GetZoneItem());
+                    }
                 }
-            }
-            else if(chanceMob > Random.Range(1, 100-chanceRes))
-            {
-                if (AllMobs[zone - 1].Length > 0)
+                else if (chanceMob > Random.Range(1, 100 - chanceRes))
                 {
-                    GameObject temp = Instantiate(GetZoneMob(), pos, Quaternion.identity);
-                    temp.transform.SetParent(TileGenerator.Mobs.transform);
+                    if (AllMobs[zone - 1].Length > 0)
+                    {
+                        GameObject temp = Instantiate(GetZoneMob(), pos, Quaternion.identity);
+                        temp.transform.SetParent(TileGenerator.Mobs.transform);
+                    }
                 }
             }
         }
+
         spriteRenderer=GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = TileGenerator.allZones[zone-1];
+        if(zone<6)
+            spriteRenderer.sprite = TileGenerator.allZones[zone-1];
+        else if(!isEndTile)
+        {
+            GameObject temp =Instantiate(TileGenerator.EndTile,transform.position,Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
     
 
