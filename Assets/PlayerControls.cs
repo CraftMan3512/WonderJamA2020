@@ -43,6 +43,7 @@ public class PlayerControls : MonoBehaviour
         animator = transform.Find("Sprite").GetComponent<Animator>();
         currHp = maxHp;
         Healthbar.SetMaxHealth(maxHp);
+        transform.position = new Vector3(transform.position.x,transform.position.y,0f);
     }
 
     public void GetPlayerGamepad(int index)
