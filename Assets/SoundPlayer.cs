@@ -34,10 +34,15 @@ public class SoundPlayer : MonoBehaviour
     public void SetMusic(AudioClip clip, bool startPlaying = true)
     {
 
-        if (source.isPlaying) source.Stop();
-        source.clip = clip;
-        if (startPlaying) source.Play();
-        
+        if (clip.name != source.clip.name)
+        {
+            
+            if (source.isPlaying) source.Stop();
+            source.clip = clip;
+            if (startPlaying) source.Play();   
+            
+        }
+
 
     }
 

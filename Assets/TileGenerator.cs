@@ -106,19 +106,19 @@ public class TileGenerator : MonoBehaviour
         {
             
             case 1: 
-                if (soundManager.GetComponent<AudioSource>().clip != songs[0]) soundManager.GetComponent<SoundPlayer>().SetMusic(songs[0]);
+                soundManager.GetComponent<SoundPlayer>().SetMusic(songs[0]);
                 break;
             case 2: 
-                if (soundManager.GetComponent<AudioSource>().clip != songs[1]) soundManager.GetComponent<SoundPlayer>().SetMusic(songs[1]);
+                soundManager.GetComponent<SoundPlayer>().SetMusic(songs[1]);
                 break;
             case 3: 
-                if (soundManager.GetComponent<AudioSource>().clip != songs[2]) soundManager.GetComponent<SoundPlayer>().SetMusic(songs[2]);
+                soundManager.GetComponent<SoundPlayer>().SetMusic(songs[2]);
                 break;
             case 4: 
-                if (soundManager.GetComponent<AudioSource>().clip != songs[3]) soundManager.GetComponent<SoundPlayer>().SetMusic(songs[3]);
+                soundManager.GetComponent<SoundPlayer>().SetMusic(songs[3]);
                 break;
             case 5: 
-                if (soundManager.GetComponent<AudioSource>().clip != songs[4]) soundManager.GetComponent<SoundPlayer>().SetMusic(songs[4]);
+                soundManager.GetComponent<SoundPlayer>().SetMusic(songs[4]);
                 break;
             
         }
