@@ -135,7 +135,7 @@ public class TileGenerator : MonoBehaviour
 
         generating = true;
         counter = 0;
-
+        AlchemyValues.AddProgress(0);
         //Between Zones
         /*GameObject temp= Instantiate(TilePrefab, new Vector3(LastTilePos, 0, -0.2f),
             TilePrefab.transform.rotation);
