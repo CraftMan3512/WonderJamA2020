@@ -58,8 +58,8 @@ public class PlayerControls : MonoBehaviour
             
             case 0: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
             case 1: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
-            case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
-            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
             
         }
 
@@ -165,8 +165,8 @@ public class PlayerControls : MonoBehaviour
             
             case 0: sr.sprite = Resources.Load<Sprite>("Sprites/Player/rougeslap"); break;
             case 1: sr.sprite = Resources.Load<Sprite>("Sprites/Player/bleuslap"); break;
-            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/vertslap"); break;
-            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/roseslap"); break;
+            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/roseslap"); break;
+            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/vertslap"); break;
             
         }
         
@@ -177,8 +177,8 @@ public class PlayerControls : MonoBehaviour
             
             case 0: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
             case 1: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
-            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
-            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
             
         }
 
