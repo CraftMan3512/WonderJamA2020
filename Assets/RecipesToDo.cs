@@ -28,7 +28,7 @@ public class RecipesToDo : MonoBehaviour
         {
             recipesShown = (int)(totalAmountOfItems / AlchemyValues.materialsPerRecipe);
         }
-        Debug.Log(recipesShown + " Recipes to show");
+       
 
         for(int i = 0; i < recipesShown; i++)
         {
@@ -74,21 +74,24 @@ public class RecipesToDo : MonoBehaviour
         for(int i = 0; i < recipeNames.Length; i++)
         {
             recipeNames[i] = recipe.items[i].name;
+            Debug.Log(recipeNames[i] + "            " + i);
         }
      
-        List<GameObject> objectsToRemove = null;
+        List<GameObject> objectsToRemove = null;     
         foreach(List<GameObject> recipesShown in recipesObjects)
         {
            
             List<GameObject> recipePlaceHolder = new List<GameObject>(recipesShown);
-            GameObject recipeToRemove = null;
+           
             for(int i = 0; i < recipeNames.Length; i++)
             {
-             foreach(GameObject placeHolder in recipePlaceHolder)
+                GameObject recipeToRemove = null;              
+                foreach (GameObject placeHolder in recipePlaceHolder)
                 {
                     if (recipeNames[i].Equals(placeHolder.name))
-                    {
+                    {                                            
                         recipeToRemove = placeHolder;
+                        break;
                     }
                 }
                 if (recipeToRemove != null)
@@ -99,6 +102,8 @@ public class RecipesToDo : MonoBehaviour
             if(recipePlaceHolder.Count == 0)
             {
                 objectsToRemove = recipesShown;
+
+                break;
             }
         }
 
@@ -120,10 +125,13 @@ public class RecipesToDo : MonoBehaviour
             }
             AddRecipeToDo();
             UpdateDisplay();
+            Debug.Log("GOOD RECIPE!!!!!!!!!!");
             return true;
+            
         }
         else
         {
+            Debug.Log("BAD RECIPE:(((((((((((((");
             return false;
         }
     }
@@ -135,7 +143,7 @@ public class RecipesToDo : MonoBehaviour
         Item[] recipe = new Item[AlchemyValues.materialsPerRecipe];
         if(AlchemyValues.materialsPerRecipe <= totalAmountOfItems)
         {
-            Debug.Log(recipe.Length + " Materials per recipe shown");
+          
             for(int i = 0; i < recipe.Length; i++)
             {
                 int randomItem = Random.Range(0, itemsAvaible.Count);

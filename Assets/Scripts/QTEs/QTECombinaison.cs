@@ -77,7 +77,7 @@ public class QTECombinaison : MonoBehaviour
     private void GenerateCombinaison()
     {
 
-        Debug.Log("GENERATE");
+        //Debug.Log("GENERATE");
             for (int i = 0; i < nbButtons; i++)
             {
 

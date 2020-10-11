@@ -32,6 +32,10 @@ public static class AlchemyValues
         new Item("Rocher", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,5),
         new Item("Coccinnelle", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
         new Item("Uranium", Resources.Load<Sprite>("Sprites/Materials/uranium"), 12,5),
+        new Item("Patte", Resources.Load<Sprite>("Sprites/Materials/patte"), 13,3),
+        new Item("BrancheJungle", Resources.Load<Sprite>("Sprites/Materials/rumba"), 14,4),
+        new Item("Laine", Resources.Load<Sprite>("Sprites/Materials/laine"), 15,6),
+
     };
 
     public static List<int> alchemyPlayers = new List<int>();

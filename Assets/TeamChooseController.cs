@@ -40,7 +40,7 @@ public class TeamChooseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (DayTime.day == 2)//pendant la transition donc c'Est un day de moins
+        if (DayTime.day == 2)
         {
             if (!(manette.leftStick.x < 0.5 && manette.leftStick.x > -0.5)) MoveToTeam();
             if (manette.aButton.wasPressedThisFrame) Ready();

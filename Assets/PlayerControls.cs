@@ -32,6 +32,7 @@ public class PlayerControls : MonoBehaviour
     private float z;
     
     private Animator animator;
+    private int playernb;
 
     public Manette Manette { get => manette; set => manette = value; }
 
@@ -46,6 +47,7 @@ public class PlayerControls : MonoBehaviour
     public void GetPlayerGamepad(int index)
     {
 
+        playernb = index;
         Manette = PlayerInputs.GetPlayerController(index);
         animator = transform.Find("Sprite").GetComponent<Animator>();
         
@@ -56,7 +58,7 @@ public class PlayerControls : MonoBehaviour
             case 0: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
             case 1: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
             case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
-            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
+            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
             
         }
 
@@ -74,6 +76,9 @@ public class PlayerControls : MonoBehaviour
                 {
                     enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damage);
                 }
+
+                StartCoroutine(AttackAnim());
+                
                 timeBtwAttack = startTimeBtwAttack;
             }
         }
@@ -146,6 +151,34 @@ public class PlayerControls : MonoBehaviour
         Healthbar.SetCurrentHealth(currHp);
     }
 
+    IEnumerator AttackAnim()
+    {
+        SpriteRenderer sr = animator.GetComponent<SpriteRenderer>();
+        
+        switch (playernb)
+        {
+            
+            case 0: sr.sprite = Resources.Load<Sprite>("Sprites/Player/rougeslap"); break;
+            case 1: sr.sprite = Resources.Load<Sprite>("Sprites/Player/bleuslap"); break;
+            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/vertslap"); break;
+            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/roseslap"); break;
+            
+        }
+        
+        yield return new WaitForSeconds(0.2f);
+        
+        switch (playernb)
+        {
+            
+            case 0: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
+            case 1: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
+            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
+            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            
+        }
+
+    }
+
     void CheckInteraction()
     {
         
@@ -186,7 +219,7 @@ public class PlayerControls : MonoBehaviour
     {
         if (!lockMovement) GetComponent<Rigidbody2D>().MovePosition(new Vector2(transform.position.x,transform.position.y)+(Manette.leftStick*Time.deltaTime*moveSpeed));
     }
-    public void takeDamage(int dmg)
+    public void takeDamage(float dmg)
     {
         justGotDamaged = false;
         dmgToDeal+=dmg;

@@ -18,11 +18,16 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(slider.value != AlchemyValues.potionProgress)
+        if(slider.value < AlchemyValues.potionProgress)
         {
 
             slider.value += Time.deltaTime * 2;
-            
+
+        }
+        else
+        {
+            slider.value = AlchemyValues.potionProgress;
+
         }
     }
 }
