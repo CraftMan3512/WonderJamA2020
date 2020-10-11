@@ -37,6 +37,8 @@ public class AmazonBox : MonoBehaviour
             UI.GetComponent<BoxMenu>().playerInteracted = player;
             player.GetComponent<PlayerControls>().lockMovement = true;
             UI.GetComponent<BoxMenu>().manette = player.GetComponent<PlayerControls>().Manette;
+            //play box open sfx
+            GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_BoxOpen"));
 
         }
 

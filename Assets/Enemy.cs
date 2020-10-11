@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -89,6 +90,9 @@ public class Enemy : MonoBehaviour
 
             //Dying stuff here
             Destroy(gameObject);
+            
+            //SFX
+            GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Death"));
 
         }
         
@@ -151,6 +155,9 @@ public class Enemy : MonoBehaviour
         justGotDamaged = false;
         health -= dmg;
         justGotDamaged = true;
+        
+        //SFX
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Damage0" + Random.Range(1,3).ToString()));
     }
     
     void OnDrawGizmosSelected()

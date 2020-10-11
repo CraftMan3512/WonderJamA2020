@@ -8,6 +8,7 @@ public class Slow : Effect
    public Slow(float slowAmount)
    {
         name = "Slow "+(slow*100)+"%";
+        description = "Pretty self-explanatory...";
         slow = slowAmount;
 
    }

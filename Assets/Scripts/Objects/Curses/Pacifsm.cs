@@ -8,6 +8,7 @@ public class Pacifsm : Effect
     public Pacifsm(float amount)
     {
         name = "Pacifism";
+        description = "Because genocide was never the answer";
         damageReduction = 0;
         
     }

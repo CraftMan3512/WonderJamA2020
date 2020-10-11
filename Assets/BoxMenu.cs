@@ -73,6 +73,7 @@ public class BoxMenu : MonoBehaviour
     private void Cancel()
     {
         playerInteracted.GetComponent<PlayerControls>().lockMovement = false;
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_BoxClose"));
         Destroy(gameObject);
     }
 

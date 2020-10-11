@@ -28,6 +28,9 @@ public class ItemCreator : MonoBehaviour
     public void AddInventory(GameObject ply)
     {
         AlchemyValues.AddItemToPlayer(int.Parse(ply.name.Substring(1)),contains);
+        //SFX
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_GotItem"));
+        
         Destroy(gameObject);
     }
 
