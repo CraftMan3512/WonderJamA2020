@@ -39,7 +39,9 @@ public class BigCounter : MonoBehaviour
         while (true)
         {
          
+            
             GetComponent<TextMeshProUGUI>().text = ((int)(DayTime.timePerDay - DayTime.time)).ToString();
+            if (((int) (DayTime.timePerDay - DayTime.time)) > 3) GetComponent<TextMeshProUGUI>().text = "0";
             yield return new WaitForSeconds(1f);
             
         }
