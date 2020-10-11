@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minX: 130
-  maxX: 390
+  maxX: 420
 --- !u!1 &631616579
 GameObject:
   m_ObjectHideFlags: 0
@@ -420,7 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minX: -250
-  maxX: 20
+  maxX: 0
 --- !u!1 &1089532291
 GameObject:
   m_ObjectHideFlags: 0
