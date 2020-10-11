@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour
 {
@@ -46,6 +47,11 @@ public class Transition : MonoBehaviour
                 if (DayTime.day == 2)
                 {
                     Destroy(gameObject);
+                }else if (DayTime.day > 2)
+                {
+                    
+                    SceneManager.LoadScene("GameplayScene");   
+                    
                 }
             }
             
