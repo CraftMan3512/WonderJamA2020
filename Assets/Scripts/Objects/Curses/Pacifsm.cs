@@ -15,8 +15,11 @@ public class Pacifsm : Effect
 
     public override void Invoke(GameObject player)
     {
-        playerAffected = player;
-        playerAffected.GetComponent<PlayerControls>().damage *= (1f - damageReduction); 
+        if (player.GetComponent<PlayerControls>() != null)
+        {
+            playerAffected = player;
+            playerAffected.GetComponent<PlayerControls>().damage *= (1f - damageReduction);
+        }
     }
 
     public override void NextDay()

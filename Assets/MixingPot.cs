@@ -48,10 +48,10 @@ public class MixingPot : MonoBehaviour
             }
             
         }
-        float severity = 1f;
+        float severity = 0.5f;
         foreach (Item item in ingredients)
         {
-            severity += item.accuracy;
+            severity += item.accuracy*5;
             if(item.id == 0 || item.id == 15)
             {
                 severity += 0.2f;
@@ -74,10 +74,10 @@ public class MixingPot : MonoBehaviour
 
             //quand c'est la bonne recette (pas besoin de toucher à todolist)
            
-            AlchemyValues.AddProgress(severity*15 / (DayTime.maxDays));           
+            AlchemyValues.AddProgress(severity*30f / (DayTime.maxDays));           
           
         }
-        severity *= AlchemyValues.potionProgress / 20f;
+        severity *= AlchemyValues.potionProgress / 80f;
         GameObject.Find("CurseManager").GetComponent<Manager>().AddCurse(severity, player);
 
 
