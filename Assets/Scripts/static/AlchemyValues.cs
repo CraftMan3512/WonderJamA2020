@@ -33,7 +33,7 @@ public static class AlchemyValues
         new Item("Ladybug", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
         new Item("Uranium", Resources.Load<Sprite>("Sprites/Materials/uranium"), 12,5),
         new Item("Spider Leg", Resources.Load<Sprite>("Sprites/Materials/patte"), 13,6),
-        new Item("Jungle Branch", Resources.Load<Sprite>("Sprites/Materials/rumba"), 14,4),
+        
         new Item("Wool", Resources.Load<Sprite>("Sprites/Materials/laine"), 15,6),
         new Item("Venom", Resources.Load<Sprite>("Sprites/Materials/venom"), 16,6),
     };
