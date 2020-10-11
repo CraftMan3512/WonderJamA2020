@@ -29,7 +29,7 @@ public static class AlchemyValues
         new Item("Branch", Resources.Load<Sprite>("Sprites/Materials/branche"), 7,1),
         new Item("Iron", Resources.Load<Sprite>("Sprites/Materials/iron"), 8,5),
         new Item("Vines", Resources.Load<Sprite>("Sprites/Materials/junglebranche"), 9,6),
-        new Item("Rock", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,5),
+        new Item("Rock", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,6),
         new Item("Ladybug", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
         new Item("Uranium", Resources.Load<Sprite>("Sprites/Materials/uranium"), 12,5),
         new Item("Spider Leg", Resources.Load<Sprite>("Sprites/Materials/patte"), 13,3),
