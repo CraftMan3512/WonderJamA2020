@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Tutorial : MonoBehaviour
     {
         if(slideNumber == slides.Count - 1)
         {
-            // SceneManager.load("")
+            SceneManager.LoadScene("TitleScreen");
         }
         else
         {
