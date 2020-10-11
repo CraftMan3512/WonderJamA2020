@@ -27,13 +27,17 @@ public class Manager : MonoBehaviour
     public void AddCurse(float severity, GameObject player) // la sévérité commence autour de 0.2 et fini proche de 10-20 probablement pas trop certain tho
     {
         Effect curse;
-        int randomCurse = Random.Range(0, 2);
+        int randomCurse = Random.Range(0, 3);
+        Debug.Log("Curse SEVERITY : " + severity);
         switch (randomCurse)
         {
-            case 0: if (severity >= 50) { severity = 40; }                                                                 
-                       curse = new Slow(2 * severity);
+            case 0: if (severity >= 0.4) { severity = 0.4f; }                                                                 
+                       curse = new Slow((2 * severity)+0.05f);
                 break;
-            case 1:     curse = new Sheep(4*severity);
+            case 1:     curse = new Sheep((4*severity)+3);
+                break;
+            case 2:
+                curse = new Pacifsm((1* severity) + 0.05f);
                 break;
 
             default:

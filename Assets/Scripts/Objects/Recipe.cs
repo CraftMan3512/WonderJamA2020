@@ -20,12 +20,11 @@ public class Recipe
 
         for(int i = 0; i < recipe.items.Length; i++) {
             idHolder1[i] = recipe.items[i].id;
-
         }
 
         for (int i = 0; i < items.Length; i++)
         {
-            idHolder2.Add(recipe.items[i].id);
+            idHolder2.Add(items[i].id);
         }
 
         for(int i = 0; i < recipe.items.Length; i++)
