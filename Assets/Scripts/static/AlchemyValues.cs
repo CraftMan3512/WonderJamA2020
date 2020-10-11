@@ -132,7 +132,7 @@ public static class AlchemyValues
                     if (inventory[i].id == newItem.id)
                     {
 
-                        inventory[i].qty++;
+                        inventory[i].qty+= newItem.qty;
                         found = true;
                         break;
 
@@ -210,6 +210,10 @@ public static class AlchemyValues
     public static void AddProgress(float amount)
     {
         potionProgress += amount;
+        if(potionProgress >= 100 && posX >= TileGenerator.endLength)
+        {
+            DayTime.Win();
+        }
     }
 
 

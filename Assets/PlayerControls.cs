@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using Random = UnityEngine.Random;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -57,8 +58,8 @@ public class PlayerControls : MonoBehaviour
             
             case 0: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
             case 1: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
-            case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
-            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 2: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 3: animator.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
             
         }
 
@@ -153,6 +154,10 @@ public class PlayerControls : MonoBehaviour
 
     IEnumerator AttackAnim()
     {
+        
+        //Attack SFX
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Attack0" + Random.Range(1,3).ToString()));
+        
         SpriteRenderer sr = animator.GetComponent<SpriteRenderer>();
         
         switch (playernb)
@@ -160,8 +165,8 @@ public class PlayerControls : MonoBehaviour
             
             case 0: sr.sprite = Resources.Load<Sprite>("Sprites/Player/rougeslap"); break;
             case 1: sr.sprite = Resources.Load<Sprite>("Sprites/Player/bleuslap"); break;
-            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/vertslap"); break;
-            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/roseslap"); break;
+            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/roseslap"); break;
+            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/vertslap"); break;
             
         }
         
@@ -172,8 +177,8 @@ public class PlayerControls : MonoBehaviour
             
             case 0: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerouge"); break;
             case 1: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magebleu"); break;
-            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
-            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 2: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magerose"); break;
+            case 3: sr.sprite = Resources.Load<Sprite>("Sprites/Player/magevert"); break;
             
         }
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
@@ -22,6 +23,10 @@ public class PlayerJoinTester : MonoBehaviour
             if (PlayerInputs.GetPlayerController(playerNb-1).gp.enabled)
             {
             
+                //playerJoined
+                transform.Find("PressStart").GetComponent<PressStartBlinker>().StopAllCoroutines();
+                transform.Find("PressStart").GetComponent<TextMeshProUGUI>().enabled = false;
+                transform.Find("Player").GetComponent<Image>().enabled = true;
                 Color col = GetComponent<Image>().color;
                 float h,s,v;
                 Color.RGBToHSV(col, out h, out s, out v);

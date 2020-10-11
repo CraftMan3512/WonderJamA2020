@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class Transition : MonoBehaviour
         nextDay.GetComponent<TextMeshProUGUI>().text = "" + (DayTime.day+1);
         DayTime.day++;
         dayAtStartPos = dayAt.transform.localPosition.y;
+        
+        //SFX
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_DayChange"));
        
     }
 
@@ -43,8 +47,15 @@ public class Transition : MonoBehaviour
             }
             else
             {
-                
-                Destroy(gameObject);
+                if (DayTime.day == 2)
+                {
+                    Destroy(gameObject);
+                }else if (DayTime.day > 2)
+                {
+                    
+                    SceneManager.LoadScene("GameplayScene");   
+                    
+                }
             }
             
             

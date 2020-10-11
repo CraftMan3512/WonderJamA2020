@@ -34,6 +34,10 @@ public class QTEWait : MonoBehaviour
                 //take player's item
                 contains = player.GetComponent<PlayerGrabs>().UseItem();
                 player.GetComponent<PlayerGrabs>().RemoveItem();
+                
+                //SFX
+                GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_FireIgnition"));
+                
                 StartCoroutine(StartEvent());    
                 
             }

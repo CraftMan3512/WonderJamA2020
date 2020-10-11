@@ -58,6 +58,19 @@ public class Manette
         
     }
 
+    public string name
+    {
+
+        get
+        {
+
+            if (isKeyboardandMouse) return kb.displayName;
+            return gp?.displayName;
+
+        }
+        
+    }
+
     public ButtonControl aButton
     {
 
@@ -172,7 +185,7 @@ public class Manette
 
         get
         {
-            return isKeyboardandMouse ? KBControls.GetLeftTrigger(mouse) : gp.leftTrigger;
+            return isKeyboardandMouse ? KBControls.GetLeftTrigger(kb) : gp.leftTrigger;
         }
         
     }
@@ -192,7 +205,7 @@ public class Manette
         
         get
         {
-            return isKeyboardandMouse ? KBControls.GetRightTrigger(mouse) : gp.rightTrigger;
+            return isKeyboardandMouse ? KBControls.GetRightTrigger(kb) : gp.rightTrigger;
         }
         
     }
@@ -321,13 +334,13 @@ public static class KBControls
     public static ButtonControl GetXButton(Keyboard kb)
     {
 
-        return kb.eKey;
+        return kb.xKey;
 
     }
     public static ButtonControl GetYButton(Keyboard kb)
     {
 
-        return kb.qKey;
+        return kb.zKey;
 
     }
     public static ButtonControl GetStartButton(Keyboard kb)
@@ -341,16 +354,16 @@ public static class KBControls
         return kb.backspaceKey;
 
     }
-    public static ButtonControl GetLeftTrigger(Mouse ms)
+    public static ButtonControl GetLeftTrigger(Keyboard kb)
     {
 
-        return ms.leftButton;
+        return kb.cKey;
 
     }
-    public static ButtonControl GetRightTrigger(Mouse ms)
+    public static ButtonControl GetRightTrigger(Keyboard kb)
     {
 
-        return ms.rightButton;
+        return kb.vKey;
 
     }
     public static ButtonControl GetLeftShoulder(Keyboard kb)

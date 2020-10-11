@@ -32,6 +32,11 @@ public class BubbleProgress : MonoBehaviour
     {
         for (int i = 0; i < bubbles.Count; i++)
         {
+            if (i == 2 && !GetComponent<AudioSource>().isPlaying)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            
             if(i == tresholdAt)
             {
                 bubbles[i].SetActive(true);

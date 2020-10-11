@@ -7,8 +7,9 @@ public class Slow : Effect
    float slow;
    public Slow(float slowAmount)
    {
-        name = "Slow "+(slow*100)+"%";
         slow = slowAmount;
+        name = "Slow "+(slow*100)+"%";
+        description = "Pretty self-explanatory...";     
 
    }
 
@@ -20,7 +21,10 @@ public class Slow : Effect
 
     public override void NextDay()
     {
-        playerAffected.GetComponent<PlayerControls>().moveSpeed /= (1-slow);
+        if (playerAffected != null)
+        {
+            playerAffected.GetComponent<PlayerControls>().moveSpeed /= (1 - slow);
+        }
     }
 
 

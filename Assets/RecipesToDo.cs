@@ -7,34 +7,40 @@ public class RecipesToDo : MonoBehaviour
     public List<Recipe> recipesToDo = new List<Recipe>();
     public float yOffSet;
     public float xOffSet;
+    public float scale;
     public List<Item> itemsAvaible = new List<Item>();
     public List<List<GameObject>> recipesObjects = new List<List<GameObject>>();
     int totalAmountOfItems;
     // Start is called before the first frame update
     void Start()
     {
-        foreach(Item item in AlchemyValues.inventory)
+        Init();
+
+    }
+
+    void Init()
+    {
+        foreach (Item item in AlchemyValues.inventory)
         {
             itemsAvaible.Add(item.Copy());
         }
         totalAmountOfItems = 0;
-        foreach(Item item in itemsAvaible)
+        foreach (Item item in itemsAvaible)
         {
             totalAmountOfItems += item.qty;
         }
 
         int recipesShown = 3;
-        if(totalAmountOfItems / AlchemyValues.materialsPerRecipe < recipesShown)
+        if (totalAmountOfItems / AlchemyValues.materialsPerRecipe < recipesShown)
         {
             recipesShown = (int)(totalAmountOfItems / AlchemyValues.materialsPerRecipe);
         }
-       
 
-        for(int i = 0; i < recipesShown; i++)
+
+        for (int i = 0; i < recipesShown; i++)
         {
             AddRecipeToDo();
         }
-
     }
 
     public void UpdateDisplay()
@@ -56,9 +62,10 @@ public class RecipesToDo : MonoBehaviour
             List<GameObject> recipeObjects = new List<GameObject>();
             for(int i = 0; i < recipe.items.Length; i++)
             {
-                GameObject item = Instantiate((GameObject)Resources.Load("Item"), null);
+                GameObject item = Instantiate((GameObject)Resources.Load("Item"), gameObject.transform);
                 item.GetComponent<SpriteRenderer>().sprite = recipe.items[i].image;
-                item.transform.position = new Vector2(x + xOffSet * i, y);
+                item.transform.position = new Vector3(x + xOffSet * i, y,-0.02f);
+                item.transform.localScale = new Vector3(scale, scale, 1);
                 item.name = recipe.items[i].name;
                 recipeObjects.Add(item);               
             }
@@ -125,13 +132,11 @@ public class RecipesToDo : MonoBehaviour
             }
             AddRecipeToDo();
             UpdateDisplay();
-            Debug.Log("GOOD RECIPE!!!!!!!!!!");
             return true;
             
         }
         else
         {
-            Debug.Log("BAD RECIPE:(((((((((((((");
             return false;
         }
     }
@@ -161,5 +166,12 @@ public class RecipesToDo : MonoBehaviour
             recipesToDo.Add(recipeMade);
         }
         UpdateDisplay();
+    }
+
+
+    public void RefreshTodo()
+    {
+        recipesToDo.Clear();
+        Init();
     }
 }
