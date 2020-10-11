@@ -76,7 +76,7 @@ public class QTESpin : MonoBehaviour
                 spin++;
                 if (spin == nbSpins) StartCoroutine(QTE());
                 l = d = r = false;
-                Debug.Log("Spin!");
+                //Debug.Log("Spin!");
 
             } 
 
@@ -86,7 +86,7 @@ public class QTESpin : MonoBehaviour
 
     IEnumerator QTE()
     {
-        Debug.Log("Last Spin!!!");
+        Debug.Log("Spinned Item!!!");
             ply.GetComponent<PlayerControls>().lockMovement = false;
         
             ply.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += accGain;

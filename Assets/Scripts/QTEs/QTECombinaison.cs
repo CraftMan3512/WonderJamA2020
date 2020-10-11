@@ -34,6 +34,7 @@ public class QTECombinaison : MonoBehaviour
     {
 
         display = Instantiate(Resources.Load<GameObject>("Prefabs/UI/CombinaisonUI"),new Vector3(transform.position.x+displayOffset.x,transform.position.y+displayOffset.y),Quaternion.identity,transform);
+        display.GetComponent<Canvas>().sortingLayerName = "UI";
 
     }
 

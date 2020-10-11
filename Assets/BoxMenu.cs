@@ -82,8 +82,8 @@ public class BoxMenu : MonoBehaviour
         CanPressJoyStick = false;
         if (x > 0)  SelectMat(selectedMat+1);
         else if (x < 0) SelectMat(selectedMat-1);
-        if (y > 0) SelectMat(selectedMat+nbItemsPerLine);
-        else if (y < 0) SelectMat(selectedMat-nbItemsPerLine);
+        if (y > 0) SelectMat(selectedMat-nbItemsPerLine);
+        else if (y < 0) SelectMat(selectedMat+nbItemsPerLine);
 
     }
 
