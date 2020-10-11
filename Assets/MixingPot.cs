@@ -51,7 +51,7 @@ public class MixingPot : MonoBehaviour
 
         if (!correctRecipe)
         {
-            //quand la recette est la mauvaise
+            GameObject.Find("ToDoList").GetComponent<RecipesToDo>().RefreshTodo();
         }
         else
         {
