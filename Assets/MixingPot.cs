@@ -77,7 +77,7 @@ public class MixingPot : MonoBehaviour
             AlchemyValues.AddProgress(severity*15 / (DayTime.maxDays));           
           
         }
-        severity *= AlchemyValues.potionProgress / 10f;
+        severity *= AlchemyValues.potionProgress / 20f;
         GameObject.Find("CurseManager").GetComponent<Manager>().AddCurse(severity, player);
 
 
