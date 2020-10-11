@@ -20,11 +20,9 @@ public class ProgressBar : MonoBehaviour
     {
         if(slider.value != AlchemyValues.potionProgress)
         {
-            diff = AlchemyValues.potionProgress - slider.value;
-            for(float i = 0.1f; i < diff;)
-            {
-                slider.value += i;
-            }
+
+            slider.value += Time.deltaTime * 2;
+            
         }
     }
 }
