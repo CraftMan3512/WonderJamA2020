@@ -111,7 +111,6 @@ public class PlayerControls : MonoBehaviour
             Debug.Log("A player Died");
             Destroy(gameObject);
         }
-        takeDamage(10f*Time.deltaTime);
     }
 
     void AnimationControl()

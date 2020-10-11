@@ -9,11 +9,12 @@ public class Enemy : MonoBehaviour
     public float health;
     public float moveSpeed;
     public GameObject prefab;
-    public GameObject blood;
+    private GameObject blood;
     private bool justGotDamaged;
     public float timeRed;
     public int itemID;
     private float z;
+    public bool isEnvironment;
 
     private Rigidbody2D rb;
     private Vector2 movement;
@@ -37,55 +38,68 @@ public class Enemy : MonoBehaviour
         startScale = transform.localScale.x;
         prefab = Resources.Load<GameObject>("ItemPrefab");
         z = 0;
+        blood = Resources.Load<GameObject>("Blood");
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 direction;
-        closestDirection  = Vector3.zero;
-        
-        for (int i = 0; i < allPlayers.Length; i++)
+        if (!isEnvironment)
         {
-            if (allPlayers[i]!=null)
+            Vector3 direction;
+            closestDirection = Vector3.zero;
+
+            for (int i = 0; i < allPlayers.Length; i++)
             {
-                direction = allPlayers[i].GetComponent<Transform>().position - transform.position;
-                if (i == 0)
+                if (allPlayers[i] != null)
                 {
-                    closestDirection = direction;
-                }
-                else if (direction.magnitude < closestDirection.magnitude)
-                {
-                    closestDirection = direction;
+                    direction = allPlayers[i].GetComponent<Transform>().position - transform.position;
+                    if (i == 0)
+                    {
+                        closestDirection = direction;
+                    }
+                    else if (direction.magnitude < closestDirection.magnitude)
+                    {
+                        closestDirection = direction;
+                    }
                 }
             }
+
+            //Chase
+            if (closestDirection.x < 0)
+                transform.localScale = new Vector3(-startScale, transform.localScale.y, transform.localScale.z);
+            else
+                transform.localScale = new Vector3(startScale, transform.localScale.y, transform.localScale.z);
+            if (closestDirection.magnitude > 8)
+            {
+                closestDirection = Vector3.zero;
+            }
+
+            closestDirection.Normalize();
+            movement = closestDirection;
         }
-        //Chase
-        if (closestDirection.x < 0)
-            transform.localScale = new Vector3(-startScale,transform.localScale.y,transform.localScale.z);
-        else
-            transform.localScale = new Vector3(startScale,transform.localScale.y,transform.localScale.z);
-        if (closestDirection.magnitude > 8)
-        {
-            closestDirection=Vector3.zero;
-        }
-        closestDirection.Normalize();
-        movement = closestDirection;
-        
+
         if (health <= 0)
         {
-            GameObject temp = Instantiate(prefab, transform.position, Quaternion.identity);
-            temp.GetComponent<ItemCreator>().setItem(AlchemyValues.materialPool[itemID-1]);
-            Instantiate(blood, transform.position, Quaternion.identity);
+            var position = transform.position;
+            GameObject temp = Instantiate(prefab, position, Quaternion.identity);
+            temp.GetComponent<ItemCreator>().setItem(AlchemyValues.materialPool[itemID]);
+            if (!isEnvironment)
+                Instantiate(blood, position, Quaternion.identity);
+
             //Dying stuff here
             Destroy(gameObject);
+
         }
+        
+
         //Color
-        if (justGotDamaged)
-        {
-            z = timeRed;
-            justGotDamaged = false;
-        }
+            if (justGotDamaged)
+            {
+                z = timeRed;
+                justGotDamaged = false;
+            }
+        
 
         if (z > 0)
         {
@@ -96,7 +110,7 @@ public class Enemy : MonoBehaviour
             GetComponent<SpriteRenderer>().color=Color.white;
         }
 
-        if (damage > 0)
+        if (damage > 0&&!isEnvironment)
         {
             if (timeBtwAttack <= 0)
             {
@@ -141,8 +155,11 @@ public class Enemy : MonoBehaviour
     
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position,attackRange);
+        if (attackPos != null)
+        {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        }
     }
 
 }
