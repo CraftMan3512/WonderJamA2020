@@ -36,6 +36,7 @@ public class QTESpin : MonoBehaviour
             manette = player.GetComponent<PlayerControls>().Manette;
             player.GetComponent<PlayerControls>().lockMovement = true;
             started = true;
+            transform.Find("Joystick").GetComponent<SpriteRenderer>().enabled = true;
             spin = 0;
 
         }
@@ -91,6 +92,8 @@ public class QTESpin : MonoBehaviour
         
             ply.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += accGain;
         
+            transform.Find("Joystick").GetComponent<SpriteRenderer>().enabled = false;
+            
             onEndSpin.Invoke(ply);
         
             yield return new WaitForSeconds(1f);
