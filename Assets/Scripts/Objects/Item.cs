@@ -23,6 +23,18 @@ public class Item
         accuracy = 0;
     }
 
+    public Item(Item clone)
+    {
+        
+        this.name = clone.name;
+        this.image = clone.image;
+        this.id = clone.id;
+        this.zone = clone.zone;
+        qty = 1;
+        accuracy = 0;
+        
+    }
+
     public int getZone()
     {
         return zone;

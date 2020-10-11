@@ -21,6 +21,9 @@ public class Transition : MonoBehaviour
         nextDay.GetComponent<TextMeshProUGUI>().text = "" + (DayTime.day+1);
         DayTime.day++;
         dayAtStartPos = dayAt.transform.localPosition.y;
+        
+        //SFX
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_DayChange"));
        
     }
 

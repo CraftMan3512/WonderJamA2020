@@ -26,6 +26,7 @@ public class QTECombinaison : MonoBehaviour
     public int nbButtons = 6;
     private bool started = false;
     private GameObject playerObj;
+    private bool kb = false;
 
     private List<GameObject> buttonObjects = new List<GameObject>();
 
@@ -66,10 +67,15 @@ public class QTECombinaison : MonoBehaviour
             
             combinaison.Clear();
             buttonObjects.Clear();
-            GenerateCombinaison();
             started = true;
             playerObj = player;
             player.GetComponent<PlayerControls>().lockMovement = true;
+            kb = playerObj.GetComponent<PlayerControls>().Manette.isKeyboardandMouse;
+            
+            //SFX
+            GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_PotionBrew"));
+            
+            GenerateCombinaison();
 
         }
 
@@ -104,26 +110,32 @@ public class QTECombinaison : MonoBehaviour
 
     void CheckButton(Buttons button)
     {
-        
-        if (button == combinaison.Peek())
-        {
 
-            combinaison.Dequeue();
-            if (combinaison.Count == 0)
+        if (combinaison.Count != 0)
+        {
+            
+            if (button == combinaison.Peek())
             {
 
-                //end qte
-                playerObj.GetComponent<PlayerControls>().lockMovement = false;
-                playerObj.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += accuracyBoost;
-                StartCoroutine(DelayEnd());
+                combinaison.Dequeue();
+                if (combinaison.Count == 0)
+                {
 
+                    //end qte
+                    playerObj.GetComponent<PlayerControls>().lockMovement = false;
+                    playerObj.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += accuracyBoost;
+                    kb = false;
+                    StartCoroutine(DelayEnd());
+
+
+                }
+
+                UpdateDisplay();
 
             }
-
-            UpdateDisplay();
-
+            
         }
-        
+
     }
 
     IEnumerator DelayEnd()
@@ -161,17 +173,41 @@ public class QTECombinaison : MonoBehaviour
             
             buttonObjects.Add(button);
             
+            //Debug.Log("Keyboard? : " + kb);
+            
             Sprite spr;
             switch (clone.Dequeue())
             {
                 
-                case Buttons.a : spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonA"); break;
-                case Buttons.b : spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonB"); break;
-                case Buttons.x : spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonX"); break;
-                case Buttons.y : spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonY"); break;
-                case Buttons.ltrigger : spr = Resources.Load<Sprite>("Sprites/xboxButtons/TriggerLeft"); break;
-                case Buttons.rtrigger : spr = Resources.Load<Sprite>("Sprites/xboxButtons/TriggerRight"); break;
-                default :spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonA"); break;
+                case Buttons.a : 
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/space");
+                    else spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonA"); 
+                    
+                    break;
+                case Buttons.b : 
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/keyF");
+                    else spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonB"); 
+                    break;
+                case Buttons.x : 
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/keyX");
+                    else spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonX"); 
+                    break;
+                case Buttons.y : 
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/keyZ");
+                        else spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonY"); 
+                    break;
+                case Buttons.ltrigger : 
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/keyC");
+                        else spr = Resources.Load<Sprite>("Sprites/xboxButtons/TriggerLeft"); 
+                    break;
+                case Buttons.rtrigger : 
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/keyV");
+                        else spr = Resources.Load<Sprite>("Sprites/xboxButtons/TriggerRight"); 
+                    break;
+                default :
+                    if (kb) spr = Resources.Load<Sprite>("Sprites/xboxButtons/space");
+                        else spr = Resources.Load<Sprite>("Sprites/xboxButtons/ButtonA"); 
+                    break;
                 
             }
 

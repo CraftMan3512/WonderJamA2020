@@ -132,7 +132,7 @@ public static class AlchemyValues
                     if (inventory[i].id == newItem.id)
                     {
 
-                        inventory[i].qty++;
+                        inventory[i].qty+= newItem.qty;
                         found = true;
                         break;
 

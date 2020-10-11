@@ -61,6 +61,7 @@ public class Manager : MonoBehaviour
         
         for(int i = 0; i < playerEffects.Length; i++)
         {
+            //TODO pas modifier la collection pendant qu'on la parcoure
             foreach(Effect effect in playerEffects[i])
             {
                 if (effect.lastDay)
