@@ -37,7 +37,9 @@ public class PlayerSpawner : MonoBehaviour
                 }
                 else
                 {
-                    position=Vector3.zero;
+                    float addX = AlchemyValues.explorationPlayers.IndexOf(i)*2;
+                    position=(GameObject.Find("SpawnPointExplo").transform.position+new Vector3(addX-1,0,0));
+                    explorateur = true;
                 }
                 //Spawns Player
                 GameObject newPlayer = Instantiate(playerPrefab, position, Quaternion.identity);
