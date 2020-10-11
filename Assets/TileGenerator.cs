@@ -30,6 +30,7 @@ public class TileGenerator : MonoBehaviour
 
     private AudioClip[] songs;
     private GameObject soundManager;
+    private int spawnedTiles;
     
     private void Start()
     {
@@ -85,16 +86,16 @@ public class TileGenerator : MonoBehaviour
         {
             GameObject tempTile = Instantiate(TilePrefab, new Vector3(LastTilePos + 2, 0, 0),
                 TilePrefab.transform.rotation);
+            if (CurrZone == 5 && spawnedTiles % 2 == 0)
+                tempTile.GetComponent<SpriteRenderer>().flipX = true;
             tempTile.transform.SetParent(ParentOfAllTiles.transform);
             LastTilePos += 2;
             counter++;
-            
+            spawnedTiles++;
         } else if(counter == NumberOfTilesPerZone)
         {
-
             generating = false;
             counter = 0;
-
         }
         
     }
