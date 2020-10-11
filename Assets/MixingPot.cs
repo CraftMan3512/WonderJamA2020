@@ -48,28 +48,28 @@ public class MixingPot : MonoBehaviour
             }
             
         }
+        float severity = 1f;
+        foreach (Item item in ingredients)
+        {
+            severity += item.accuracy;
 
+        }
         if (!correctRecipe)
         {
             GameObject.Find("ToDoList").GetComponent<RecipesToDo>().RefreshTodo();
+
         }
         else
         {
            
 
             //quand c'est la bonne recette (pas besoin de toucher à todolist)
-            float severity = 1f;
-            foreach(Item item in ingredients)
-            {
-                severity += item.accuracy;                         
-                
-            }
+           
             AlchemyValues.AddProgress(severity*5 / (DayTime.maxDays));           
-            severity *= AlchemyValues.potionProgress / 10f;
-            GameObject.Find("CurseManager").GetComponent<Manager>().AddCurse(severity, player);
-
+          
         }
-        
+        severity *= AlchemyValues.potionProgress / 10f;
+        GameObject.Find("CurseManager").GetComponent<Manager>().AddCurse(severity, player);
 
 
     }

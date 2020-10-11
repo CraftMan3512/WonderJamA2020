@@ -28,24 +28,35 @@ public class Manager : MonoBehaviour
     {
         Effect curse;
         int randomCurse = Random.Range(0, 4);
-        Debug.Log("Curse SEVERITY : " + severity);
-        switch (randomCurse)
+        if (AlchemyValues.potionProgress >= 100)
         {
-            case 0: if (severity >= 0.4) { severity = 0.4f; }                                                                 
-                       curse = new Slow((2 * severity)+0.05f);
-                break;
-            case 1:     curse = new Sheep((4*severity)+3);
-                break;
-            case 2:
-                curse = new Pacifsm((1* severity) + 0.05f);
-                break;
-            case 3:
-                curse = new Lag(3 + (int)severity);
-                break;
+            AlchemyValues.potionProgress = 100;
+            curse = new Death();
+        }
+        else
+        {
 
-            default:
-                curse = new Sheep(4 * severity);
-                break;
+
+            switch (randomCurse)
+            {
+                case 0:
+                    if (severity >= 0.4) { severity = 0.4f; }
+                    curse = new Slow((2 * severity) + 0.05f);
+                    break;
+                case 1:
+                    curse = new Sheep((4 * severity) + 3);
+                    break;
+                case 2:
+                    curse = new Pacifsm((1 * severity) + 0.05f);
+                    break;
+                case 3:
+                    curse = new Lag(3 + (int)severity);
+                    break;
+
+                default:
+                    curse = new Sheep(4 * severity);
+                    break;
+            }
         }
         
 
@@ -62,7 +73,8 @@ public class Manager : MonoBehaviour
         for(int i = 0; i < playerEffects.Length; i++)
         {
             //TODO pas modifier la collection pendant qu'on la parcoure
-            foreach(Effect effect in playerEffects[i])
+            List<Effect> playerEffectsHolder = new List<Effect>(playerEffects[i]);
+            foreach(Effect effect in playerEffectsHolder)
             {
                 if (effect.lastDay)
                 {
@@ -84,7 +96,8 @@ public class Manager : MonoBehaviour
     {
         for(int i = 0; i < playerEffects.Length; i++)
         {
-            foreach (Effect effect in playerEffects[i])
+            List<Effect> playerEffectsHolder = new List<Effect>(playerEffects[i]);
+            foreach (Effect effect in playerEffectsHolder)
             {
                 if (effect == curse)
                 {
