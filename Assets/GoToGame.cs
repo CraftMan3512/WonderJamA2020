@@ -12,7 +12,6 @@ public class GoToGame : MonoBehaviour
 
         //set nbDays to play
         DayTime.maxDays = (int)GameObject.Find("Slider").GetComponent<Slider>().value;
-        Debug.Log("Okay, game is gonna have " + (int)GameObject.Find("Slider").GetComponent<Slider>().value + " days");
         SceneManager.LoadScene("PlayerJoinScreen");
 
     }
