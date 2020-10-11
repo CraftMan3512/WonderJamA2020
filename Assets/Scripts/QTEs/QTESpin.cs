@@ -29,17 +29,27 @@ public class QTESpin : MonoBehaviour
 
     public void StartQTE(GameObject player)
     {
-
-        if (!started && player.GetComponent<PlayerGrabs>().GetItemGrabbed() != null)
+        if (gameObject.GetComponent<MixingPot>().ingredients.Count == 2)
         {
-            ply = player;
-            manette = player.GetComponent<PlayerControls>().Manette;
-            player.GetComponent<PlayerControls>().lockMovement = true;
-            started = true;
-            transform.Find("Joystick").GetComponent<SpriteRenderer>().enabled = true;
-            spin = 0;
+            if (!started && player.GetComponent<PlayerGrabs>().GetItemGrabbed() != null)
+            {
+                ply = player;
+                manette = player.GetComponent<PlayerControls>().Manette;
+                player.GetComponent<PlayerControls>().lockMovement = true;
+                started = true;
+                transform.Find("Joystick").GetComponent<SpriteRenderer>().enabled = true;
+                spin = 0;
 
+            }
         }
+        else
+        {
+            if (!started && player.GetComponent<PlayerGrabs>().GetItemGrabbed() != null)
+            {
+                onEndSpin.Invoke(player);
+            }
+        }
+       
         
     }
 

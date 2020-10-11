@@ -25,18 +25,21 @@ public static class DayTime
 
     public static void NextDay()
     {
-        if(AlchemyValues.potionProgress >= 100)
+        if (AlchemyValues.potionProgress >= 100)
         {
-            if(AlchemyValues.posX >= TileGenerator.endLength)
+            if (AlchemyValues.posX >= TileGenerator.endLength)
             {
                 Win();
             }
         }
-        else if(day == maxDays)
+        else if (day >= maxDays)
         {
             Lose();
         }
-        SceneManager.LoadScene("ResultScreen");
+        else
+        {
+            SceneManager.LoadScene("ResultScreen");
+        }
 
         time = 0;
     }
@@ -50,6 +53,7 @@ public static class DayTime
 
     public static void Lose()
     {
+        Debug.Log("LOSSEESESES");
         SceneManager.LoadScene("End");
     }
 }
