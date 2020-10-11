@@ -45,7 +45,7 @@ public class TeamChooseController : MonoBehaviour
             if (!(manette.leftStick.x < 0.5 && manette.leftStick.x > -0.5)) MoveToTeam();
             if (manette.aButton.wasPressedThisFrame) Ready();
             if (manette.bButton.wasPressedThisFrame) UnReady();
-        }else if (GameObject.Find("Transition").GetComponent<Transition>().endPauseTime <= 0.1f)
+        }else if (GameObject.Find("Transition").GetComponent<Transition>().endPauseTime <= 0.2f)
         {
             team = Teams.Exploration;
             Ready();

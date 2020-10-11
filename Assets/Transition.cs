@@ -43,8 +43,10 @@ public class Transition : MonoBehaviour
             }
             else
             {
-                
-                Destroy(gameObject);
+                if (DayTime.day == 2)
+                {
+                    Destroy(gameObject);
+                }
             }
             
             

@@ -14,7 +14,7 @@ public class RecipesToDo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        Init();
 
     }
 
@@ -62,9 +62,9 @@ public class RecipesToDo : MonoBehaviour
             List<GameObject> recipeObjects = new List<GameObject>();
             for(int i = 0; i < recipe.items.Length; i++)
             {
-                GameObject item = Instantiate((GameObject)Resources.Load("Item"), null);
+                GameObject item = Instantiate((GameObject)Resources.Load("Item"), gameObject.transform);
                 item.GetComponent<SpriteRenderer>().sprite = recipe.items[i].image;
-                item.transform.position = new Vector2(x + xOffSet * i, y);
+                item.transform.position = new Vector3(x + xOffSet * i, y,-0.02f);
                 item.transform.localScale = new Vector3(scale, scale, 1);
                 item.name = recipe.items[i].name;
                 recipeObjects.Add(item);               
