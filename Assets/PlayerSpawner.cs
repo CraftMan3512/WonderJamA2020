@@ -37,7 +37,6 @@ public class PlayerSpawner : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("What the fuck happpened here");
                     position=Vector3.zero;
                 }
                 //Spawns Player

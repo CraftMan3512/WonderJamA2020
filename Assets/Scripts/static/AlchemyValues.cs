@@ -19,23 +19,23 @@ public static class AlchemyValues
     //All materials
     public static Item[] materialPool =
     {
-        new Item("Buches", Resources.Load<Sprite>("Sprites/Materials/buche"), 0,6),
-        new Item("Champignon", Resources.Load<Sprite>("Sprites/Materials/mushroom"), 1, 1),
+        new Item("Wood", Resources.Load<Sprite>("Sprites/Materials/buche"), 0,6),
+        new Item("Mushroom", Resources.Load<Sprite>("Sprites/Materials/mushroom"), 1, 1),
         new Item("Rose", Resources.Load<Sprite>("Sprites/Materials/tulip"), 2,2),
         new Item("Cactus", Resources.Load<Sprite>("Sprites/Materials/cactus"), 3,3),
-        new Item("Cerveau", Resources.Load<Sprite>("Sprites/Materials/cerveau"), 4,6),
+        new Item("Brain", Resources.Load<Sprite>("Sprites/Materials/cerveau"), 4,6),
         new Item("Tulipe", Resources.Load<Sprite>("Sprites/Materials/fleur"), 5,2),
-        new Item("Herbe", Resources.Load<Sprite>("Sprites/Materials/fern"), 6,1),
-        new Item("Branches", Resources.Load<Sprite>("Sprites/Materials/branche"), 7,1),
-        new Item("Fer", Resources.Load<Sprite>("Sprites/Materials/iron"), 8,5),
-        new Item("Liannes", Resources.Load<Sprite>("Sprites/Materials/junglebranche"), 9,6),
-        new Item("Rocher", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,5),
-        new Item("Coccinnelle", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
+        new Item("Herb", Resources.Load<Sprite>("Sprites/Materials/fern"), 6,1),
+        new Item("Branch", Resources.Load<Sprite>("Sprites/Materials/branche"), 7,1),
+        new Item("Iron", Resources.Load<Sprite>("Sprites/Materials/iron"), 8,5),
+        new Item("Vines", Resources.Load<Sprite>("Sprites/Materials/junglebranche"), 9,6),
+        new Item("Rock", Resources.Load<Sprite>("Sprites/Materials/rochette"), 10,5),
+        new Item("Ladybug", Resources.Load<Sprite>("Sprites/Materials/rumba"), 11,4),
         new Item("Uranium", Resources.Load<Sprite>("Sprites/Materials/uranium"), 12,5),
-        new Item("Patte", Resources.Load<Sprite>("Sprites/Materials/patte"), 13,3),
-        new Item("BrancheJungle", Resources.Load<Sprite>("Sprites/Materials/rumba"), 14,4),
-        new Item("Laine", Resources.Load<Sprite>("Sprites/Materials/laine"), 15,6),
-
+        new Item("Spider Leg", Resources.Load<Sprite>("Sprites/Materials/patte"), 13,3),
+        new Item("Jungle Branch", Resources.Load<Sprite>("Sprites/Materials/rumba"), 14,4),
+        new Item("Wool", Resources.Load<Sprite>("Sprites/Materials/laine"), 15,6),
+        new Item("Venom", Resources.Load<Sprite>("Sprites/Materials/venom"), 16,6),
     };
 
     public static List<int> alchemyPlayers = new List<int>();
@@ -132,7 +132,7 @@ public static class AlchemyValues
                     if (inventory[i].id == newItem.id)
                     {
 
-                        inventory[i].qty++;
+                        inventory[i].qty+= newItem.qty;
                         found = true;
                         break;
 
@@ -210,6 +210,10 @@ public static class AlchemyValues
     public static void AddProgress(float amount)
     {
         potionProgress += amount;
+        if(potionProgress >= 100 && posX >= TileGenerator.endLength)
+        {
+            DayTime.Win();
+        }
     }
 
 

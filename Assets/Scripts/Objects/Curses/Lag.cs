@@ -9,6 +9,7 @@ public class Lag : Effect
     public Lag(int lags)
     {
         name = "Lag";
+        description = "Anybody else experiencing rollbacks right now?";
         lagTimes = lags;
         manager = GameObject.Find("CurseManager");
         lastDay = true;

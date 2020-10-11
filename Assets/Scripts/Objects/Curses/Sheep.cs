@@ -11,6 +11,7 @@ public class Sheep : Effect
     {
         name = "Sheep";
         time = timeTransformed;
+        description = "Bêêêêêêê!";
         manager = GameObject.Find("CurseManager");
         lastDay = true;
     }

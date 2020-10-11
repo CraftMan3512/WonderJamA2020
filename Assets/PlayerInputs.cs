@@ -38,7 +38,7 @@ public static class PlayerInputs
             
             pControllers[playerAdded] = ctrl;
             playerAdded++;
-            Debug.Log("New player added to game: ");
+            Debug.Log("New player added to game: "+ ctrl.name);
             
         }
 

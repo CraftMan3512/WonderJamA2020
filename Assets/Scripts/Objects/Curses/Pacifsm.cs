@@ -8,6 +8,7 @@ public class Pacifsm : Effect
     public Pacifsm(float amount)
     {
         name = "Pacifism";
+        description = "Because genocide was never the answer";
         damageReduction = 0;
         
     }
@@ -20,7 +21,10 @@ public class Pacifsm : Effect
 
     public override void NextDay()
     {
-        playerAffected.GetComponent<PlayerControls>().damage /= (1f - damageReduction);
+        if (playerAffected != null)
+        {
+            playerAffected.GetComponent<PlayerControls>().damage /= (1f - damageReduction);
+        }
     }
 
 }

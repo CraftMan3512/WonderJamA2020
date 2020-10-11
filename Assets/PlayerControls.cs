@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using Random = UnityEngine.Random;
 
 public class PlayerControls : MonoBehaviour
 {
@@ -153,6 +154,10 @@ public class PlayerControls : MonoBehaviour
 
     IEnumerator AttackAnim()
     {
+        
+        //Attack SFX
+        GameObject.Find("SoundManager").GetComponent<SoundPlayer>().PlaySFX(Resources.Load<AudioClip>("SFX/SFX_Attack0" + Random.Range(1,3).ToString()));
+        
         SpriteRenderer sr = animator.GetComponent<SpriteRenderer>();
         
         switch (playernb)

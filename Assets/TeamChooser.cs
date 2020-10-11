@@ -95,14 +95,13 @@ public class TeamChooser : MonoBehaviour
 
     void GoToGame()
     {
-        AlchemyValues.alchemyPlayers.Clear();
-        AlchemyValues.explorationPlayers.Clear();
+       
        
         foreach (TeamChooseController obj in GameObject.Find("Canvas").transform.GetComponentsInChildren<TeamChooseController>())
         {
             if (DayTime.day > 2)
             {
-                if(obj.team == TeamChooseController.Teams.Alchemy)
+                if(AlchemyValues.alchemyPlayers.Contains(int.Parse(obj.gameObject.name.Substring(1))-1))
                 {
                     obj.team = TeamChooseController.Teams.Exploration;
                 }
@@ -112,6 +111,9 @@ public class TeamChooser : MonoBehaviour
                 }
 
             }
+
+            AlchemyValues.alchemyPlayers.Clear();
+            AlchemyValues.explorationPlayers.Clear();
 
             if (obj.team == TeamChooseController.Teams.Alchemy)
             {
