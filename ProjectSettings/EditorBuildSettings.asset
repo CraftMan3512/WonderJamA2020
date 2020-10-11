@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: e721965cf11344545b060f951638f4c0
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
     path: Assets/Scenes/GameplayScene.unity
     guid: c7a4581dd2840b54ca594b052a465416
   - enabled: 1
@@ -32,9 +29,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Win.unity
     guid: bf74bbdc328084440ae544e5998acb4c
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 1aec9bc0b8d8fcf4480409448fc0f4bc
