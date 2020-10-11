@@ -27,8 +27,10 @@ public class Enemy : MonoBehaviour
     public Transform attackPos;
     public float attackRange;
     public int damage;
+    public bool isAnimated;
 
     private GameObject[] allPlayers;
+    private Animator animator;
     
     // Start is called before the first frame update
     void Start()
@@ -40,6 +42,10 @@ public class Enemy : MonoBehaviour
         prefab = Resources.Load<GameObject>("ItemPrefab");
         z = 0;
         blood = Resources.Load<GameObject>("Blood");
+        if (isAnimated)
+        {
+            animator=GetComponent<Animator>();
+        }
     }
 
     // Update is called once per frame
@@ -136,6 +142,8 @@ public class Enemy : MonoBehaviour
                 timeBtwAttack -= Time.deltaTime;
             }
         } 
+        if(isAnimated)
+           AnimationControl();
     }
 
     private void FixedUpdate()
@@ -169,4 +177,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    void AnimationControl()
+    {
+        if (movement!=Vector2.zero) animator.SetBool("Walking", true);
+        else animator.SetBool("Walking", false);
+    }
 }
