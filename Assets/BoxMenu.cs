@@ -110,7 +110,7 @@ public class BoxMenu : MonoBehaviour
             
             Item item = items[selectedMat];
             playerInteracted.GetComponent<PlayerGrabs>().GrabItem(item);
-            Debug.Log("PLAYER GRABBED " + item.name);
+            //Debug.Log("PLAYER GRABBED " + item.name);
             AlchemyValues.RemoveItem(item);
             Cancel();
             

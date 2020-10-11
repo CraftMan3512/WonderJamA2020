@@ -39,13 +39,15 @@ public class QTESpam : MonoBehaviour
     {
 
         started = true;
+
+        transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         
         yield return new WaitForSeconds(timeToSpam);
 
         pControls.lockMovement = false;
-        //pControls.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += (float)(Math.Round(spamNb / 10f) * 0.1f);
-        Debug.Log("Added " + (float) (Math.Round(spamNb / 20f) * 0.1f) + " To item accuracy. it is now " +
-                  pControls.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy);
+        pControls.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy += (float)(Math.Round(spamNb / 10f) * 0.1f);
+        //Debug.Log("Added " + (float) (Math.Round(spamNb / 20f) * 0.1f) + " To item accuracy. it is now " + pControls.GetComponent<PlayerGrabs>().GetItemGrabbed().accuracy);
+        transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         yield return new WaitForSeconds(1);
         started = false;
 
