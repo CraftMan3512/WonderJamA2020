@@ -91,6 +91,11 @@ public class Tile : MonoBehaviour
         return result;
     }
 
+    public void setSprite(Sprite sprite)
+    {
+        GetComponent<SpriteRenderer>().sprite=sprite;
+    }
+
     private GameObject GetZoneMob()
     {
         if (AllMobs[zone - 1].Length != 0)
