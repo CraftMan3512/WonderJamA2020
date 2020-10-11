@@ -19,11 +19,36 @@ public class WaitTilNextScene : MonoBehaviour
         {
             timeTilNextScene -= Time.deltaTime;
         }
-
-        if(PlayerInputs.pControllers[0].aButton.wasPressedThisFrame || PlayerInputs.pControllers[0].startButton.wasPressedThisFrame)
+        if (PlayerInputs.pControllers[0] != null)
         {
-            SceneManager.LoadScene("DayTransition");
+            if (PlayerInputs.pControllers[0].aButton.wasPressedThisFrame || PlayerInputs.pControllers[0].startButton.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("DayTransition");
 
+            }
+        }else if (PlayerInputs.pControllers[1] != null)
+        {
+            if (PlayerInputs.pControllers[1].aButton.wasPressedThisFrame || PlayerInputs.pControllers[1].startButton.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("DayTransition");
+
+            }
+        }
+        else if (PlayerInputs.pControllers[2] != null)
+        {
+            if (PlayerInputs.pControllers[2].aButton.wasPressedThisFrame || PlayerInputs.pControllers[2].startButton.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("DayTransition");
+
+            }
+        }
+        else if (PlayerInputs.pControllers[3] != null)
+        {
+            if (PlayerInputs.pControllers[3].aButton.wasPressedThisFrame || PlayerInputs.pControllers[3].startButton.wasPressedThisFrame)
+            {
+                SceneManager.LoadScene("DayTransition");
+
+            }
         }
     }
 

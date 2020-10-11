@@ -211,7 +211,6 @@ public static class AlchemyValues
         potionProgress += amount;
         if(potionProgress >= 100 && posX >= TileGenerator.endLength)
         {
-            Debug.Log("Check si win");
             DayTime.Win();
         }
     }
