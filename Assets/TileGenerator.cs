@@ -10,9 +10,9 @@ public class TileGenerator : MonoBehaviour
     public GameObject TilePrefab;
     public GameObject ParentOfAllTiles;
 
-    public static int ChanceRes= 5;
-    public static int ChanceMob= 15;
-    public static int ChanceMobDropRes = 50;
+    public static int ChanceRes= 10;
+    public static int ChanceMob= 30;
+    public static int ChanceMobDropRes = 25;
     public int NumberOfTilesPerZone;
     public int RangeOfRandomnessOfTiles;
     public float RightBoundaryPos;

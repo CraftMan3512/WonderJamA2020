@@ -48,10 +48,10 @@ public class MixingPot : MonoBehaviour
             }
             
         }
-        float severity = 0.5f;
+        float severity = 0.3f;
         foreach (Item item in ingredients)
         {
-            severity += item.accuracy*2;
+            severity += item.accuracy;
             if(item.id == 0 || item.id == 15)
             {
                 severity += 0.2f;
